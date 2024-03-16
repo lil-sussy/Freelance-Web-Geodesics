@@ -3,6 +3,8 @@
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
   import logo from '$lib/images/webgeodesicslogo.svg';
+  import webdeveloper from '$lib/images/webdeveloper.svg';
+  import dataananlyt from '$lib/images/dataAnalyst.svg';
   import background from '$lib/images/headerbackground.jpg';
   import Header from './Header.svelte';
   import { onMount } from 'svelte';
@@ -124,20 +126,26 @@
   <Header></Header>
   <img src={logo} alt="WebGeodesics" />
   <h1>WEB-GEODESICS</h1>
-  <div class='lang-selection'>
-    <h4>English</h4>
-    <h4>/</h4>
-    <h4>Français</h4>
-  </div>
-  <div class='specialization-container'>
-    <h4>Why two different specializations ?</h4>
-    <div>
-      <img src='../lib/images/webdeveloper.svg' alt=''>
-      <h4>Web Developer</h4>
+  <div class='center-container'>
+    <div class='lang-selection'>
+      <h4>English</h4>
+      <h4>/</h4>
+      <h4>Français</h4>
     </div>
-    <div>
-      <img src='../lib/images/dataanalyst.svg' alt=''>
-      <h4>Data Analyst</h4>
+    <h4>Why two different specializations ?</h4>
+    <div class='specialization-container'>
+      <div>
+        <svg viewBox="0 0 100 100">
+          <use href={webdeveloper}></use>
+        </svg>
+        <h4>Web Developer</h4>
+      </div>
+      <div>
+        <svg viewBox="0 0 100 100">
+          <use href={dataananlyt}></use>
+        </svg>
+        <h4>Data Analyst</h4>
+      </div>
     </div>
   </div>
 </div>
@@ -158,6 +166,93 @@
     position: absolute;
     top: 0;
     left: 0;
+
+    .center-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 70%;
+      box-sizing: border-box;
+      padding: 0;
+      align-items: start;
+      gap: 2rem;
+      .specialization-container {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        div:nth-child(1) {
+          h4 {
+            font-size: 3rem;
+            line-height: 3rem;
+            height: 3rem;
+            font-weight: 900;
+          }
+          h4:hover {
+            background: linear-gradient(to right, #EC4899, #8B5CF6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline;
+          }
+          svg:hover {
+            fill: #EC4899;
+          }
+          svg {
+            width: 100px;
+            height: 100px;
+            fill: gray;
+          }
+        }
+        div {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          img {
+            width: 5rem;
+            height: 5rem;
+          }
+          h4 {
+            font-size: 2rem;
+            color: white;
+            font-family: 'inter', 'Courier New', Courier, monospace;
+          }
+        }
+      }
+      .lang-selection {
+        margin-top: 10rem;
+        display: flex;
+        gap: 1rem;
+        h4 {
+          font-size: 2rem;
+          color: gray;
+          font-family: 'inter', 'Courier New', Courier, monospace;
+        }
+        h4:hover {
+          color: white;
+        }
+      }
+      .specialization-container {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        div {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          img {
+            width: 5rem;
+            height: 5rem;
+          }
+          h4 {
+            font-size: 2rem;
+            color: white;
+            font-family: 'inter', 'Courier New', Courier, monospace;
+          }
+        }
+      }
+    }
     
     h1 {
       color: white;
@@ -171,7 +266,7 @@
       top: 0;
       left: 0;
       width: 100vw;
-      height: 100vh;
+      height: 100%;
       z-index: -10;
     }
   }
