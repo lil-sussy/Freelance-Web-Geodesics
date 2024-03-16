@@ -3,6 +3,8 @@
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
   import logo from '$lib/images/webgeodesicslogo.svg';
+  import webdeveloper from '$lib/images/webdeveloper.svg';
+  import dataananlyt from '$lib/images/dataAnalyst.svg';
   import background from '$lib/images/headerbackground.jpg';
   import Header from './Header.svelte';
   import { onMount } from 'svelte';
@@ -15,32 +17,46 @@
     canvas.height = window.innerHeight;
     background!.appendChild(canvas);
 
+    function drawBlueBlur(mouseX: number, mouseY: number) {
+        const radius = 70; // Radius of the circle
+        let blurGradient = ctx!.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, radius);
+        blurGradient.addColorStop(0, 'rgba(103, 232, 249, 0.5)'); // Blue with opacity in the center
+        blurGradient.addColorStop(1, 'rgba(103, 232, 249, 0)'); // Fully transparent at the edges
+
+        // Draw the circle with the gradient
+        ctx!.fillStyle = blurGradient;
+        ctx!.beginPath();
+        ctx!.arc(mouseX, mouseY, radius, 0, Math.PI * 2, false);
+        ctx!.fill();
+    }
+
     // Function to draw the grid and SVG strokes
     function drawBackground() {
         // Clear the canvas
         ctx!.clearRect(0, 0, canvas.width, canvas.height);
 
         // Draw the dot grid
-        const dotSpacing = 50; // Spacing between dots
-        const dotRadius = 2; // Dot radius
+        const dotSpacing = 25; // Spacing between dots
+        const dotRadius = 1; // Dot radius
         for (let x = 0; x < canvas.width; x += dotSpacing) {
-            for (let y = 0; y < canvas.height; y += dotSpacing) {
-                ctx!.beginPath();
-                ctx!.arc(x, y, dotRadius, 0, Math.PI * 2, false);
-                // Alternate colors
-                ctx!.fillStyle = (x / dotSpacing + y / dotSpacing) % 2 === 0 ? '#EC4899' : '#67E8F9';
-                ctx!.fill();
-            }
+          for (let y = 0; y < canvas.height; y += dotSpacing) {
+            ctx!.beginPath();
+            ctx!.arc(x, y, dotRadius, 0, Math.PI * 2, false);
+            // Alternate colors
+            ctx!.fillStyle = (x / dotSpacing + y / dotSpacing) % 2 === 0 ? '#EC4899' : '#67E8F9';
+            ctx!.fill();
+          }
         }
-
         // Example SVG stroke (serpent-like paths could be more complex)
-        ctx!.beginPath();
-        ctx!.moveTo(0, 50);
-        for (let x = 0; x < canvas.width; x += 100) {
-            ctx!.lineTo(x, 50 + 20 * Math.sin(x / 100));
+        for (let y=0; y < canvas.height; y += 100) {
+          ctx!.beginPath();
+          ctx!.moveTo(0, y +50);
+          ctx!.strokeStyle = '#67E8F9';
+          for (let x = 0; x < canvas.width; x += 100) {
+              ctx!.lineTo(x, y + 50 + 20 * Math.sin(x / 100));
+          }
+          ctx!.stroke();
         }
-        ctx!.strokeStyle = 'black';
-        ctx!.stroke();
     }
 
     // Function to create reveal effect
@@ -52,12 +68,16 @@
         // Get mouse position
         const mouseX = e.clientX;
         const mouseY = e.clientY;
-
+        
         // Clear the canvas and redraw background
         drawBackground();
+        
+        drawBlueBlur(mouseX, mouseY);
+        ctx!.globalCompositeOperation = 'source-over';
 
         // Create radial gradient
         let gradient = ctx!.createRadialGradient(mouseX, mouseY, innerRadius, mouseX, mouseY, maskRadius);
+        gradient.addColorStop(0, 'rgba(0, 0, 0, 1)'); // Fully opaque at the center
         gradient.addColorStop(0, 'rgba(0, 0, 0, 1)'); // Fully opaque at the center
         gradient.addColorStop(1, 'rgba(0, 0, 0, 0)'); // Fully transparent at the edges
 
@@ -76,7 +96,21 @@
 
     // Event listener for mouse movement to create the reveal effect
     document.addEventListener('mousemove', revealEffect);
-});
+
+    window.addEventListener('scroll', () => {
+      scrollY = window.scrollY;
+      requestAnimationFrame(updateParallax);
+    });
+  });
+  function updateParallax() {
+      const backgroundElement = document.querySelector('.background');
+      if (backgroundElement) {
+        const speed = 0.5; // Adjust the speed of the parallax; 0.5 means half the scroll speed
+        const yPos = -scrollY * speed;
+        //@ts-ignore
+        backgroundElement.style!.backgroundPosition = `center ${yPos}px`;
+    }
+  }
 
 
   // app.js
@@ -92,11 +126,34 @@
   <Header></Header>
   <img src={logo} alt="WebGeodesics" />
   <h1>WEB-GEODESICS</h1>
+  <div class='center-container'>
+    <div class='lang-selection'>
+      <h4>English</h4>
+      <h4>/</h4>
+      <h4>Français</h4>
+    </div>
+    <h4>Why two different specializations ?</h4>
+    <div class='specialization-container'>
+      <div>
+        <svg viewBox="0 0 100 100">
+          <use href={webdeveloper}></use>
+        </svg>
+        <h4>Web Developer</h4>
+      </div>
+      <div>
+        <svg viewBox="0 0 100 100">
+          <use href={dataananlyt}></use>
+        </svg>
+        <h4>Data Analyst</h4>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style global lang='scss'>
   .background {
     z-index: -20;
+    background-attachment: fixed;
     background-image: url('../lib/images/headerbackground.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -109,6 +166,93 @@
     position: absolute;
     top: 0;
     left: 0;
+
+    .center-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 70%;
+      box-sizing: border-box;
+      padding: 0;
+      align-items: start;
+      gap: 2rem;
+      .specialization-container {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        div:nth-child(1) {
+          h4 {
+            font-size: 3rem;
+            line-height: 3rem;
+            height: 3rem;
+            font-weight: 900;
+          }
+          h4:hover {
+            background: linear-gradient(to right, #EC4899, #8B5CF6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline;
+          }
+          svg:hover {
+            fill: #EC4899;
+          }
+          svg {
+            width: 100px;
+            height: 100px;
+            fill: gray;
+          }
+        }
+        div {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          img {
+            width: 5rem;
+            height: 5rem;
+          }
+          h4 {
+            font-size: 2rem;
+            color: white;
+            font-family: 'inter', 'Courier New', Courier, monospace;
+          }
+        }
+      }
+      .lang-selection {
+        margin-top: 10rem;
+        display: flex;
+        gap: 1rem;
+        h4 {
+          font-size: 2rem;
+          color: gray;
+          font-family: 'inter', 'Courier New', Courier, monospace;
+        }
+        h4:hover {
+          color: white;
+        }
+      }
+      .specialization-container {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        div {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          img {
+            width: 5rem;
+            height: 5rem;
+          }
+          h4 {
+            font-size: 2rem;
+            color: white;
+            font-family: 'inter', 'Courier New', Courier, monospace;
+          }
+        }
+      }
+    }
     
     h1 {
       color: white;
@@ -118,10 +262,11 @@
 
     #background {
       position: absolute;
+      opacity: 0.5;
       top: 0;
       left: 0;
       width: 100vw;
-      height: 100vh;
+      height: 100%;
       z-index: -10;
     }
   }
