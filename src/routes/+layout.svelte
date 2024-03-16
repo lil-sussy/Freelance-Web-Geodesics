@@ -1,19 +1,13 @@
 <script>
 	import "../app.pcss";
-    import Header from './Header.svelte';
-    import './styles.css';
+  import Header from './Header.svelte';
+  import './styles.css';
 </script>
 
 <div class="app">
-	<Header></Header>
-
 	<main>
 		<slot></slot>
 	</main>
-
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
 </div>
 
 <style>
@@ -27,10 +21,7 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
+    width: 100vw;
 		box-sizing: border-box;
 	}
 

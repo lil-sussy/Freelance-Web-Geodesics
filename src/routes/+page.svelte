@@ -2,58 +2,40 @@
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+  import logo from '$lib/images/webgeodesicslogo.svg';
+  import background from '$lib/images/headerbackground.jpg';
+  import Header from './Header.svelte';
 </script>
 
 <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
+<div class=background>
+  <Header></Header>
+  <img src={logo} alt="WebGeodesics" />
+  <h1>WEB-GEODESICS</h1>
+</div>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+<style global lang='scss'>
+  .background {
+    background-image: url('../lib/images/headerbackground.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: start;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    h1 {
+      color: white;
+      font-size: 5rem;
+      font-family: 'stretch pro', 'Courier New', Courier, monospace;
+    }
+  }
 </style>
