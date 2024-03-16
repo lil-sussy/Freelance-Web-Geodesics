@@ -14,8 +14,22 @@
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
+    let mouseX = 0;
+    let mouseY = 0;
+    let isDrawing = false;
     canvas.height = window.innerHeight;
     background!.appendChild(canvas);
+
+    function setCanvasSize() {
+      canvas.width = window.innerWidth;
+      canvas.height = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      );
+    }
 
     function drawBlueBlur(mouseX: number, mouseY: number) {
         const radius = 70; // Radius of the circle
@@ -61,13 +75,15 @@
 
     // Function to create reveal effect
     // Function to create reveal effect with gradient
-    function revealEffect(e: MouseEvent) {
+    function revealEffect() {
+        if (!isDrawing) return;
+
         const maskRadius = 70; // Outer radius for gradient
         // Inner radius for gradient start (you can adjust this for different effects)
         const innerRadius = maskRadius * 0.5;
         // Get mouse position
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
+        // const mouseX = e.clientX + window.scrollX;
+        // const mouseY = e.clientY + window.scrollY;
         
         // Clear the canvas and redraw background
         drawBackground();
@@ -88,6 +104,7 @@
         ctx!.arc(mouseX, mouseY, maskRadius, 0, Math.PI * 2, false);
         ctx!.fill();
         ctx!.globalCompositeOperation = 'source-over';
+        requestAnimationFrame(revealEffect);
     }
 
 
@@ -95,7 +112,28 @@
     drawBackground();
 
     // Event listener for mouse movement to create the reveal effect
-    document.addEventListener('mousemove', revealEffect);
+    // document.addEventListener('mousemove', revealEffect);
+    setCanvasSize();
+    window.addEventListener('resize', setCanvasSize);
+    requestAnimationFrame(revealEffect);
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+        isDrawing = true;
+    });
+    window.addEventListener('click', () => {
+        console.log(mouseX, mouseY);
+    });
+
+    window.addEventListener('mouseenter', () => {
+        isDrawing = true;
+    });
+
+    window.addEventListener('mouseleave', () => {
+        isDrawing = false;
+        // Optionally clear the effect when the mouse leaves the canvas
+        drawBackground();
+    });
 
     window.addEventListener('scroll', () => {
       scrollY = window.scrollY;
@@ -122,7 +160,6 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 <div class=background>
-  <div id='background'></div>
   <Header></Header>
   <img src={logo} alt="WebGeodesics" />
   <h1>WEB-GEODESICS</h1>
@@ -148,6 +185,7 @@
       </div>
     </div>
   </div>
+  <div id='background'></div>
 </div>
 
 <style global lang='scss'>
