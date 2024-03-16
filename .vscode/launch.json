@@ -1,0 +1,42 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "SvelteKit: Launch Server",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+      ],
+      "timeout": 30000,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "SvelteKit: Launch Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "SvelteKit: Attach to Server",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "timeout": 30000
+    }
+  ],
+  "compounds": [
+    {
+      "name": "SvelteKit: Full Stack Debug",
+      "configurations": [
+        "SvelteKit: Launch Server",
+        "SvelteKit: Launch Chrome"
+      ]
+    }
+  ]
+}
