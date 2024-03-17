@@ -10,9 +10,18 @@
   import { onMount } from 'svelte';
 	import SparklyBackground from './SparklyBackground.svelte';
 	import SepecializationSelection from './SepecializationSelection.svelte';
+	import Minimap from './Minimap.svelte';
+  
   let specialization = "";
+  let animations: (() => void)[] = []
 
   let scrollY = 0;
+
+  function pageAnimations() {
+    animations.forEach(animation => animation());
+    requestAnimationFrame(pageAnimations)
+  }
+  pageAnimations()
 
   function updateParallax() {
       const backgroundElement = document.querySelector('.background');
@@ -41,6 +50,7 @@
 </svelte:head>
 <div class=background>
   <Header></Header>
+  <Minimap />
   <img src={logo} alt="WebGeodesics" />
   <h1>WEB-GEODESICS</h1>
   <div class='center-container'>
@@ -54,7 +64,6 @@
     <svg width="379" height="3284" viewBox="0 0 379 3284" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M375.999 0C375.999 77 376.999 77 210.499 77C3.97495 77 3.9759 77 3.97496 164C3.97419 235.5 0.974962 435.167 3.97496 548V1714C3.97496 1847.5 20.9995 1892.5 119.999 1896.5C218.999 1900.5 222.999 1956.5 222.999 2004C222.999 2042 222.999 2154 222.999 2294.5V3283.5" stroke="#EC4899" stroke-width="5"/>
     </svg>
-
   </div>
   <SparklyBackground></SparklyBackground>
 </div>

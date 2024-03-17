@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
+  export let animations: (() => void)[];
+
   onMount(() => {
     const background = document.getElementById('background');
     const canvas = document.createElement('canvas');
@@ -96,18 +98,17 @@
         ctx!.arc(mouseX, mouseY, maskRadius, 0, Math.PI * 2, false);
         ctx!.fill();
         ctx!.globalCompositeOperation = 'source-over';
-        requestAnimationFrame(revealEffect);
-    }
-
-
-    // Initial background draw
-    drawBackground();
-
-    // Event listener for mouse movement to create the reveal effect
-    // document.addEventListener('mousemove', revealEffect);
-    setCanvasSize();
-    window.addEventListener('resize', setCanvasSize);
-    requestAnimationFrame(revealEffect);
+      }
+      
+      
+      // Initial background draw
+      drawBackground();
+      
+      // Event listener for mouse movement to create the reveal effect
+      // document.addEventListener('mousemove', revealEffect);
+      setCanvasSize();
+      window.addEventListener('resize', setCanvasSize);
+    animations.push(revealEffect)
     window.addEventListener('mousemove', (e) => {
         mouseX = e.pageX;
         mouseY = e.pageY;
