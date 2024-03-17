@@ -12,6 +12,27 @@
 	import SepecializationSelection from './SepecializationSelection.svelte';
   let specialization = "";
 
+  let scrollY = 0;
+
+  function updateParallax() {
+      const backgroundElement = document.querySelector('.background');
+      if (backgroundElement) {
+        const speed = 0.5; // Adjust the speed of the parallax; 0.5 means half the scroll speed
+        const yPos = -scrollY * speed;
+        //@ts-ignore
+        backgroundElement.style!.backgroundPosition = `center ${yPos}px`;
+    }
+    // requestAnimationFrame(updateParallax);
+  }
+
+  onMount(() => {
+    const background = document.getElementById('background');
+    window.addEventListener('scroll', () => {
+      scrollY = window.scrollY;
+      requestAnimationFrame(updateParallax);
+    });
+  });
+
 </script>
 
 <svelte:head>

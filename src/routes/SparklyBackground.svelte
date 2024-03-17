@@ -126,21 +126,7 @@
         // Optionally clear the effect when the mouse leaves the canvas
         drawBackground();
     });
-
-    window.addEventListener('scroll', () => {
-      scrollY = window.scrollY;
-      requestAnimationFrame(updateParallax);
-    });
   });
-  function updateParallax() {
-      const backgroundElement = document.querySelector('.background');
-      if (backgroundElement) {
-        const speed = 0.5; // Adjust the speed of the parallax; 0.5 means half the scroll speed
-        const yPos = -scrollY * speed;
-        //@ts-ignore
-        backgroundElement.style!.backgroundPosition = `center ${yPos}px`;
-    }
-  }
 </script>
 
 <div id='background'></div>
