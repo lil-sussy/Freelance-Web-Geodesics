@@ -8,150 +8,9 @@
   import background from '$lib/images/headerbackground.jpg';
   import Header from './Header.svelte';
   import { onMount } from 'svelte';
-
-  onMount(() => {
-    const background = document.getElementById('background');
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    let mouseX = 0;
-    let mouseY = 0;
-    let isDrawing = false;
-    canvas.height = window.innerHeight;
-    background!.appendChild(canvas);
-
-    function setCanvasSize() {
-      canvas.width = window.innerWidth;
-      canvas.height = Math.max(
-        document.body.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.clientHeight,
-        document.documentElement.scrollHeight,
-        document.documentElement.offsetHeight
-      );
-    }
-
-    function drawBlueBlur(mouseX: number, mouseY: number) {
-        const radius = 70; // Radius of the circle
-        let blurGradient = ctx!.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, radius);
-        blurGradient.addColorStop(0, 'rgba(103, 232, 249, 0.5)'); // Blue with opacity in the center
-        blurGradient.addColorStop(1, 'rgba(103, 232, 249, 0)'); // Fully transparent at the edges
-
-        // Draw the circle with the gradient
-        ctx!.fillStyle = blurGradient;
-        ctx!.beginPath();
-        ctx!.arc(mouseX, mouseY, radius, 0, Math.PI * 2, false);
-        ctx!.fill();
-    }
-
-    // Function to draw the grid and SVG strokes
-    function drawBackground() {
-        // Clear the canvas
-        ctx!.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Draw the dot grid
-        const dotSpacing = 25; // Spacing between dots
-        const dotRadius = 1; // Dot radius
-        for (let x = 0; x < canvas.width; x += dotSpacing) {
-          for (let y = 0; y < canvas.height; y += dotSpacing) {
-            ctx!.beginPath();
-            ctx!.arc(x, y, dotRadius, 0, Math.PI * 2, false);
-            // Alternate colors
-            ctx!.fillStyle = (x / dotSpacing + y / dotSpacing) % 2 === 0 ? '#EC4899' : '#67E8F9';
-            ctx!.fill();
-          }
-        }
-        // Example SVG stroke (serpent-like paths could be more complex)
-        for (let y=0; y < canvas.height; y += 100) {
-          ctx!.beginPath();
-          ctx!.moveTo(0, y +50);
-          ctx!.strokeStyle = '#67E8F9';
-          for (let x = 0; x < canvas.width; x += 100) {
-              ctx!.lineTo(x, y + 50 + 20 * Math.sin(x / 100));
-          }
-          ctx!.stroke();
-        }
-    }
-
-    // Function to create reveal effect
-    // Function to create reveal effect with gradient
-    function revealEffect() {
-        if (!isDrawing) return;
-
-        const maskRadius = 70; // Outer radius for gradient
-        // Inner radius for gradient start (you can adjust this for different effects)
-        const innerRadius = maskRadius * 0.5;
-        // Get mouse position
-        // const mouseX = e.clientX + window.scrollX;
-        // const mouseY = e.clientY + window.scrollY;
-        
-        // Clear the canvas and redraw background
-        drawBackground();
-        
-        drawBlueBlur(mouseX, mouseY);
-        ctx!.globalCompositeOperation = 'source-over';
-
-        // Create radial gradient
-        let gradient = ctx!.createRadialGradient(mouseX, mouseY, innerRadius, mouseX, mouseY, maskRadius);
-        gradient.addColorStop(0, 'rgba(0, 0, 0, 1)'); // Fully opaque at the center
-        gradient.addColorStop(0, 'rgba(0, 0, 0, 1)'); // Fully opaque at the center
-        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)'); // Fully transparent at the edges
-
-        // Masking effect
-        ctx!.globalCompositeOperation = 'destination-in';
-        ctx!.fillStyle = gradient;
-        ctx!.beginPath();
-        ctx!.arc(mouseX, mouseY, maskRadius, 0, Math.PI * 2, false);
-        ctx!.fill();
-        ctx!.globalCompositeOperation = 'source-over';
-        requestAnimationFrame(revealEffect);
-    }
-
-
-    // Initial background draw
-    drawBackground();
-
-    // Event listener for mouse movement to create the reveal effect
-    // document.addEventListener('mousemove', revealEffect);
-    setCanvasSize();
-    window.addEventListener('resize', setCanvasSize);
-    requestAnimationFrame(revealEffect);
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.pageX;
-        mouseY = e.pageY;
-        isDrawing = true;
-    });
-    window.addEventListener('click', () => {
-        console.log(mouseX, mouseY);
-    });
-
-    window.addEventListener('mouseenter', () => {
-        isDrawing = true;
-    });
-
-    window.addEventListener('mouseleave', () => {
-        isDrawing = false;
-        // Optionally clear the effect when the mouse leaves the canvas
-        drawBackground();
-    });
-
-    window.addEventListener('scroll', () => {
-      scrollY = window.scrollY;
-      requestAnimationFrame(updateParallax);
-    });
-  });
-  function updateParallax() {
-      const backgroundElement = document.querySelector('.background');
-      if (backgroundElement) {
-        const speed = 0.5; // Adjust the speed of the parallax; 0.5 means half the scroll speed
-        const yPos = -scrollY * speed;
-        //@ts-ignore
-        backgroundElement.style!.backgroundPosition = `center ${yPos}px`;
-    }
-  }
-
-
-  // app.js
+	import SparklyBackground from './SparklyBackground.svelte';
+	import SepecializationSelection from './SepecializationSelection.svelte';
+  let specialization = "";
 
 </script>
 
@@ -170,30 +29,13 @@
       <h4>Français</h4>
     </div>
     <h4 class='question'>Why two different specializations ?</h4>
-    <div class='specialization-container'>
-      <div>
-        <svg width="82" height="60" viewBox="0 0 82 60" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_33_387)">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.55102 0H76.449C79.5016 0 82 2.4616 82 5.46918V54.5308C82 57.5384 79.5016 60 76.449 60H5.55102C2.49844 60 0 57.5384 0 54.5308V5.46918C0 2.4616 2.49844 0 5.55102 0ZM33.4054 41.7147C34.3279 42.51 34.4208 43.8939 33.6136 44.8028C32.8048 45.7117 31.4018 45.8048 30.4793 45.0079L22.0343 37.7193C21.1118 36.9225 21.0173 35.5402 21.8261 34.6297C21.895 34.5524 21.9686 34.4814 22.0455 34.4151L30.4793 27.1344C31.4018 26.3392 32.8048 26.4307 33.6136 27.3412C34.4208 28.2501 34.3279 29.6323 33.4054 30.4292L26.8678 36.072L33.4054 41.7147ZM51.5207 45.0079C50.5982 45.8048 49.1952 45.7117 48.3864 44.8028C47.5792 43.8939 47.6721 42.51 48.5946 41.7147L55.1322 36.072L48.5946 30.4292C47.6721 29.6323 47.5792 28.2501 48.3864 27.3412C49.1952 26.4307 50.5982 26.3392 51.5207 27.1344L59.9545 34.4151C60.0314 34.4814 60.105 34.5524 60.1739 34.6297C60.9827 35.5402 60.8882 36.9225 59.9657 37.7193L51.5207 45.0079ZM40.9584 25.3924C41.237 24.2137 42.435 23.4799 43.6314 23.7545C44.8277 24.029 45.5725 25.2093 45.2938 26.3881L40.4683 46.75C40.1896 47.9303 38.9916 48.664 37.7953 48.3894C36.5989 48.1149 35.8542 46.9346 36.1329 45.7558L40.9584 25.3924ZM3.52824 15.314V55.0642C3.52761 55.2631 3.5669 55.4601 3.64386 55.644C3.72082 55.8279 3.83393 55.995 3.97668 56.1356C4.11943 56.2762 4.289 56.3877 4.47563 56.4635C4.66226 56.5393 4.86227 56.5781 5.06414 56.5774H77.1633C77.3652 56.5781 77.5652 56.5393 77.7518 56.4635C77.9384 56.3877 78.108 56.2762 78.2507 56.1356C78.3935 55.995 78.5066 55.8279 78.5836 55.644C78.6605 55.4601 78.6998 55.2631 78.6992 55.0642V15.314H3.52824ZM71.1654 6.1477C72.6805 6.1477 73.9073 7.35799 73.9073 8.84915C73.9073 10.3419 72.6805 11.5506 71.1654 11.5506C69.652 11.5506 68.4236 10.3419 68.4236 8.84915C68.4236 7.35799 69.652 6.1477 71.1654 6.1477ZM52.5825 6.1477C54.0976 6.1477 55.3244 7.35799 55.3244 8.84915C55.3244 10.3419 54.0976 11.5506 52.5825 11.5506C51.069 11.5506 49.8422 10.3419 49.8422 8.84915C49.8422 7.35799 51.069 6.1477 52.5825 6.1477ZM61.8748 6.1477C63.3882 6.1477 64.6166 7.35799 64.6166 8.84915C64.6166 10.3419 63.3882 11.5506 61.8748 11.5506C60.3613 11.5506 59.1329 10.3419 59.1329 8.84915C59.1329 7.35799 60.3613 6.1477 61.8748 6.1477Z" />
-        </g>
-        <defs>
-        <clipPath id="clip0_33_387">
-        <rect width="82" height="60" fill="white"/>
-        </clipPath>
-        </defs>
-        </svg>
+    <SepecializationSelection bind:specialization={specialization}/>
+    <svg width="379" height="3284" viewBox="0 0 379 3284" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M375.999 0C375.999 77 376.999 77 210.499 77C3.97495 77 3.9759 77 3.97496 164C3.97419 235.5 0.974962 435.167 3.97496 548V1714C3.97496 1847.5 20.9995 1892.5 119.999 1896.5C218.999 1900.5 222.999 1956.5 222.999 2004C222.999 2042 222.999 2154 222.999 2294.5V3283.5" stroke="#EC4899" stroke-width="5"/>
+    </svg>
 
-        <h4>Web Developer</h4>
-      </div>
-      <div>
-        <svg width="69" height="80" viewBox="0 0 69 80" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5019 -0.00012207C38.1041 -0.00012207 41.1643 4.74597 43.2045 12.4152C43.9122 15.078 44.5179 18.1184 44.996 21.4452C48.0563 20.2082 50.938 19.2251 53.5456 18.5155C61.0624 16.4843 66.6155 16.8228 68.4198 20.0064C70.2177 23.19 67.7248 28.2681 62.2419 33.8996C60.342 35.8527 58.0659 37.91 55.4774 39.9999C56.5103 40.8332 57.4985 41.6665 58.4293 42.4869C57.5813 43.0923 56.8864 43.8931 56.4019 44.8306C55.3308 43.8866 54.1832 42.9296 52.9718 41.9595C52.7232 42.1483 52.4682 42.3371 52.2131 42.5324C51.6648 46.5624 49.8287 50.1691 47.1446 52.91L46.9916 53.0533C46.5198 53.522 46.0289 53.9647 45.5124 54.3749C45.4806 54.7004 45.4423 55.0259 45.4041 55.3514C48.611 56.6796 51.6202 57.7212 54.3234 58.4504C60.4503 60.104 64.7411 60.2277 65.7612 58.4309C66.3031 57.4738 65.9206 55.9699 64.7793 54.0819C65.7038 53.6718 66.5199 53.0468 67.1702 52.272C69.0127 55.3514 69.5291 58.0272 68.4198 59.9869C66.6219 63.177 61.0751 63.5155 53.552 61.4843C50.9444 60.7811 48.0627 59.7915 44.996 58.5546C44.5179 61.8814 43.9122 64.9218 43.2045 67.5845C41.1643 75.2538 38.1041 79.9999 34.5019 79.9999C30.8997 79.9999 27.8394 75.2538 25.7992 67.5845C25.0916 64.9218 24.4859 61.8814 24.0077 58.5546C22.8984 59.0038 21.8145 59.4205 20.7626 59.7981C20.6797 58.7108 20.3418 57.7017 19.8126 56.8228C21.0367 56.3801 22.2991 55.8918 23.5997 55.3514C23.5614 55.0324 23.5296 54.7069 23.4913 54.3814C22.9239 53.9257 22.382 53.4374 21.8719 52.9165L21.8592 52.9035C19.1751 50.1626 17.3389 46.5559 16.7906 42.5259C16.5356 42.3371 16.2806 42.1418 16.0319 41.953C13.2968 44.1275 10.906 46.2694 8.93593 48.2942C4.4603 52.9035 2.20973 56.6405 3.22981 58.4439C3.79724 59.4465 5.37837 59.8501 7.72457 59.7264C7.70545 59.9218 7.69907 60.1236 7.69907 60.3254C7.69907 61.1783 7.85846 61.9921 8.13899 62.7408C4.39654 62.91 1.72519 62.0376 0.577587 60.0064C-1.22032 56.8163 1.27252 51.7382 6.75549 46.1067C8.66178 44.1535 10.9315 42.0962 13.5199 40.0064C10.9378 37.9165 8.66178 35.8593 6.75549 33.9061C1.27252 28.2746 -1.22032 23.1965 0.577587 20.0129C2.38187 16.8293 7.92859 16.4908 15.4517 18.522C18.0593 19.2251 20.9411 20.2082 24.0077 21.4517C24.1799 20.2473 24.3711 19.0819 24.5751 17.9621C25.4613 18.4178 26.4559 18.6718 27.5143 18.6718H27.5717C27.3358 19.9543 27.1254 21.302 26.9341 22.6952C27.221 22.8189 27.5015 22.9491 27.7884 23.0793C29.8605 22.2199 32.1238 21.7447 34.4955 21.7447C36.8672 21.7447 39.1369 22.2199 41.2089 23.0728C41.4895 22.9426 41.7764 22.8189 42.0569 22.6952C41.5787 19.1861 40.9603 16.0025 40.2271 13.2486C38.5695 7.0116 36.5293 3.15092 34.4955 3.15092C33.367 3.15092 32.2322 4.34233 31.1675 6.46472C30.345 5.89832 29.3951 5.5142 28.3622 5.37748C30.1027 1.94649 32.1875 -0.00012207 34.5019 -0.00012207ZM34.5019 29.427C39.003 29.427 42.6562 31.1718 42.6562 33.3202C42.6562 35.4751 39.003 37.2134 34.5019 37.2134C30.0007 37.2134 26.3475 35.4686 26.3475 33.3202C26.3475 31.1718 30.0007 29.427 34.5019 29.427ZM26.3475 44.0363V47.0246C27.8012 52.285 42.127 51.2694 42.6562 46.7577V43.7694C41.9421 48.7238 27.4951 49.0819 26.3475 44.0363ZM26.3093 35.1952V38.1184C27.7629 43.2551 42.1717 42.565 42.7008 38.1574V35.2408C41.9804 40.078 27.4569 40.1236 26.3093 35.1952ZM26.3093 39.4986V42.4869C27.7629 47.7473 42.1717 47.0376 42.7008 42.5259V39.5376C41.9804 44.4921 27.4569 44.5441 26.3093 39.4986ZM34.5019 24.3553C42.9622 24.3553 49.8223 31.3606 49.8223 39.9999C49.8223 48.6392 42.9622 55.6444 34.5019 55.6444C26.0415 55.6444 19.1814 48.6392 19.1814 39.9999C19.1814 31.3606 26.0415 24.3553 34.5019 24.3553ZM45.5124 25.6119C46.0862 26.0676 46.6345 26.5624 47.1446 27.0897C49.8287 29.8306 51.6648 33.4439 52.2131 37.4738C52.4682 37.6626 52.7232 37.8514 52.9718 38.0468C55.7069 35.8723 58.0978 33.7303 60.0678 31.7056C64.5307 27.1158 66.7813 23.3788 65.7676 21.5754C64.7475 19.7785 60.4567 19.9022 54.3298 21.5559C51.6266 22.285 48.6173 23.3267 45.4104 24.6613C45.4423 24.9673 45.4806 25.2928 45.5124 25.6119ZM41.1898 56.94C39.1241 57.7928 36.8672 58.2616 34.5082 58.2616C32.1429 58.2616 29.886 57.7928 27.8203 56.9335C27.527 57.0637 27.2337 57.2004 26.9405 57.3241C27.4186 60.8332 28.0371 64.0168 28.7703 66.7707C30.4279 73.0077 32.4681 76.8684 34.5082 76.8684C36.542 76.8684 38.5886 73.0077 40.2399 66.7707C40.9667 64.0168 41.5851 60.8267 42.0633 57.3241C41.77 57.2004 41.4767 57.0702 41.1898 56.94ZM16.797 37.4608C17.3453 33.4374 19.1814 29.8241 21.8655 27.0897L22.0186 26.9465C22.484 26.4843 22.9749 26.0415 23.4849 25.6314C23.5168 25.3059 23.5551 24.9803 23.5933 24.6548C20.38 23.3267 17.3772 22.285 14.6739 21.5494C8.54702 19.8957 4.25628 19.772 3.23619 21.5689C2.20973 23.3723 4.46029 27.1093 8.92955 31.6991C10.8996 33.7238 13.2904 35.8658 16.0255 38.0402C16.2806 37.8449 16.5356 37.6561 16.797 37.4608ZM61.7127 43.4569C64.0525 43.4569 65.9524 45.397 65.9524 47.7863C65.9524 50.1757 64.0525 52.1158 61.7127 52.1158C59.3729 52.1158 57.473 50.1757 57.473 47.7863C57.473 45.397 59.3665 43.4569 61.7127 43.4569ZM14.2468 55.8593C16.5866 55.8593 18.4865 57.7994 18.4865 60.1887C18.4865 62.578 16.5866 64.5181 14.2468 64.5181C11.9069 64.5181 10.007 62.578 10.007 60.1887C10.007 57.7994 11.9069 55.8593 14.2468 55.8593ZM27.5079 7.65613C29.8477 7.65613 31.7476 9.59623 31.7476 11.9856C31.7476 14.3749 29.8477 16.315 27.5079 16.315C25.1681 16.315 23.2682 14.3749 23.2682 11.9856C23.2682 9.59623 25.1681 7.65613 27.5079 7.65613Z"/>
-        </svg>
-        <h4>Data Analyst</h4>
-      </div>
-    </div>
   </div>
-  <div id='background'></div>
+  <SparklyBackground></SparklyBackground>
 </div>
 
 <style global lang='scss'>
@@ -231,81 +73,6 @@
       .question:hover {
         color: white;
         cursor: pointer;
-      }
-      .specialization-container {
-        display: flex;
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        div:nth-child(1) {
-          h4 {
-            font-size: 3rem;
-            line-height: 3rem;
-            height: 3rem;
-            font-weight: 900;
-          }
-          svg {
-            width: 100px;
-            height: 100px;
-            fill: gray;
-            }
-        }
-        div:nth-child(1):hover {
-            cursor: pointer;
-            svg {
-                fill: #EC4899;
-            }
-            h4 {
-                background: linear-gradient(to right, #EC4899, #8B5CF6);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-                display: inline;
-            }
-
-        }
-        div:nth-child(2) {
-          h4 {
-            font-size: 3rem;
-            line-height: 3rem;
-            height: 3rem;
-            font-weight: 900;
-          }
-          svg {
-            width: 100px;
-            height: 100px;
-            fill: gray;
-            }
-        }
-        div:nth-child(2):hover {
-            cursor: pointer;
-            svg {
-                fill: #2563EB;
-            }
-            h4 {
-                background: linear-gradient(to right, #2563EB, #67E8F9);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-                display: inline;
-            }
-
-        }
-        div {
-          display: flex;
-          gap: 1rem;
-          align-items: center;
-          justify-content: center;
-          img {
-            width: 5rem;
-            height: 5rem;
-          }
-          h4 {
-            font-size: 2rem;
-            color: white;
-            font-family: 'inter', 'Courier New', Courier, monospace;
-          }
-        }
       }
       .lang-selection {
         margin-top: 10rem;
@@ -347,16 +114,6 @@
       color: white;
       font-size: 5rem;
       font-family: 'stretch pro', 'Courier New', Courier, monospace;
-    }
-
-    #background {
-      position: absolute;
-      opacity: 0.5;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100%;
-      z-index: -10;
     }
   }
 </style>
