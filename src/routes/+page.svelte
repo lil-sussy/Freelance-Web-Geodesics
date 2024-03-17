@@ -67,7 +67,7 @@
         margin-top: 5rem;
         margin-bottom: 1rem;
         font-size: 1.5rem;
-        color: gray;
+        color: white;
         font-family: 'inter', 'Courier New', Courier, monospace;
       }
       .question:hover {
@@ -103,7 +103,7 @@
           }
           h4 {
             font-size: 2rem;
-            color: white;
+            color: gray;
             font-family: 'inter', 'Courier New', Courier, monospace;
           }
         }

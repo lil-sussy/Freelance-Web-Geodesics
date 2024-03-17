@@ -43,7 +43,7 @@
         svg {
           width: 100px;
           height: 100px;
-          fill: gray;
+          fill: white;
           }
       }
       div:nth-child(1):hover {
@@ -98,7 +98,7 @@
         }
         h4 {
           font-size: 2rem;
-          color: white;
+          color: gray;
           font-family: 'inter', 'Courier New', Courier, monospace;
         }
       }
