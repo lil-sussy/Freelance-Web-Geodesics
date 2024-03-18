@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  export let animations: (() => void)[];
+  export let addAnimation: (animation: () => void) => void;
 
   onMount(() => {
     const background = document.getElementById('background');
@@ -108,7 +108,7 @@
       // document.addEventListener('mousemove', revealEffect);
       setCanvasSize();
       window.addEventListener('resize', setCanvasSize);
-    animations.push(revealEffect)
+    addAnimation(revealEffect)
     window.addEventListener('mousemove', (e) => {
         mouseX = e.pageX;
         mouseY = e.pageY;

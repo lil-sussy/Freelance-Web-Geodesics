@@ -98,7 +98,7 @@
         }
         h4 {
           font-size: 2rem;
-          color: white;
+          color: gray;
           font-family: 'inter', 'Courier New', Courier, monospace;
         }
       }

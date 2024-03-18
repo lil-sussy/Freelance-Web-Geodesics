@@ -14,6 +14,8 @@
   
   let specialization = "";
   let animations: (() => void)[] = []
+  let animationID: number|undefined = undefined;
+  let navigation = ['Home', 'Why me', 'My expertise', 'My work', 'About me', 'Contact'];
 
   let scrollY = 0;
 
@@ -21,12 +23,17 @@
     animations.forEach(animation => animation());
     requestAnimationFrame(pageAnimations)
   }
-  pageAnimations()
+  
+  function addAnimation(animation: () => void) {
+    animations = [...animations, animation];
+    cancelAnimationFrame(animationID!)
+    animationID = requestAnimationFrame(pageAnimations)
+  }
 
   function updateParallax() {
       const backgroundElement = document.querySelector('.background');
       if (backgroundElement) {
-        const speed = 0.5; // Adjust the speed of the parallax; 0.5 means half the scroll speed
+        const speed = 0.7; // Adjust the speed of the parallax; 0.5 means half the scroll speed
         const yPos = -scrollY * speed;
         //@ts-ignore
         backgroundElement.style!.backgroundPosition = `center ${yPos}px`;
@@ -49,11 +56,10 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 <div class=background>
-  <Header></Header>
-  <Minimap />
+  <Header navigation={navigation} />
   <img src={logo} alt="WebGeodesics" />
   <h1>WEB-GEODESICS</h1>
-  <div class='center-container'>
+  <div class='center-container' id="center-container">
     <div class='lang-selection'>
       <h4>English</h4>
       <h4>/</h4>
@@ -62,10 +68,11 @@
     <h4 class='question'>Why two different specializations ?</h4>
     <SepecializationSelection bind:specialization={specialization}/>
     <svg width="379" height="3284" viewBox="0 0 379 3284" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M375.999 0C375.999 77 376.999 77 210.499 77C3.97495 77 3.9759 77 3.97496 164C3.97419 235.5 0.974962 435.167 3.97496 548V1714C3.97496 1847.5 20.9995 1892.5 119.999 1896.5C218.999 1900.5 222.999 1956.5 222.999 2004C222.999 2042 222.999 2154 222.999 2294.5V3283.5" stroke="#EC4899" stroke-width="5"/>
+      <path d="M375.999 0C375.999 77 376.999 77 210.499 77C3.97495 77 3.9759 77 3.97496 164C3.97419 235.5 0.974962 435.167 3.97496 548V1714C3.97496 1847.5 20.9995 1892.5 119.999 1896.5C218.999 1900.5 222.999 1956.5 222.999 2004C222.999 2042 222.999 2154 222.999 2294.5V3283.5" stroke="#EC4899" stroke-width="5"/>
     </svg>
+    <Minimap addAnimation={addAnimation} navigation={navigation} />
   </div>
-  <SparklyBackground></SparklyBackground>
+  <SparklyBackground addAnimation={addAnimation}></SparklyBackground>
 </div>
 
 <style global lang='scss'>
@@ -88,6 +95,7 @@
     .center-container {
       display: flex;
       flex-direction: column;
+      position: relative;
       justify-content: space-evenly;
       width: 70%;
       box-sizing: border-box;
@@ -116,26 +124,6 @@
         h4:hover {
           color: white;
           cursor: pointer;
-        }
-      }
-      .specialization-container {
-        display: flex;
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        div {
-          display: flex;
-          gap: 1rem;
-          align-items: center;
-          img {
-            width: 5rem;
-            height: 5rem;
-          }
-          h4 {
-            font-size: 2rem;
-            color: white;
-            font-family: 'inter', 'Courier New', Courier, monospace;
-          }
         }
       }
     }

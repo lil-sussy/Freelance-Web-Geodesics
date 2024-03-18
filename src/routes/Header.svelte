@@ -1,7 +1,9 @@
-<script>
+<script lang='ts'>
 	import { page } from '$app/stores';
 	import logo from '$lib/images/webgeodesicslogo.svg';
 	import github from '$lib/images/github.svg';
+
+  export let navigation: string[];
 </script>
 
 <header>
@@ -12,24 +14,9 @@
     <h4>Web-Geodesics</h4>
 	</div>
   <div class="navigation">
-    <a href="#home">
-      //Home
-    </a>
-    <a href="#home">
-      //Why me ?
-    </a>
-    <a href="#home">
-      //My Expertise
-    </a>
-    <a href="#home">
-      //My work
-    </a>
-    <a href="#home">
-      //about me
-    </a>
-    <a href="#home">
-      //contact
-    </a>
+    {#each navigation as section}
+      <a href={`#${section}`}>{section}</a>
+    {/each}
   </div>
 </header>
 
