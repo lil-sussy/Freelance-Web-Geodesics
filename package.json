@@ -30,6 +30,8 @@
   },
   "type": "module",
   "dependencies": {
-    "skeleton-css": "^2.0.4"
+    "flubber": "^0.4.2",
+    "skeleton-css": "^2.0.4",
+    "svg-path-morph": "^1.0.5"
   }
 }

@@ -1,46 +1,15 @@
 <script lang='ts'>
-	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
   import logo from '$lib/images/webgeodesicslogo.svg';
   import webdeveloper from '$lib/images/webdeveloper.svg';
   import dataananlyt from '$lib/images/dataAnalyst.svg';
   import background from '$lib/images/headerbackground.jpg';
-  import Header from './Header.svelte';
   import { onMount } from 'svelte';
-	import SparklyBackground from './SparklyBackground.svelte';
-	import SepecializationSelection from './SepecializationSelection.svelte';
-	import Minimap from './Minimap.svelte';
+  import Navbar from '../Navbar.svelte';
+  import Background from '../Background.svelte';
   
-  let specialization = "";
-  let animations: (() => void)[] = []
-
-  let scrollY = 0;
-
-  function pageAnimations() {
-    animations.forEach(animation => animation());
-    requestAnimationFrame(pageAnimations)
-  }
-  pageAnimations()
-
-  function updateParallax() {
-      const backgroundElement = document.querySelector('.background');
-      if (backgroundElement) {
-        const speed = 0.5; // Adjust the speed of the parallax; 0.5 means half the scroll speed
-        const yPos = -scrollY * speed;
-        //@ts-ignore
-        backgroundElement.style!.backgroundPosition = `center ${yPos}px`;
-    }
-    // requestAnimationFrame(updateParallax);
-  }
-
-  onMount(() => {
-    const background = document.getElementById('background');
-    window.addEventListener('scroll', () => {
-      scrollY = window.scrollY;
-      requestAnimationFrame(updateParallax);
-    });
-  });
+  
 
 </script>
 
@@ -48,102 +17,139 @@
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
-<div class=background>
-  <Header></Header>
-  <Minimap />
-  <img src={logo} alt="WebGeodesics" />
-  <h1>WEB-GEODESICS</h1>
-  <div class='center-container'>
-    <div class='lang-selection'>
-      <h4>English</h4>
-      <h4>/</h4>
-      <h4>Français</h4>
+
+<div class="frame">
+  <div class="div">
+    <div class="div-2">
+      <p class="partner-with-a">
+        <span class="text-wrapper">Partner with a </span>
+        <span class="span">creative</span>
+        <span class="text-wrapper"> maverick in web design to make your brand&#39;s online presence as </span>
+        <span class="span">innovative</span>
+        <span class="text-wrapper"> as your vision.</span>
+      </p>
+      <div class="div-3">
+        <p class="text-wrapper-2">WEB & MOBILE / UX.UI / WEB DEVELOPER / DATA SCIENTIST</p>
+        <div class="text-wrapper-2">BASED IN PARIS</div>
+        <p class="text-wrapper-3">CURRENTLY AVAILABLE FOR FREELANCE WORLDWIDE</p>
+        <div class="text-wrapper-3">BORN IN PARIS</div>
+      </div>
     </div>
-    <h4 class='question'>Why two different specializations ?</h4>
-    <SepecializationSelection bind:specialization={specialization}/>
-    <svg width="379" height="3284" viewBox="0 0 379 3284" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M375.999 0C375.999 77 376.999 77 210.499 77C3.97495 77 3.9759 77 3.97496 164C3.97419 235.5 0.974962 435.167 3.97496 548V1714C3.97496 1847.5 20.9995 1892.5 119.999 1896.5C218.999 1900.5 222.999 1956.5 222.999 2004C222.999 2042 222.999 2154 222.999 2294.5V3283.5" stroke="#EC4899" stroke-width="5"/>
-    </svg>
+    <Navbar />
+    <div class="div-4">
+      <img class="artboard" src={logo} alt=""/>
+      <div class="WEB-GEOODESICS">WEB<br />GEOODESICS</div>
+    </div>
+    <Background />
   </div>
-  <SparklyBackground></SparklyBackground>
 </div>
 
 <style global lang='scss'>
-  .background {
-    z-index: -20;
-    background-attachment: fixed;
-    background-image: url('../lib/images/headerbackground.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: start;
-    width: 100vw;
+  .frame {
+    background-color: transparent;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .frame .div {
+    overflow-x: hidden;
+    width: 1846px;
+    height: 1064px;
+    position: relative;
+  }
+
+  .frame .div-2 {
+    display: inline-flex;
     flex-direction: column;
-    justify-content: start;
+    align-items: flex-start;
+    gap: 41px;
+    position: absolute;
+    top: 204px;
+    left: 911px;
+  }
+
+  .frame .partner-with-a {
+    position: relative;
+    width: 972px;
+    height: 126px;
+    margin-top: -1px;
+    font-family: "Acme", Helvetica;
+    font-weight: 400;
+    color: transparent;
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frame .text-wrapper {
+    color: #ffffff;
+  }
+
+  .frame .span {
+    font-family: "Segoe Script", Helvetica;
+    font-weight: 700;
+    color: #deec48;
+  }
+
+  .frame .div-3 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 506px;
+    align-items: flex-start;
+    gap: 50px 15px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .frame .text-wrapper-2 {
+    position: relative;
+    width: 228px;
+    margin-top: -1px;
+    font-family: "Segoe ui", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frame .text-wrapper-3 {
+    position: relative;
+    width: 228px;
+    font-family: "Segoe UI", Helvetica;
+    font-weight: 400;
+    color: #919191;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frame .div-4 {
+    display: inline-flex;
     align-items: center;
     position: absolute;
-    top: 0;
+    top: 548px;
     left: 0;
-
-    .center-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      width: 70%;
-      box-sizing: border-box;
-      padding: 0;
-      align-items: start;
-      .question {
-        margin-top: 5rem;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-        color: gray;
-        font-family: 'inter', 'Courier New', Courier, monospace;
-      }
-      .question:hover {
-        color: white;
-        cursor: pointer;
-      }
-      .lang-selection {
-        margin-top: 10rem;
-        display: flex;
-        gap: 1rem;
-        h4 {
-          font-size: 2rem;
-          color: gray;
-          font-family: 'inter', 'Courier New', Courier, monospace;
-        }
-        h4:hover {
-          color: white;
-          cursor: pointer;
-        }
-      }
-      .specialization-container {
-        display: flex;
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        div {
-          display: flex;
-          gap: 1rem;
-          align-items: center;
-          img {
-            width: 5rem;
-            height: 5rem;
-          }
-          h4 {
-            font-size: 2rem;
-            color: white;
-            font-family: 'inter', 'Courier New', Courier, monospace;
-          }
-        }
-      }
-    }
-    
-    h1 {
-      color: white;
-      font-size: 5rem;
-      font-family: 'stretch pro', 'Courier New', Courier, monospace;
-    }
   }
+
+  .frame .artboard {
+    position: relative;
+    width: 582px;
+    height: 548px;
+  }
+
+  .frame .WEB-GEOODESICS {
+    position: relative;
+    width: fit-content;
+    text-shadow: -5px 10px 10px #0000004c;
+    font-family: "Stretch Pro", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 96px;
+    letter-spacing: 0;
+    line-height: 96px;
+  }
+
 </style>
