@@ -16,6 +16,7 @@
     "@sveltejs/adapter-auto": "^3.0.0",
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@types/d3-interpolate-path": "^2.0.3",
     "@types/node": "^20.11.28",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
@@ -30,7 +31,7 @@
   },
   "type": "module",
   "dependencies": {
-    "flubber": "^0.4.2",
+    "d3-interpolate-path": "^2.3.0",
     "skeleton-css": "^2.0.4",
     "svg-path-morph": "^1.0.5"
   }

@@ -20,27 +20,29 @@
 
 <div class="frame">
   <div class="div">
-    <div class="div-2">
-      <p class="partner-with-a">
-        <span class="text-wrapper">Partner with a </span>
-        <span class="span">creative</span>
-        <span class="text-wrapper"> maverick in web design to make your brand&#39;s online presence as </span>
-        <span class="span">innovative</span>
-        <span class="text-wrapper"> as your vision.</span>
-      </p>
-      <div class="div-3">
-        <p class="text-wrapper-2">WEB & MOBILE / UX.UI / WEB DEVELOPER / DATA SCIENTIST</p>
-        <div class="text-wrapper-2">BASED IN PARIS</div>
-        <p class="text-wrapper-3">CURRENTLY AVAILABLE FOR FREELANCE WORLDWIDE</p>
-        <div class="text-wrapper-3">BORN IN PARIS</div>
+    <Background />
+    <div class="content">
+      <div class="div-2">
+        <p class="partner-with-a">
+          <span class="text-wrapper">Partner with a </span>
+          <span class="span">creative</span>
+          <span class="text-wrapper"> maverick in web design to make your brand's online presence as </span>
+          <span class="span">innovative</span>
+          <span class="text-wrapper"> as your vision.</span>
+        </p>
+        <div class="div-3">
+          <p class="text-wrapper-2">WEB & MOBILE / UX.UI / WEB DEVELOPER / DATA SCIENTIST</p>
+          <div class="text-wrapper-2">BASED IN PARIS</div>
+          <p class="text-wrapper-3">CURRENTLY AVAILABLE FOR FREELANCE WORLDWIDE</p>
+          <div class="text-wrapper-3">BORN IN PARIS</div>
+        </div>
+      </div>
+      <Navbar />
+      <div class="div-4">
+        <img class="artboard" src={logo} alt=""/>
+        <div class="WEB-GEOODESICS">WEB<br />GEOODESICS</div>
       </div>
     </div>
-    <Navbar />
-    <div class="div-4">
-      <img class="artboard" src={logo} alt=""/>
-      <div class="WEB-GEOODESICS">WEB<br />GEOODESICS</div>
-    </div>
-    <Background />
   </div>
 </div>
 
@@ -50,13 +52,20 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .content {
     width: 100%;
+    height: 100%;
+    z-index: 10;
   }
 
   .frame .div {
     overflow-x: hidden;
-    width: 1846px;
-    height: 1064px;
+    width: 100%;
+    height: 100%;
     position: relative;
   }
 
@@ -64,10 +73,12 @@
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 50%;
+    height: 50%;
     gap: 41px;
     position: absolute;
-    top: 204px;
-    left: 911px;
+    top: 10rem;
+    right: 5rem;
   }
 
   .frame .partner-with-a {
@@ -96,35 +107,31 @@
   .frame .div-3 {
     display: flex;
     flex-wrap: wrap;
-    width: 506px;
+    width: 35rem;
     align-items: flex-start;
-    gap: 50px 15px;
-    position: relative;
-    flex: 0 0 auto;
+    gap: 1rem 4rem;
+    .text-wrapper-2 {
+      width: 228px;
+      margin-top: -1px;
+      font-family: "Segoe ui", Helvetica;
+      font-weight: 400;
+      color: #ffffff;
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+    .text-wrapper-3 {
+      width: 228px;
+      font-family: "Segoe UI", Helvetica;
+      font-weight: 400;
+      color: #919191;
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
   }
 
-  .frame .text-wrapper-2 {
-    position: relative;
-    width: 228px;
-    margin-top: -1px;
-    font-family: "Segoe ui", Helvetica;
-    font-weight: 400;
-    color: #ffffff;
-    font-size: 16px;
-    letter-spacing: 0;
-    line-height: normal;
-  }
 
-  .frame .text-wrapper-3 {
-    position: relative;
-    width: 228px;
-    font-family: "Segoe UI", Helvetica;
-    font-weight: 400;
-    color: #919191;
-    font-size: 16px;
-    letter-spacing: 0;
-    line-height: normal;
-  }
 
   .frame .div-4 {
     display: inline-flex;
@@ -136,14 +143,17 @@
 
   .frame .artboard {
     position: relative;
-    width: 582px;
-    height: 548px;
+    width: 520px;
+    height: 520px;
+    bottom: 0.5rem;
+    left: -2rem;
   }
 
   .frame .WEB-GEOODESICS {
     position: relative;
+    bottom: 1rem;
+    left: -4rem;
     width: fit-content;
-    text-shadow: -5px 10px 10px #0000004c;
     font-family: "Stretch Pro", Helvetica;
     font-weight: 400;
     color: #ffffff;

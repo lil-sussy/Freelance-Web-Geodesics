@@ -12,11 +12,11 @@
 
 @font-face {
   font-family: 'stretch pro';
-  src: url('../lib/fonts/StretchPro.otf') format('otf');
+  src: url('src/lib/fonts/StretchPro.otf') format('opentype');
 }
 @font-face {
   font-family: 'segoe script';
-  src: url('../lib/fonts/segoes.ttf') format('ttf');
+  src: url('src/lib/fonts/segoes.ttf') format('truetype');
 }
 
 

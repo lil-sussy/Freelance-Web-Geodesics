@@ -16,17 +16,26 @@
     align-items: flex-start;
     gap: 385px 4px;
     position: absolute;
-    top: 3rem;
+    top: 2rem;
     left: 0px;
+    .selected::before {
+      content: "";
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #ffffff;
+      background-color: #ffffff!important;
+    }
   }
   .item {
     position: relative;
     width: fit-content;
-    margin-top: -1px;
     font-family: "Segoe UI", Helvetica;
     font-weight: 300;
     color: #ffffff;
-    font-size: 24px;
+    font-size: 1rem;
     letter-spacing: 0;
     line-height: normal;
   }
@@ -39,15 +48,7 @@
   .selected {
     color: #ffffff;
     font-weight: 700;
-  }
-
-  .selected::before {
-    content: "";
-    position: absolute;
-    top: 2rem;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #ffffff;
+    position: relative;
+    text-decoration: underline;
   }
 </style>
