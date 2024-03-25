@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import logo from '$lib/images/webgeodesicslogo.svg';
+  import arrow from '$lib/images/arrow.svg';
 </script>
 
 
@@ -19,12 +20,25 @@
     <div class="text-wrapper-3">BORN IN PARIS</div>
   </div>
 </div>
+<img class="arrow" src={arrow} alt=""/>
 <div class="div-4">
   <img class="artboard" src={logo} alt=""/>
   <div class="WEB-GEOODESICS">WEB<br />GEOODESICS</div>
 </div>
 
 <style lang="scss">
+  .arrow {
+    position: absolute;
+    transform: rotate(90deg);
+    bottom: 5rem;
+    right: 5rem;
+    width: 10rem;
+    height: 10rem;
+  }
+  .arrow:hover {
+    cursor: pointer;
+  
+  }
   .div-2 {
     display: inline-flex;
     flex-direction: column;
