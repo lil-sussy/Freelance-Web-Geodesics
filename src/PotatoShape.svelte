@@ -1,14 +1,17 @@
-<script lang="ts">
-  import { interpolatePath } from 'd3-interpolate-path';
-  import { tweened } from 'svelte/motion';
-  import { cubicInOut } from 'svelte/easing';
-  import { onMount } from 'svelte';
-  interface PotatoShapeList {
+<script lang="ts" context="module">
+  export type PotatoShapeList = {
     [key: number]: {
       startPath: string;
       endPath: string;
     }
   }
+</script>
+
+<script lang="ts">
+  import { interpolatePath } from 'd3-interpolate-path';
+  import { tweened } from 'svelte/motion';
+  import { cubicInOut } from 'svelte/easing';
+  import { onMount } from 'svelte';
 
   export let potato: PotatoShapeList;
   export let duration: number;
