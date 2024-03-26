@@ -27,20 +27,29 @@
     box-sizing: border-box;
     top: 0px;
     left: 0px;
-    background: transparent;
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      black 25%,  /* Start of the blur */
-      rgba(0, 0, 0, 0.5) 50%,  /* End of the constant blur section */
-      transparent 100%/* Begin to fade out to no blur */
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      black 25%,  /* Start of the blur */
-      rgba(0, 0, 0, 0.5) 50%,  /* End of the constant blur section */
-      transparent 100%/* Begin to fade out to no blur */
-    );
-    backdrop-filter: blur(30px);
+    ::before {
+      width: 100%;
+      height: 100%;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background: transparent;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 25%,  /* Start of the blur */
+        rgba(0, 0, 0, 0.5) 50%,  /* End of the constant blur section */
+        transparent 100%/* Begin to fade out to no blur */
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        black 25%,  /* Start of the blur */
+        rgba(0, 0, 0, 0.5) 50%,  /* End of the constant blur section */
+        transparent 100%/* Begin to fade out to no blur */
+      );
+      backdrop-filter: blur(30px);
+    }
     .logo-items {
       align-self: flex-start;
     }
