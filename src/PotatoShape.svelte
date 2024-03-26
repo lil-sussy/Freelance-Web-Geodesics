@@ -15,11 +15,18 @@
 
   export let potato: PotatoShapeList;
   export let duration: number;
-  export let key: number;
+  export let advancement: number;
   export let width: number;
   export let height: number;
   
+  
+  // Convert with transtion time of 1s the potato from previous startPath to next startPath with value of transition equal to advancement
+  let key = Math.floor(advancement);
+  
+
   const pathInterpolator = interpolatePath(potato[key].startPath, potato[key].endPath);
+  const pathInterpolatorTransitionForward = interpolatePath(potato[key].startPath, potato[key+1]?.startPath);
+  const pathInterpolatorTransitionBackward = interpolatePath(potato[key].startPath, potato[key-1]?.startPath);
 
   const progress = tweened(0, {
     duration: duration,
@@ -31,7 +38,21 @@
 
   // Animate the interpolation
   $: $progress, interpolatedPath = pathInterpolator($progress);
-  // $: console.log($progress);
+
+  // Animate the transition
+  $: if (advancement > key) {
+    $progress, interpolatedPath = pathInterpolatorTransitionForward(advancement - key);
+  } else if (advancement < key) {
+    $progress, interpolatedPath = pathInterpolatorTransitionBackward(1 - (key - advancement));
+  }
+
+  // Restart the animation once it completes
+  $: if ($progress >= 1) {
+    progress.set(0); // Reset progress to start the animation again
+  }
+  $: if ($progress <= 0) {
+    progress.set(1); // Reset progress to start the animation again
+  }
 
   // Restart the animation once it completes
   $: if ($progress >= 1) {

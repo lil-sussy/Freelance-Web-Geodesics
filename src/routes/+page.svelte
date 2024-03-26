@@ -10,23 +10,28 @@
   import SelectionPage from './SelectionPage.svelte';
   import HomePage from './HomePage.svelte';
 
+  let p = 0; // Progress value
+
   onMount(() => {
     const section1 = document.getElementById('section1');
     const section2 = document.getElementById('section2');
-  
+    
     window.addEventListener('scroll', () => {
-      const section1Bottom = section1!.offsetTop + section1!.offsetHeight;
+      const scrollPosition = window.scrollY + window.innerHeight; // Adjusted to consider the viewport height
+      const section1Top = section1!.offsetTop;
       const section2Bottom = section2!.offsetTop + section2!.offsetHeight;
-      const scrollPosition = window.scrollY + window.innerHeight;
-      
-      let p = 0;
-      if (scrollPosition > section1Bottom && scrollPosition < section2Bottom) {
-        // Calculate progress between section1Bottom and section2Bottom
-        p = (scrollPosition - section1Bottom) / (section2Bottom - section1Bottom);
+
+      // Calculate the scroll progress between the bottom of section 1 and the bottom of section 2
+      if (scrollPosition > section1Top && scrollPosition < section2Bottom) {
+        const progressInRange = scrollPosition - section1Top;
+        const totalRange = section2Bottom - section1Top;
+        p = Math.min(Math.max((progressInRange / totalRange -0.5)*2, 0), 1);
+      } else if (scrollPosition <= section1Top) {
+        p = 0; // User hasn't reached section 1 bottom
       } else if (scrollPosition >= section2Bottom) {
-        p = 1;
+        p = 1; // User has scrolled past section 2 bottom
       }
-      console.log(p); // Use this progress value as needed
+      // console.log(p);
     });
   });
 </script>
@@ -38,7 +43,7 @@
 
 <div class="frame">
   <div class="div">
-    <Background />
+    <Background advancement={p}/>
     <div class="content" id="section1">
       <HomePage />
     </div>
@@ -67,9 +72,7 @@
   }
 
   .div {
-    overflow-x: hidden;
     width: 100%;
-    height: 100%;
     position: relative;
   }
 </style>
