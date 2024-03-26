@@ -1,6 +1,6 @@
 <script lang="ts">
   import PotatoShape from './PotatoShape.svelte';
-import type { PotatoShapeList } from './PotatoShape.svelte';
+  import type { PotatoShapeList } from './PotatoShape.svelte';
 
   const potato1: PotatoShapeList = {
     1: {
@@ -25,7 +25,7 @@ import type { PotatoShapeList } from './PotatoShape.svelte';
 
 <style lang='scss'>
   .background {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -33,9 +33,6 @@ import type { PotatoShapeList } from './PotatoShape.svelte';
     filter: blur(200px);
     width: 100vw;
     height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
   }
   :global(svg) {
     fill: #6790F9;

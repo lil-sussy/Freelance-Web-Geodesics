@@ -16,13 +16,31 @@
 <style lang="scss">
   .navbar {
     display: flex;
+    z-index: 10;
     justify-content: space-between;
     width: 100%;
     align-items: flex-start;
     gap: 385px 4px;
-    position: absolute;
-    top: 2rem;
+    position: fixed;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    top: 0px;
     left: 0px;
+    background: transparent;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 25%,  /* Start of the blur */
+      rgba(0, 0, 0, 0.5) 50%,  /* End of the constant blur section */
+      transparent 100%/* Begin to fade out to no blur */
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      black 25%,  /* Start of the blur */
+      rgba(0, 0, 0, 0.5) 50%,  /* End of the constant blur section */
+      transparent 100%/* Begin to fade out to no blur */
+    );
+    backdrop-filter: blur(30px);
     .logo-items {
       align-self: flex-start;
     }
@@ -33,16 +51,16 @@
       width: 4rem;
       height: 4rem;
     }
-    .selected::before {
-      content: "";
-      position: absolute;
-      top: 2rem;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: #ffffff;
-      background-color: #ffffff!important;
-    }
+    // .selected::before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 2rem;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 1px;
+    //   background: #ffffff;
+    //   background-color: #ffffff!important;
+    // }
   }
   .item {
     position: relative;
