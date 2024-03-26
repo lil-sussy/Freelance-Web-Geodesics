@@ -84,12 +84,12 @@
     margin-top: 2%;
   }
   :global(#section2):has(.data-analyst:hover) {
-    .webdevcontainer {
-      transform: translateY(-15rem);
-    }
-    .title {
-      transform: translateY(-15rem);
-    }
+    // .webdevcontainer {
+    //   transform: translateY(-15rem);
+    // }
+    // .title {
+    //   transform: translateY(-15rem);
+    // }
   }
   // .data-analyst:hover ~ .webdev {
   //   height: 10%;
