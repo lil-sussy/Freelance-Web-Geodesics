@@ -64,8 +64,7 @@
   // Restart the animation once it completes
   $: if ($progress >= 1) {
     progress.set(0); // Reset progress to start the animation again
-  }
-  $: if ($progress <= 0) {
+  } else if ($progress <= 0) {
     progress.set(1); // Reset progress to start the animation again
   }
 </script>
@@ -85,5 +84,12 @@
     position: absolute;
     fill-opacity: 0.4;
     animation: movePotato 5s infinite; /* Adjust time for speed */
+  }
+  @keyframes movePotato {
+    0% { transform: translate(0px, 0px); }
+    25% { transform: translate(10px, -20px); }
+    50% { transform: translate(20px, 0px); }
+    75% { transform: translate(10px, 20px); }
+    100% { transform: translate(0px, 0px); }
   }
 </style>
