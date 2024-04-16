@@ -40,7 +40,7 @@
   }
   .navbar {
     display: flex;
-    z-index: 10;
+    z-index: 20;
     justify-content: space-between;
     width: 100%;
     align-items: flex-start;
@@ -51,6 +51,7 @@
     top: 0;
     left: 0;
     box-sizing: border-box;
+    backdrop-filter: blur(200px);
 
     .logo-items {
       align-self: flex-start;
@@ -99,12 +100,13 @@
       height: 72px;
       padding: 0 11px;
       display: flex;
-      z-index: 10;
+      z-index: 20;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       position: fixed;
       top: 0;
+      backdrop-filter: blur(200px);
       
       .NavbarContainer {
         display: flex;
