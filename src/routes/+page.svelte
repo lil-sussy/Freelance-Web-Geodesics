@@ -9,12 +9,20 @@
   import Background from '../Background.svelte';
   import SelectionPage from './SelectionPage.svelte';
   import HomePage from './HomePage.svelte';
+  import Header from './Header.svelte';
+	import DescriptionPage from './DescriptionPage.svelte';
+	import PortfolioSection from './PortfolioSection.svelte';
+	import ThirdHeader from './ThirdHeader.svelte';
+	import SecondHeader from './SecondHeader.svelte';
+	import PricingSection from './PricingSection.svelte';
+	import FeaturesSection from './FeaturesSection.svelte';
 
   let p = 0; // Progress value
 
   onMount(() => {
     const section1 = document.getElementById('section1');
     const section2 = document.getElementById('section2');
+    const section3 = document.getElementById('section3');
     
     window.addEventListener('scroll', () => {
       const scrollPosition = window.scrollY + window.innerHeight; // Adjusted to consider the viewport height
@@ -45,11 +53,26 @@
   <div class="div">
     <Background advancement={p}/>
     <div class="content" id="section1">
-      <HomePage />
+      <Header />
     </div>
-    <div class="content" id="section2">
-      <SelectionPage />
+    <!-- <div class="content" id="section2">
+      <SecondHeader />
     </div>
+    <div class="content" id="section3">
+      <ThirdHeader />
+    </div>
+    <div class="content" id="section3">
+      <FeaturesSection />
+    </div>
+    <div class="content" id="section3">
+      <PortfolioSection />
+    </div>
+    <div class="content" id="section3">
+      <PricingSection />
+    </div>
+    <div class="content" id="section3">
+      <PortfolioSection />
+    </div> -->
     <Navbar />
   </div>
 </div>

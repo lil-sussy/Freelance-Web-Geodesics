@@ -1,0 +1,207 @@
+<script>
+  // Svelte component script block
+  import logo from '$lib/images/webgeodesicslogo.svg';
+  import arrow from '$lib/images/arrow.svg';
+	import Button from '../Button.svelte';
+	import Arrow from '../Arrow.svelte';
+</script>
+
+<div class="Header">
+  <div class="Content">
+    <div class="Space"></div>
+    <div class="ContentContainer">
+      <div class="MediumLengthHeroHeadlineGoesHere">
+        Transformer les idées en sites web sublimes
+      </div>
+      <div class="LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat">
+        <span>Partenaire </span>
+        <span class="creative">créatif</span>
+        <span> en conception web, réalisez une présence en ligne pour votre marque aussi </span>
+        <span class="innovative">innovante</span>
+        <span> que votre vision.</span>
+      </div>
+      <div class="Actions">
+        <Button style={"primary"}>Contact</Button>
+        <Button style={"secondary"}>Voir mon travail</Button>
+      </div>
+    </div>
+  </div>
+  <div class="Logos">
+    <img src={logo} class="artboard" alt="web geodesics logo" />
+    <div class="WebGeodesics">WEB<br/>GEODESICS</div>
+    <div class="arrow">
+      <Arrow />
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .artboard {
+    width: 25rem;
+    height: 25rem;
+  }
+  .Header {
+    width: 100vw;
+    height: 100vh;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1px;
+    display: inline-flex;
+  }
+
+  .Content, .ContentContainer {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: inline-flex;
+  }
+
+  .Space {
+    flex: 1 1 0;
+  }
+
+  .ContentContainer {
+    width: 850px;
+    padding-left: 74px;
+    padding-right: 74px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .MediumLengthHeroHeadlineGoesHere {
+    color: white;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    line-height: 44px;
+    word-wrap: break-word;
+  }
+
+  .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
+    color: white;
+    font-size: 24px;
+    font-family: 'Acme', sans-serif;
+    font-weight: 400;
+    line-height: 33.60px;
+    word-wrap: break-word;
+
+    span.creative, span.innovative {
+      color: #FBFF30;
+      font-family: 'Segoe Script', cursive;
+      font-weight: 700;
+    }
+  }
+
+  .Actions {
+    padding-top: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    display: inline-flex;
+  }
+
+  .Logos {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .WebGeodesics {
+    color: white;
+    font-size: 64px;
+    font-family: 'Stretch Pro', sans-serif;
+    font-weight: 400;
+    line-height: 64px;
+    word-wrap: break-word;
+  }
+
+  @media (max-width: 1322px) {
+    .Header {
+      padding-top: 20%;
+    }
+    .arrow {
+      display: none;
+    }
+    .Logos {
+      margin-top: 3rem;
+      .WebGeodesics {
+        font-size: 48px;
+        line-height: 48px;
+      }
+      .artboard {
+        width: 15rem;
+        height: 15rem;
+      }
+    }
+  }
+  @media (max-width: 700px) {
+    .Header {
+      padding-left: 3%;
+      padding-right: 3%;
+      .ContentContainer {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+    
+      }
+    }
+    .Logos {
+      margin-top: 0rem;
+      .WebGeodesics {
+        font-size: 26px;
+        line-height: 26px;
+      }
+      .artboard {
+        width: 10rem;
+        height: 10rem;
+      }
+    }
+  }
+
+  // Mobile styles (max-width)
+  @media (max-width: 450px) {
+    .Header {
+      padding-top: 30%;
+      width: 100vw;
+      height: 100vh;
+      gap: 50px;
+      padding-left: 1%;
+      padding-right: 1%;
+      .ContentContainer {
+        width: 100%;
+        padding-left: 1%;
+        padding-right: 1%;
+    
+      }
+    }
+
+    .Content, .ContentContainer {
+      gap: 30px;
+    }
+
+    .MediumLengthHeroHeadlineGoesHere {
+      font-size: 32px;
+      line-height: 35.20px;
+    }
+
+    .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
+      font-size: 20px;
+      line-height: 26px;
+    }
+    .Logos {
+      .artboard {
+        width: 8rem;
+        height: 8rem;
+      }
+      .WebGeodesics {
+        font-size: 24px;
+        line-height: 18px;
+      }
+    }
+  }
+</style>
