@@ -51,10 +51,11 @@
 
 <div class="frame">
   <div class="div">
-    <Background advancement={p}/>
     <div class="content" id="section1">
       <Header />
     </div>
+    <Background advancement={p}/>
+    <Navbar />
     <!-- <div class="content" id="section2">
       <SecondHeader />
     </div>
@@ -73,7 +74,6 @@
     <div class="content" id="section3">
       <PortfolioSection />
     </div> -->
-    <Navbar />
   </div>
 </div>
 

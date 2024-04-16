@@ -1,5 +1,6 @@
 <script lang="ts">
   import logo from '$lib/images/webgeodesicslogo.svg'; // Ensure the path is correct for your project
+	import Button from './Button.svelte';
 </script>
 
 <!-- Desktop Navbar -->
@@ -8,8 +9,9 @@
     <img class="logo" src={logo} alt="Web Geodesics Logo" />
   </div>
   <div class="item selected">YAN REGOJO</div>
-  <div class="item">PLAYBOOK</div>
-  <div class="item">SOCIALS</div>
+  <div class="item">PORTFOLIO</div>
+  <div class="item">SERVICES</div>
+  <!-- <div class="item">ABOUT ME</div> -->
   <div class="item">CONTACT</div>
   <div class="rectangle"></div>
 </div>
@@ -23,21 +25,19 @@
       <div class="Rectangle40"></div>
     </div>
     <div class="LogoMiddleForPhone">
-      <div class="Artboard31">
-        <div class="Vector" id="vector1"></div>
-        <div class="Vector" id="vector2"></div>
-      </div>
+      <img class="artboard" src={logo} alt="Web Geodesics Logo" />
       <div class="WebGeodesics">WEB<br/>GEODESICS</div>
     </div>
     <div class="Actions">
-      <div class="StylePrimarySmallTrueDarkModeFalseIconPositionNoIcon">
-        <div class="Button">Contact</div>
-      </div>
+      <Button style="primary">Contact</Button>
     </div>
   </div>
 </div>
 
 <style lang="scss">
+  .Navbar {
+    display: none;
+  }
   .navbar {
     display: flex;
     z-index: 10;
@@ -95,22 +95,26 @@
     }
 
     .Navbar {
-      width: 375px;
+      width: 100vw;
       height: 72px;
       padding: 0 11px;
       display: flex;
+      z-index: 10;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: fixed;
+      top: 0;
       
       .NavbarContainer {
         display: flex;
-        justify-content: center;
+        width: 100%;
+        justify-content: space-between;
         align-items: center;
-        gap: 33px;
       }
 
       .BurgerMenu {
+        padding-left: 3%;
         flex-direction: column;
         gap: 6px;
         display: flex;
@@ -128,35 +132,16 @@
         justify-content: center;
         align-items: center;
 
-        .Artboard31 {
+        .artboard {
           position: relative;
           width: 48.28px;
           height: 40.40px;
           transform: rotate(0.74deg);
-
-          .Vector {
-            position: absolute;
-            background: white;
-
-            &#vector1 {
-              width: 19.26px;
-              height: 13.16px;
-              left: 9.22px;
-              top: 13.02px;
-            }
-
-            &#vector2 {
-              width: 15.06px;
-              height: 13.64px;
-              left: 23.47px;
-              top: 12.81px;
-            }
-          }
         }
 
         .WebGeodesics {
-          font-size: 12px;
-          line-height: 12px;
+          font-size: 10px;
+          line-height: 10px;
           font-family: 'Stretch Pro', sans-serif;
           font-weight: 400;
           color: white;
@@ -168,24 +153,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        .StylePrimarySmallTrueDarkModeFalseIconPositionNoIcon {
-          display: flex;
-          padding: 6px 16px;
-          justify-content: center;
-          align-items: center;
-          gap: 8px;
-          border: 1px solid rgba(255, 255, 255, 0.50);
-          backdrop-filter: blur(300px);
-
-          .Button {
-            font-size: 14px;
-            line-height: 21px;
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: 400;
-            color: white;
-          }
-        }
       }
     }
   }
