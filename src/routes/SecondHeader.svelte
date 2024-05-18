@@ -26,7 +26,7 @@
   .SecondHeader {
     width: 100vw;
     height: 880px;
-    padding: 112px 64px;
+    padding: 10% 10%;
     display: inline-flex;
     flex-direction: column;
     justify-content: flex-start;
