@@ -46,8 +46,7 @@
     align-items: flex-start;
     gap: 385px 4px;
     position: fixed;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding: 1rem 0;
     top: 0;
     left: 0;
     box-sizing: border-box;
@@ -60,8 +59,9 @@
         position: relative;
         top: -1.2rem;
         left: 2rem;
-        width: 4rem;
-        height: 4rem;
+        width: 2rem;
+        height: 2rem;
+        transform: scale(2) translateY(0.5rem);
       }
     }
 
