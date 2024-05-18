@@ -1,123 +1,135 @@
-<!-- ThirdHeader.svelte -->
 <script>
-  // You can handle component logic here
+  // Import the Button component
+  import Button from '../Button.svelte';
+  import bentoAsset from '$lib/images/assets upstanding.png'
 </script>
 
 <div class="ThirdHeader">
   <div class="Container">
     <div class="ImageContainer">
-      <img class="BentoAsset" src="https://via.placeholder.com/304x619" alt="Placeholder Image" />
+      <img class="BentoAsset" src={bentoAsset} alt="Header dImage" />
     </div>
-    <div class="ContentContainer">
+    <div class="Container">
       <div class="Content">
         <div class="Heading">Faites concevoir votre site web par des professionnels</div>
         <div class="Text">Mon agence est spécialisée dans la création de sites web de haute qualité pour les propriétaires de petites entreprises. Grâce à mon expertise et mon souci du détail, je garantie un site non seulement esthétiquement attrayant, mais aussi facile à utiliser et optimisé pour les moteurs de recherche.</div>
       </div>
       <div class="Actions">
-        <div class="ButtonContainer primary">
-          <div class="Button">Contactez-moi</div>
-        </div>
-        <div class="ButtonContainer secondary">
-          <div class="Button">Voir mon travail</div>
-        </div>
+        <Button style="primary">Contactez-moi</Button>
+        <Button style="secondary">Voir mon travail</Button>
       </div>
     </div>
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .ThirdHeader {
-    width: 1440px;
+    width: 100vw;
     height: 843px;
     padding: 112px 64px;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
-    align-items: center;
     justify-content: flex-start;
+    align-items: center;
     gap: 80px;
+
+    .Container {
+      align-self: stretch;
+      display: inline-flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 80px;
+
+      .ImageContainer {
+        height: 619px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        .BentoAsset {
+          width: 304px;
+          height: 619px;
+        }
+      }
+
+      .Content {
+        flex: 1 1 0;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 24px;
+
+        .Heading {
+          align-self: stretch;
+          color: white;
+          font-size: 48px;
+          font-family: Poppins, sans-serif;
+          font-weight: 700;
+          line-height: 57.60px;
+          word-wrap: break-word;
+        }
+
+        .Text {
+          align-self: stretch;
+          color: white;
+          font-size: 18px;
+          font-family: Acme, sans-serif;
+          font-weight: 400;
+          line-height: 27px;
+          word-wrap: break-word;
+        }
+      }
+    }
   }
 
-  .Container {
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 80px;
-  }
+  @media (max-width: 767px) {
+    .ThirdHeader {
+      width: 100vw;
+      height: 778px;
+      padding: 28px 22px;
+      gap: 80px;
 
-  .ImageContainer {
-    height: 619px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
+      .Container {
+        height: 722px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 22px;
 
-  .ContentContainer {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
+        .ImageContainer {
+          align-self: stretch;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
 
-  .Content {
-    align-self: stretch;
-    height: 221px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
+          .BentoAsset {
+            width: 117px;
+            height: 255px;
+          }
+        }
 
-  .Heading {
-    color: white;
-    font-size: 48px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    line-height: 57.60px;
-    word-wrap: break-word;
-  }
+        .Content {
+          align-self: stretch;
+          height: 269px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 14px;
 
-  .Text {
-    color: white;
-    font-size: 18px;
-    font-family: 'Acme', sans-serif;
-    font-weight: 400;
-    line-height: 27px;
-    word-wrap: break-word;
-  }
+          .Heading {
+            font-size: 24px;
+            line-height: 28.80px;
+          }
 
-  .Actions {
-    padding-top: 16px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 16px;
-  }
-
-  .ButtonContainer {
-    padding: 12px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .ButtonContainer.primary {
-    background: rgba(255, 255, 255, 0.20);
-    backdrop-filter: blur(200px);
-  }
-
-  .ButtonContainer.secondary {
-    border: 1px solid rgba(255, 255, 255, 0.20);
-  }
-
-  .Button {
-    color: white;
-    font-size: 16px;
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 24px;
-    word-wrap: break-word;
+          .Text {
+            font-size: 12px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
   }
 </style>

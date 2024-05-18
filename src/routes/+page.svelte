@@ -59,10 +59,10 @@
     <div class="content" id="section2">
       <SecondHeader />
     </div>
-    <!-- <div class="content" id="section3">
+    <div class="content" id="section3">
       <ThirdHeader />
     </div>
-    <div class="content" id="section3">
+    <!-- <div class="content" id="section3">
       <FeaturesSection />
     </div>
     <div class="content" id="section3">
