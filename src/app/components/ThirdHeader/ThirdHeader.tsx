@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "../Button/Button";
-import bentoAsset from "./assets_upstanding.png"; // Ensure the path is correct for your project
 import styles from "./ThirdHeader.module.scss";
 
 const ThirdHeader = () => {
@@ -8,7 +7,7 @@ const ThirdHeader = () => {
 		<div className={styles.ThirdHeader}>
 			<div className={styles.Container}>
 				<div className={styles.ImageContainer}>
-					<img className={styles.BentoAsset} src={bentoAsset} alt="Header Image" />
+					<img className={styles.BentoAsset} src={"images/assets_upstanding.png"} alt="Header Image" />
 				</div>
 				<div className={styles.ContainerInner}>
 					<div className={styles.Content}>

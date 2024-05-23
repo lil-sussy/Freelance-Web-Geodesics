@@ -1,5 +1,4 @@
 import React from "react";
-import board from "./assets_cute_board.png"; // Ensure the path is correct for your project
 import Button from "../Button/Button";
 import styles from "./SecondHeader.module.scss";
 
@@ -19,7 +18,7 @@ const SecondHeader = () => {
 						</div>
 					</div>
 				</div>
-				<img className={styles.BoardAsset} src={board} alt="Board Image" />
+				<img className={styles.BoardAsset} src={"./images/assets_cute_board.png"} alt="Board Image" />
 			</div>
 		</div>
 	);

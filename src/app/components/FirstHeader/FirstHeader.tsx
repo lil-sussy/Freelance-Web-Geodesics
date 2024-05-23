@@ -1,6 +1,4 @@
 import React from "react";
-import logo from "./webgeodesicslogo.svg";
-import arrow from "./images/arrow.svg";
 import Button from "../Button/Button";
 import { Arrow } from "../Icons";
 import styles from "./FirstHeader.module.scss";
@@ -26,7 +24,7 @@ const FirstHeader = () => {
 				</div>
 			</div>
 			<div className={styles.Logos}>
-				<img src={logo} className={styles.artboard} alt="web geodesics logo" />
+				<img src={"./images/webgeodesicslogo.svg"} className={styles.artboard} alt="web geodesics logo" />
 				<div className={styles.WebGeodesics}>
 					WEB
 					<br />

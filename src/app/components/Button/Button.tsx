@@ -3,8 +3,8 @@ import { Button as NextUIButton } from "@nextui-org/react";
 import PropTypes from "prop-types";
 import styles from "./Button.module.scss";
 
-const Button = ({ style, children }: { style: "primary" | "" | ""; children: React.ReactNode }) => {
-	return <NextUIButton className={styles[style]}>{children}</NextUIButton>;
+const Button = ({ style, children }: { style: "primary" | "secondary" | "tertiary"; children: React.ReactNode }) => {
+	return <NextUIButton className={""}>{children}</NextUIButton>;
 };
 
 Button.propTypes = {
