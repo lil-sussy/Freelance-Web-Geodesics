@@ -36,7 +36,7 @@
     .Container {
       align-self: stretch;
       display: inline-flex;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       gap: 80px;
 
@@ -46,41 +46,55 @@
         justify-content: center;
         align-items: center;
         gap: 10px;
-
+        
         .BentoAsset {
           width: 304px;
           height: 619px;
         }
       }
-
-      .Content {
-        flex: 1 1 0;
-        display: inline-flex;
+      .Container {
+        width: 80%;
+        max-width: 50rem;
+        gap: 20px;
+        display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: flex-start;
-        gap: 24px;
-
-        .Heading {
-          align-self: stretch;
-          color: white;
-          font-size: 48px;
-          font-family: Poppins, sans-serif;
-          font-weight: 700;
-          line-height: 57.60px;
-          word-wrap: break-word;
+        .Content {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 24px;
+  
+          .Heading {
+            align-self: stretch;
+            color: white;
+            font-size: 48px;
+            font-family: Poppins, sans-serif;
+            font-weight: 700;
+            line-height: 57.60px;
+            word-wrap: break-word;
+          }
+  
+          .Text {
+            align-self: stretch;
+            color: white;
+            font-size: 18px;
+            font-family: Acme, sans-serif;
+            font-weight: 400;
+            line-height: 27px;
+            word-wrap: break-word;
+          }
         }
-
-        .Text {
-          align-self: stretch;
-          color: white;
-          font-size: 18px;
-          font-family: Acme, sans-serif;
-          font-weight: 400;
-          line-height: 27px;
-          word-wrap: break-word;
+        .Actions {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 20px;
         }
       }
+      
     }
   }
 
