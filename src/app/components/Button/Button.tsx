@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import styles from "./Button.module.scss";
 
 const Button = ({ style, children }: { style: "primary" | "secondary" | "tertiary"; children: React.ReactNode }) => {
-	return <NextUIButton className={""}>{children}</NextUIButton>;
+	return <div className={`${styles[style]} ${styles.Button}`}>{children}</div>;
 };
 
 Button.propTypes = {
