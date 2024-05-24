@@ -103,6 +103,29 @@
   }
 }
 
+@media (max-width: 818px) {
+  .Header {
+    .Content {
+      .Space { }
+      .ContentContainer {
+        .MediumLengthHeroHeadlineGoesHere { }
+        .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
+          .creative { }
+          .innovative { }
+        }
+        .Actions { }
+      }
+    }
+    .Logos {
+      transform: translateX(-3rem);
+      .artboard { }
+      .WebGeodesics { }
+      .arrow { }
+    }
+  }
+}
+
+
 @media (max-width: 700px) {
   .Header {
     padding-left: 3%;
@@ -112,16 +135,17 @@
       padding-left: 5%;
       padding-right: 5%;
     }
-  }
-  .Logos {
-    margin-top: 0rem;
-    .WebGeodesics {
-      font-size: 26px;
-      line-height: 26px;
-    }
-    .artboard {
-      width: 10rem;
-      height: 10rem;
+    .Logos {
+      transform: translateX(0rem);
+      margin-top: 0rem;
+      .WebGeodesics {
+        font-size: 26px;
+        line-height: 26px;
+      }
+      .artboard {
+        width: 10rem;
+        height: 10rem;
+      }
     }
   }
 }
@@ -163,28 +187,6 @@
     .WebGeodesics {
       font-size: 24px;
       line-height: 18px;
-    }
-  }
-}
-
-// Media query for 1080px screens
-@media (max-width: 1080px) {
-  .Header {
-    .Content {
-      .Space { }
-      .ContentContainer {
-        .MediumLengthHeroHeadlineGoesHere { }
-        .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
-          .creative { }
-          .innovative { }
-        }
-        .Actions { }
-      }
-    }
-    .Logos {
-      .artboard { }
-      .WebGeodesics { }
-      .arrow { }
     }
   }
 }
