@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import PotatoShape from "./PotatoShape"; // Ensure the path is correct for your project
+import type { PotatoShapeList } from "./PotatoShape"
 import styles from "./Background.module.scss";
 
 const Background = ({ advancement }: { advancement: number }) => {
-	const potato1 = {
+	const potato1: PotatoShapeList = {
 		0: {
 			color: "#6790F9",
 			top: "5rem",
@@ -24,7 +25,7 @@ const Background = ({ advancement }: { advancement: number }) => {
 		},
 	};
 
-	const potato2 = {
+	const potato2: PotatoShapeList = {
 		0: {
 			color: "#6790F9",
 			bottom: "0rem",
@@ -43,7 +44,7 @@ const Background = ({ advancement }: { advancement: number }) => {
 		},
 	};
 
-	const potato3 = {
+	const potato3: PotatoShapeList = {
 		0: {
 			color: "#6790F9",
 			bottom: "0rem",
@@ -62,7 +63,7 @@ const Background = ({ advancement }: { advancement: number }) => {
 		},
 	};
 
-	const potato4 = {
+	const potato4: PotatoShapeList = {
 		0: {
 			color: "#6790F9",
 			bottom: "0rem",
