@@ -1,12 +1,28 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover" data-theme="skeleton">
-		<div style="display: contents">%sveltekit.body%</div>
-	</body>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%sveltekit.assets%/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  %sveltekit.head%
+  
+  <!-- Global Meta Tags -->
+  <meta name="author" content="Yan Regojo" />
+  <meta name="keywords" content="Web designer, Paris, Web developer, full-stack developer, Data Analysis, Analyse de donnees, AI Agents, Yan Regojo, web-geodesics, AI research, data research, data engineer, software engineer, AI engineer" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DFMX68CNV4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DFMX68CNV4');
+  </script>
+
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="verification_token">
+</head>
+<body data-sveltekit-preload-data="hover" data-theme="skeleton">
+  <div style="display: contents">%sveltekit.body%</div>
+</body>
 </html>

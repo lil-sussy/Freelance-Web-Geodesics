@@ -1,5 +1,5 @@
 <script lang='ts'>
-	import welcome from '$lib/images/svelte-welcome.webp';
+  import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
   import webdeveloper from '$lib/images/webdeveloper.svg';
   import dataananlyt from '$lib/images/dataAnalyst.svg';
@@ -16,6 +16,10 @@
 	import SecondHeader from './SecondHeader.svelte';
 	import PricingSection from './PricingSection.svelte';
 	import FeaturesSection from './FeaturesSection.svelte';
+	import AboutMeSection from './AboutMeSection.svelte';
+
+  export const prerender = true;
+  export let data;
 
   let p = 0; // Progress value
 
@@ -45,8 +49,17 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+  <title>Web Geodesics</title>
+  <meta name="description" content="Welcome to the portfolio of a versatile and passionate tech professional! As a full stack developer and web designer, I craft seamless, user-friendly websites and applications from front-end aesthetics to back-end functionality. Leveraging my expertise in Artificial Intelligence and Natural Language Processing, I create intelligent solutions that enhance user experiences and drive innovation. Additionally, my skills as a data analyst enable me to transform complex data into actionable insights, empowering businesses to make informed decisions. Explore my projects to see how I blend creativity, technical prowess, and data-driven strategies to deliver exceptional results." />
+  <meta property="og:title" content="Web Geodesics AI Developer" />
+  <meta property="og:description" content="Welcome to the portfolio of a versatile and passionate tech professional! As a full stack developer and web designer, I craft seamless, user-friendly websites and applications from front-end aesthetics to back-end functionality. Leveraging my expertise in Artificial Intelligence and Natural Language Processing, I create intelligent solutions that enhance user experiences and drive innovation. Additionally, my skills as a data analyst enable me to transform complex data into actionable insights, empowering businesses to make informed decisions. Explore my projects to see how I blend creativity, technical prowess, and data-driven strategies to deliver exceptional results." />
+  <meta property="og:image" content="/logo.png" />
+  <meta property="og:url" content="https://web-geodesics.com" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="/logo.png" />
+  <meta name="twitter:title" content="Web Geodesics AI Developer" />
+  <meta name="twitter:description" content="Welcome to the portfolio of a versatile and passionate tech professional! As a full stack developer and web designer, I craft seamless, user-friendly websites and applications from front-end aesthetics to back-end functionality. Leveraging my expertise in Artificial Intelligence and Natural Language Processing, I create intelligent solutions that enhance user experiences and drive innovation. Additionally, my skills as a data analyst enable me to transform complex data into actionable insights, empowering businesses to make informed decisions. Explore my projects to see how I blend creativity, technical prowess, and data-driven strategies to deliver exceptional results." />
+  <meta name="twitter:image" content="/logo.png" />
 </svelte:head>
 
 <div class="frame">
@@ -62,18 +75,18 @@
     <div class="content" id="section3">
       <ThirdHeader />
     </div>
-    <!-- <div class="content" id="section3">
+    <div class="content" id="section3">
+      <PortfolioSection />
+    </div>
+    <div class="content" id="section4">
       <FeaturesSection />
     </div>
-    <div class="content" id="section3">
-      <PortfolioSection />
-    </div>
-    <div class="content" id="section3">
+    <div class="content" id="section5">
       <PricingSection />
     </div>
-    <div class="content" id="section3">
-      <PortfolioSection />
-    </div> -->
+    <div class="content" id="section6">
+      <AboutMeSection />
+    </div>
   </div>
 </div>
 
