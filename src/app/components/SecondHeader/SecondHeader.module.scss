@@ -1,6 +1,5 @@
 .SecondHeader {
   width: 100vw;
-  height: 880px;
   padding: 10% 10%;
   display: inline-flex;
   flex-direction: column;
@@ -25,7 +24,6 @@
 
       .ContentContainer {
         align-self: stretch;
-        height: 282px;
         display: flex;
         flex-direction: column;
         gap: 24px;
@@ -102,7 +100,6 @@
 @media (max-width: 750px) {
   .SecondHeader {
     width: 100vw;
-    height: 653px;
     padding: 12px 23px 112px;
     margin-top: -1rem;
     gap: 80px;
@@ -120,19 +117,16 @@
       }
 
       .BoardAsset {
-        height: 40%;
+        height: 300px;
       }
 
       .Content {
-        height: 265px;
         gap: 7px;
 
         .ContentContainer {
-          height: 265px;
           gap: 14px;
 
           .Content {
-            height: 183px;
             gap: 14px;
 
             .Heading {
@@ -158,56 +152,56 @@
   }
 }
 
-@media (max-width: 450px) {
-  .SecondHeader {
-    padding-top: 30%;
-    width: 100vw;
-    height: 100vh;
-    gap: 50px;
-    padding-left: 1%;
-    padding-right: 1%;
+// @media (max-width: 450px) {
+//   .SecondHeader {
+//     padding-top: 30%;
+//     width: 100vw;
+//     height: 100vh;
+//     gap: 50px;
+//     padding-left: 1%;
+//     padding-right: 1%;
 
-    .Container {
-      width: 100%;
-      padding-left: 1%;
-      padding-right: 1%;
-      gap: 30px;
+//     .Container {
+//       width: 100%;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       gap: 30px;
 
-      .Content {
-        .ContentContainer {
-          .Content {
-            .Heading {
-              font-size: 32px;
-              line-height: 35.20px;
-            }
+//       .Content {
+//         .ContentContainer {
+//           .Content {
+//             .Heading {
+//               font-size: 32px;
+//               line-height: 35.20px;
+//             }
 
-            .Text {
-              font-size: 20px;
-              line-height: 26px;
-            }
-          }
+//             .Text {
+//               font-size: 20px;
+//               line-height: 26px;
+//             }
+//           }
 
-          .Actions {
-            .Button {
-              font-size: 12px;
-              line-height: 18px;
-            }
-          }
-        }
-      }
+//           .Actions {
+//             .Button {
+//               font-size: 12px;
+//               line-height: 18px;
+//             }
+//           }
+//         }
+//       }
 
-      .BoardAsset {
-        width: 8rem;
-        height: 8rem;
-      }
+//       .BoardAsset {
+//         width: 8rem;
+//         height: 8rem;
+//       }
 
-      .WebGeodesics {
-        font-size: 24px;
-        line-height: 18px;
-      }
-    }
-  }
-}
+//       .WebGeodesics {
+//         font-size: 24px;
+//         line-height: 18px;
+//       }
+//     }
+//   }
+// }
 
 // Media query for 1080px screens
 @media (max-width: 1080px) {
