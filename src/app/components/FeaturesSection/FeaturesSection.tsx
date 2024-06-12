@@ -12,6 +12,7 @@ const FeaturesSection: React.FC = () => {
 			</div>
 			<div className={styles.featureContainer}>
 				<div className={styles.featureColumn}>
+					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
@@ -22,14 +23,6 @@ const FeaturesSection: React.FC = () => {
 								Automate routine tasks and increase efficiency.
 								<br />
 								Integrate intelligent algorithms that adapt to your business needs.
-							</div>
-						</div>
-						<div className={styles.action}>
-							<div className={styles.linkContainer}>
-								<div className={styles.button}>En savoir plus</div>
-								<div className={styles.iconChevronRight}>
-									<div className={styles.icon}></div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -47,18 +40,10 @@ const FeaturesSection: React.FC = () => {
 								Leverage data visualization to simplify complex information.
 							</div>
 						</div>
-						<div className={styles.action}>
-							<div className={styles.linkContainer}>
-								<div className={styles.button}>En savoir plus</div>
-								<div className={styles.iconChevronRight}>
-									<div className={styles.icon}></div>
-								</div>
-							</div>
-							tsx
-						</div>
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
+					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
@@ -69,14 +54,6 @@ const FeaturesSection: React.FC = () => {
 								Custom websites tailored to engage and captivate your audience.
 								<br />
 								Responsive designs that ensure seamless user experience across all devices.
-							</div>
-						</div>
-						<div className={styles.action}>
-							<div className={styles.linkContainer}>
-								<div className={styles.button}>En savoir plus</div>
-								<div className={styles.iconChevronRight}>
-									<div className={styles.icon}></div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -90,7 +67,6 @@ const FeaturesSection: React.FC = () => {
 					<div className={styles.button}>See my work</div>
 				</div>
 			</div>
-			<img className={styles.cuteSittingImage} src="https://via.placeholder.com/447x447" alt="Cute Sitting" />
 		</div>
 	);
 };

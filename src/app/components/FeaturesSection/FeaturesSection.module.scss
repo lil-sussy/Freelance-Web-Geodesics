@@ -39,12 +39,14 @@ $secondary-color: rgba(255, 255, 255, 0.50);
 
 /* Styles */
 .featuresSection {
-  width: 1440px;
-  height: 1245px;
-  padding: 170px 64px 112px 64px;
-  @include flex-column(flex-start, flex-start, 80px, inline-flex);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10%;
+  @include flex-column(flex-start, flex-start, 30px, inline-flex);
 
   .titleContainer {
+    width: 80%;
+    max-width: 60rem;
     @include flex-column(flex-start, flex-start, 19px);
 
     .mainTitle {
@@ -69,13 +71,17 @@ $secondary-color: rgba(255, 255, 255, 0.50);
   }
 
   .featureContainer {
+    max-width: 1440px;
     align-self: stretch;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: 21px;
+    flex-wrap: wrap;
     display: inline-flex;
 
     .featureColumn {
+      min-width: 18rem;
+      max-width: 24rem;
       flex: 1 1 0;
       align-self: stretch;
       padding: 30px 28px;
@@ -117,39 +123,6 @@ $secondary-color: rgba(255, 255, 255, 0.50);
             word-wrap: break-word;
           }
         }
-
-        .action {
-          align-self: stretch;
-          height: 32px;
-          padding-top: 8px;
-          @include flex-column(flex-start, flex-start, 8px);
-
-          .linkContainer {
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            display: inline-flex;
-
-            .button {
-              @include button-style;
-            }
-
-            .iconChevronRight {
-              width: 24px;
-              height: 24px;
-              position: relative;
-
-              .icon {
-                width: 7.12px;
-                height: 11.41px;
-                left: 8.29px;
-                top: 5.54px;
-                position: absolute;
-                background: $white-color;
-              }
-            }
-          }
-        }
       }
     }
 
@@ -158,7 +131,6 @@ $secondary-color: rgba(255, 255, 255, 0.50);
     }
 
     .featureColumn:nth-child(2) .content {
-      height: 221px;
 
       .sectionTitle {
         height: 165px;
@@ -173,14 +145,27 @@ $secondary-color: rgba(255, 255, 255, 0.50);
       @include placeholder-image(linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%));
     }
 
-    .featureColumn:nth-child(3) .content {
-      height: 244px;
+    .featureColumn:nth-child(1) {
+      .cuteSittingImage {
+        display: none;
+      }
+    }
+    .featureColumn:nth-child(3) {
+      .cuteSittingImage {
+        width: 20rem;
+        left: 8rem;
+        top: -16rem;
+        position: absolute;
+      }
 
-      .sectionTitle {
-        height: 188px;
-
-        .featureDescription {
-          height: 143px;
+      .content {
+  
+        .sectionTitle {
+          height: 188px;
+  
+          .featureDescription {
+            height: 143px;
+          }
         }
       }
     }
@@ -218,39 +203,28 @@ $secondary-color: rgba(255, 255, 255, 0.50);
       }
     }
   }
-
-  .cuteSittingImage {
-    width: 447px;
-    height: 447px;
-    left: 1400px;
-    top: 178px;
-    position: absolute;
-    transform: rotate(180deg);
-    transform-origin: 0 0;
-  }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1568px) {
   .featuresSection {
     .titleContainer {
       .mainTitle {}
       .subTitle {}
     }
     .featureContainer {
+      .featureColumn:nth-child(3) {
+        .cuteSittingImage {
+          width: 15rem;
+          left: 4rem;
+          top: -12rem;
+        }
+      }
       .featureColumn {
         .placeholderImage {}
         .content {
           .sectionTitle {
             .featureTitle {}
             .featureDescription {}
-          }
-          .action {
-            .linkContainer {
-              .button {}
-              .iconChevronRight {
-                .icon {}
-              }
-            }
           }
         }
       }
@@ -263,6 +237,157 @@ $secondary-color: rgba(255, 255, 255, 0.50);
         .button {}
       }
     }
-    .cuteSittingImage {}
+  }
+}
+@media (max-width: 1134px) {
+  .featuresSection {
+    .titleContainer {
+    .mainTitle {
+        font-size: 2rem;
+        font-family: $poppins-font;
+        font-weight: 700;
+        line-height: 2.2rem;
+      }
+      .subTitle {
+        width: 100%;
+        font-size: 1rem;
+        line-height: 1.4rem;
+      }
+    }
+    .featureContainer {
+      margin-top: 10rem;
+      .featureColumn:nth-child(1) { 
+        position: relative;
+        .cuteSittingImage {
+          display: block;
+          width: 15rem;
+          left: 4rem;
+          top: -12rem;
+          position: absolute;
+        }
+      }
+      .featureColumn:nth-child(3) {
+        .cuteSittingImage {
+          display: none;
+        }
+      }
+      .featureColumn {
+        .placeholderImage {}
+        .content {
+          .sectionTitle {
+            .featureTitle {}
+            .featureDescription {}
+          }
+        }
+      }
+    }
+    .actions {
+      .primaryButtonContainer {
+        .button {}
+      }
+      .secondaryButtonContainer {
+        .button {}
+      }
+    }
+  }
+}
+@media (max-width: 816px) {
+  .featuresSection {
+    .titleContainer {
+      .mainTitle {
+        font-size: 2rem;
+        font-family: $poppins-font;
+        font-weight: 700;
+        line-height: 2.2rem;
+      }
+      .subTitle {
+        font-size: 1rem;
+        line-height: 1.4rem;
+      }
+    }
+    .featureContainer {
+      .featureColumn:nth-child(1) { 
+        .cuteSittingImage {
+        }
+      }
+      .featureColumn:nth-child(3) {
+        .cuteSittingImage {
+        }
+      }
+      .featureColumn {
+        .placeholderImage {}
+        .content {
+          .sectionTitle {
+            .featureTitle {}
+            .featureDescription {}
+          }
+        }
+      }
+    }
+    .actions {
+      .primaryButtonContainer {
+        .button {}
+      }
+      .secondaryButtonContainer {
+        .button {}
+      }
+    }
+  }
+}
+@media (max-width: 486px) {
+  .featuresSection {
+    .titleContainer {
+      .mainTitle {
+        font-size: 1.5rem;
+        font-family: $poppins-font;
+        font-weight: 700;
+        line-height: 1.8rem;
+      }
+      .subTitle {
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+      }
+    }
+    .featureContainer {
+      .featureColumn:nth-child(1) { 
+        .cuteSittingImage {
+        }
+      }
+      .featureColumn:nth-child(3) {
+        .cuteSittingImage {
+        }
+      }
+      .featureColumn {
+        .placeholderImage {}
+        .content {
+          .sectionTitle {
+            .featureTitle {
+              font-size: 1.5rem;
+              line-height: 2rem;
+              word-wrap: break-word;
+            }
+
+            .featureDescription {
+              height: 174px;
+              font-size: 0.9rem;
+              line-height: 1.2rem;
+              word-wrap: break-word;
+            }
+          }
+        }
+      }
+    }
+    .actions {
+      .primaryButtonContainer {
+        .button {
+          @include button-style(0.9rem, $roboto-font, 400, 1.2rem);
+        }
+      }
+      .secondaryButtonContainer {
+        .button {
+          @include button-style(0.9rem, $roboto-font, 400, 1.2rem);
+        }
+      }
+    }
   }
 }
