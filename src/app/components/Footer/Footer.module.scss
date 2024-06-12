@@ -40,9 +40,9 @@ $position-absolute: absolute;
 
 // Styles
 .footer {
-  width: 1440px;
-  height: 364px;
-  padding: 80px 64px;
+  width: 100%;
+  padding: 3%;
+  box-sizing: border-box;
   @include flex-container(column, flex-start, center, 80px, inline-flex);
 
   .content {
@@ -50,12 +50,11 @@ $position-absolute: absolute;
     @include flex-container(row, flex-start, center, 32px, inline-flex);
 
     .logoSection {
-      flex: 1 1 0;
-      @include flex-container(column, flex-start, flex-start, 24px, inline-flex);
+      @include flex-container(column, center, flex-start, 0px, inline-flex);
+      display: flex;
 
       .logoContainer {
         width: 74px;
-        height: 70px;
         position: relative;
 
         .logoPart1 {
@@ -137,6 +136,55 @@ $position-absolute: absolute;
   }
 }
 
+@media (max-width: 892px) {
+  .footer {
+    .content {
+      flex-direction: column;
+      .logoSection {
+        .logoContainer {
+          .logoPart1,
+          .logoPart2 {
+            // Empty rules
+          }
+        }
+      }
+      .linksSection {
+        .link {
+          // Empty rules
+        }
+      }
+      .socialLinksSection {
+        .socialIcon {
+          .facebookIcon,
+          .instagramIcon,
+          .twitterIcon,
+          .linkedinIcon,
+          .youtubeIcon {
+            // Empty rules
+          }
+        }
+      }
+    }
+    .creditsSection {
+      .divider {
+        // Empty rules
+      }
+      .creditsRow {
+        flex-direction: column-reverse;
+        .rightsReserved {
+          // Empty rules
+        }
+        .footerLinks {
+          .privacyPolicy,
+          .termsOfService,
+          .cookiesSettings {
+            // Empty rules
+          }
+        }
+      }
+    }
+  }
+}
 @media (max-width: 1080px) {
   .footer {
     .content {

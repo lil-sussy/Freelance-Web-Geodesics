@@ -6,10 +6,8 @@ const Footer: React.FC = () => {
 		<div className={styles.footer}>
 			<div className={styles.content}>
 				<div className={styles.logoSection}>
-					<div className={styles.logoContainer}>
-						<div className={styles.logoPart1}></div>
-						<div className={styles.logoPart2}></div>
-					</div>
+					<img src={"./images/webgeodesicslogo.svg"} className={styles.logoContainer} alt="web geodesics logo" />
+					<div className={styles.logoContainer}></div>
 				</div>
 				<div className={styles.linksSection}>
 					<div className={styles.link}>Services</div>
