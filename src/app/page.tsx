@@ -6,7 +6,12 @@ import Background from "./components/Background/Background";
 import Header from "./components/FirstHeader/FirstHeader";
 import SecondHeader from "./components/SecondHeader/SecondHeader";
 import ThirdHeader from "./components/ThirdHeader/ThirdHeader";
+import FeaturesSection from "./components/FeaturesSection/FeaturesSection";
+import CTASection from "./components/CTA/CTASection";
+import AboutMeSection from "./components/AboutMeSection/AboutMeSection";
 import styles from "./Page.module.scss";
+import FaqSection from "./components/FAQ/FAQSection";
+import Footer from "./components/Footer/Footer";
 
 const Home = () => {
 	const [progress, setProgress] = useState(0);
@@ -52,21 +57,29 @@ const Home = () => {
 					<SecondHeader />
 				</div>
 				<div className={styles.content} id="section3">
+					<FeaturesSection />
+				</div>
+				<div className={styles.content} id="section4">
 					<ThirdHeader />
 				</div>
-				{/* Uncomment the sections below as needed */}
-				{/* <div className={styles.content} id="section3">
-          <FeaturesSection />
-        </div>
-        <div className={styles.content} id="section3">
-          <PortfolioSection />
-        </div>
-        <div className={styles.content} id="section3">
-          <PricingSection />
-        </div>
-        <div className={styles.content} id="section3">
-          <PortfolioSection />
-        </div> */}
+				<div className={styles.content} id="section5">
+					<FeaturesSection />
+				</div>
+				<div className={styles.content} id="section6">
+					<FeaturesSection />
+				</div>
+				<div className={styles.content} id="section7">
+					<CTASection />
+				</div>
+				<div className={styles.content} id="section8">
+					<FaqSection />
+				</div>
+				<div className={styles.content} id="section9">
+					<AboutMeSection />
+				</div>
+				<div className={styles.content} id="section10">
+					<Footer />
+				</div>
 			</div>
 		</div>
 	);
