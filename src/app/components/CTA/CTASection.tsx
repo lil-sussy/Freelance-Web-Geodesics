@@ -40,7 +40,7 @@ const Cta7: React.FC = () => {
 						<div className={styles.ctaFooterText}>By clicking Sign Up, you confirm that you agree to our Terms and Conditions.</div>
 					</div>
 				</div>
-				<img className={styles.ctaImage} src="https://via.placeholder.com/176x358" alt="Bento Asset" />
+				<img className={styles.ctaImage} src="./images/assets_upstanding.png" alt="Bento Asset" />
 			</div>
 		</div>
 	);
