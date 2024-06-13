@@ -2,42 +2,27 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Next.js: Debug Frontend",
-      "type": "chrome",
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
       "request": "launch",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}",
-      "sourceMaps": true,
-      "sourceMapPathOverrides": {
-        "webpack:///./*": "${webRoot}/*"
-      }
+      "command": "npm run dev"
     },
     {
-      "name": "Next.js: Debug Backend",
-      "type": "node",
+      "name": "Next.js: debug client-side",
+      "type": "chrome",
       "request": "launch",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run",
-        "dev"
-      ],
-      "sourceMaps": true,
-      "cwd": "${workspaceFolder}",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "outFiles": [
-        "${workspaceFolder}/.next/**/*.js"
-      ]
-    }
-  ],
-  "compounds": [
+      "url": "http://localhost:3000"
+    },
     {
-      "name": "Next.js: Fullstack Debug",
-      "configurations": [
-        "Next.js: Debug Frontend",
-        "Next.js: Debug Backend"
-      ]
+      "name": "Next.js: debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "serverReadyAction": {
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
     }
   ]
 }

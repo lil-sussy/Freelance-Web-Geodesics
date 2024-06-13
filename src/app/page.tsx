@@ -19,41 +19,65 @@ const Home = () => {
 	const [progress, setProgress] = useState(0);
 
 	useEffect(() => {
-		const section1 = document.getElementById("section1");
-		const section2 = document.getElementById("section2");
-		const section3 = document.getElementById("section3");
+		const scrollContainer = document.getElementById("scroll-container");
+		const scrollWindow = document.getElementById("scroll-window");
+
+		if (!scrollContainer || !scrollWindow) {
+			console.log("Scroll container or window is missing");
+			return;
+		}
+
+		// Dynamic array for sections
+		const sections: {element: HTMLElement, top: number, bottom: number}[] = [];
+		for (let i = 1; i <= 10; i++) {
+			const section = document.getElementById(`section${i}`);
+			if (section) {
+				sections.push({
+					element: section,
+					top: section.offsetTop,
+					bottom: section.offsetTop + section.offsetHeight,
+				});
+			}
+		}
+
+		if (sections.length < 2) {
+			console.log("Not enough sections found");
+			return;
+		}
 
 		const handleScroll = () => {
-			const scrollPosition = window.scrollY + window.innerHeight; // Adjusted to consider the viewport height
-			const section1Top = section1!.offsetTop;
-			const section2Bottom = section2!.offsetTop + section2!.offsetHeight;
+			const scrollPosition = scrollWindow.scrollTop;
 
-			// Calculate the scroll progress between the bottom of section 1 and the bottom of section 2
-			if (scrollPosition > section1Top && scrollPosition < section2Bottom) {
-				const progressInRange = scrollPosition - section1Top;
-				const totalRange = section2Bottom - section1Top;
-				setProgress(Math.min(Math.max((progressInRange / totalRange - 0.5) * 2, 0), 1));
-			} else if (scrollPosition <= section1Top) {
-				setProgress(0); // User hasn't reached section 1 bottom
-			} else if (scrollPosition >= section2Bottom) {
-				setProgress(1); // User has scrolled past section 2 bottom
-			}
+			let currentProgress = 0;
+			sections.forEach((section, index) => {
+				if (scrollPosition > section.bottom) {
+					currentProgress = index + 1;
+				} else if (scrollPosition > section.top && scrollPosition <= section.bottom) {
+					const sectionProgress = (scrollPosition - section.top) / (section.bottom - section.top);
+					currentProgress = index + sectionProgress;
+				}
+			});
+
+			setProgress(currentProgress);
+			console.log("Scroll Progress: ", currentProgress.toFixed(2));
 		};
 
-		window.addEventListener("scroll", handleScroll);
+
+		scrollWindow.addEventListener("scroll", handleScroll);
 
 		return () => {
-			window.removeEventListener("scroll", handleScroll);
+			scrollWindow.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
 
+
 	return (
-		<div className={styles.frame}>
-			<div className={styles.div}>
+		<div className={styles.frame} id="scroll-window">
+			<div className={styles.div} id="scroll-container">
+				<Background advancement={0} />
 				<div className={styles.content} id="section1">
 					<Header />
 				</div>
-				<Background advancement={progress} />
 				<Navbar />
 				<div className={styles.content} id="section2">
 					<SecondHeader />
