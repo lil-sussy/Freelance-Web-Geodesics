@@ -1,6 +1,7 @@
 "use client"; // Add this at the top of the file to indicate that this is a Client Component
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
+import { AnimationProvider } from "./components/AnimationContext";
 import Navbar from "./components/Navbar/Navbar";
 import Background from "./components/Background/Background";
 import Header from "./components/FirstHeader/FirstHeader";
@@ -21,16 +22,10 @@ const Home = () => {
 	const lastProgressRef = useRef(0);
 	const alpha = 0.1; // Smoothing factor
 
-	useEffect(() => {
-		const scrollContainer = document.getElementById("scroll-container");
-		const scrollWindow = document.getElementById("scroll-window");
+	// Cache DOM elements and section positions
+	const sectionsRef = useRef<{ element: HTMLElement; top: number; bottom: number }[]>([]);
 
-		if (!scrollContainer || !scrollWindow) {
-			console.log("Scroll container or window is missing");
-			return;
-		}
-
-		// Dynamic array for sections
+	const updateSections = useCallback(() => {
 		const sections: { element: HTMLElement; top: number; bottom: number }[] = [];
 		for (let i = 1; i <= 10; i++) {
 			const section = document.getElementById(`section${i}`);
@@ -42,17 +37,26 @@ const Home = () => {
 				});
 			}
 		}
+		sectionsRef.current = sections;
+	}, []);
 
-		if (sections.length < 2) {
-			console.log("Not enough sections found");
+	useEffect(() => {
+		const scrollContainer = document.getElementById("scroll-container");
+		const scrollWindow = document.getElementById("scroll-window");
+
+		if (!scrollContainer || !scrollWindow) {
+			console.log("Scroll container or window is missing");
 			return;
 		}
 
+		// Update sections initially and on window resize
+		updateSections();
+		window.addEventListener("resize", updateSections);
+
 		const handleScroll = () => {
 			const scrollPosition = scrollWindow.scrollTop;
-
 			let currentProgress = 0;
-			sections.forEach((section, index) => {
+			sectionsRef.current.forEach((section, index) => {
 				if (scrollPosition > section.bottom) {
 					currentProgress = index + 1;
 				} else if (scrollPosition > section.top && scrollPosition <= section.bottom) {
@@ -75,52 +79,55 @@ const Home = () => {
 			requestRef.current = requestAnimationFrame(animationLoop);
 		};
 
-		// requestRef.current = requestAnimationFrame(animationLoop);
+		requestRef.current = requestAnimationFrame(animationLoop);
 
 		return () => {
 			if (requestRef.current) {
 				cancelAnimationFrame(requestRef.current);
 			}
+			window.removeEventListener("resize", updateSections);
 		};
-	}, []);
+	}, [updateSections]);
 
 	return (
-		<div className={styles.frame} id="scroll-window">
-			<div className={styles.div} id="scroll-container">
-				<Background advancement={progress} />
-				<div className={styles.content} id="section1">
-					<Header />
-				</div>
-				<Navbar />
-				<div className={styles.content} id="section2">
-					<SecondHeader />
-				</div>
-				<div className={styles.content} id="section3">
-					<FeaturesSection />
-				</div>
-				<div className={styles.content} id="section4">
-					<ThirdHeader />
-				</div>
-				<div className={styles.content} id="section5">
-					<PortfolioSection />
-				</div>
-				<div className={styles.content} id="section6">
-					<HowItWorksSection />
-				</div>
-				<div className={styles.content} id="section7">
-					<CTASection />
-				</div>
-				<div className={styles.content} id="section8">
-					<FaqSection />
-				</div>
-				<div className={styles.content} id="section9">
-					<AboutMeSection />
-				</div>
-				<div className={styles.content} id="section10">
-					<Footer />
+		<AnimationProvider>
+			<div className={styles.frame} id="scroll-window">
+				<div className={styles.div} id="scroll-container">
+					<Background advancement={progress} />
+					<div className={styles.content} id="section1">
+						<Header />
+					</div>
+					<Navbar />
+					<div className={styles.content} id="section2">
+						<SecondHeader />
+					</div>
+					<div className={styles.content} id="section3">
+						<FeaturesSection />
+					</div>
+					<div className={styles.content} id="section4">
+						<ThirdHeader />
+					</div>
+					<div className={styles.content} id="section5">
+						<PortfolioSection />
+					</div>
+					<div className={styles.content} id="section6">
+						<HowItWorksSection />
+					</div>
+					<div className={styles.content} id="section7">
+						<CTASection />
+					</div>
+					<div className={styles.content} id="section8">
+						<FaqSection />
+					</div>
+					<div className={styles.content} id="section9">
+						<AboutMeSection />
+					</div>
+					<div className={styles.content} id="section10">
+						<Footer />
+					</div>
 				</div>
 			</div>
-		</div>
+		</AnimationProvider>
 	);
 };
 
