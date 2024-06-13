@@ -10,11 +10,12 @@ const Navbar = () => {
 				<div className={`${styles.item} ${styles.logoItems}`}>
 					<img className={styles.logo} src={"./images/webgeodesicslogo.svg"} alt="Web Geodesics Logo" />
 				</div>
-				<div className={`${styles.item} ${styles.selected}`}>YAN REGOJO</div>
-				<div className={styles.item}>PORTFOLIO</div>
-				<div className={styles.item}>SERVICES</div>
+				<div className={`${styles.item} ${styles.selected}`}>About Me</div>
+				<div className={styles.item}>Services</div>
+				<div className={styles.item}>Portfolio</div>
 				{/* <div className={styles.item}>ABOUT ME</div> */}
-				<div className={styles.item}>CONTACT</div>
+				<div className={styles.item}>More</div>
+				<div className={styles.item}>Contact</div>
 				<div className={styles.rectangle}></div>
 			</div>
 

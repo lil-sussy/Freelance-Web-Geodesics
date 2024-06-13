@@ -11,8 +11,8 @@ const ThirdHeader = () => {
 				</div>
 				<div className={styles.ContainerInner}>
 					<div className={styles.Content}>
-						<div className={styles.Heading}>Faites concevoir votre site web par des professionnels</div>
-						<div className={styles.Text}>Mon agence est spécialisée dans la création de sites web de haute qualité pour les propriétaires de petites entreprises. Grâce à mon expertise et mon souci du détail, je garantie un site non seulement esthétiquement attrayant, mais aussi facile à utiliser et optimisé pour les moteurs de recherche.</div>
+						<div className={styles.Heading}>Empower Your Projects with Freelance AI and Fullstack Expertise</div>
+						<div className={styles.Text}>Discover the competitive edge of integrating specialized freelance skills into your technology strategy. Leverage cutting-edge artificial intelligence to enhance automation, data analysis, and user experience. Gain the flexibility of comprehensive development services from backend to frontend.</div>
 					</div>
 					<div className={styles.Actions}>
 						<Button style="primary">Contactez-moi</Button>

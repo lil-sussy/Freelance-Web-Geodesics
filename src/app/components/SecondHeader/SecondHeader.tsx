@@ -9,13 +9,31 @@ const SecondHeader = () => {
 				<div className={styles.Content}>
 					<div className={styles.ContentContainer}>
 						<div className={styles.Content}>
-							<div className={styles.Heading}>Dynamisez votre entreprise avec un site web professionnel</div>
-							<div className={styles.Text}>Un site web professionnel peut aider votre petite entreprise à se développer et à attirer davantage de clients. Il établit une présence en ligne forte, met en valeur vos produits ou services et renforce votre crédibilité.</div>
+							<div className={styles.Heading}>Expertise in Prompt Engineering, AI Agent Development, and Fullstack Development</div>
+							<div className={styles.Text}>As a dedicated freelancer, I specialize in creating bespoke technological solutions that cater precisely to your business needs.</div>
+							<div className={styles.columnsContainer}>
+								<div className={styles.item}>
+									<h3>Prompt Engineering</h3>
+									<ul>
+										<li>I provide customized prompt engineering services to enhance the efficiency and effectiveness of your AI applications.</li>
+										<li>Development of tailored prompts that improve user interaction.</li>
+										<li>Seamless integration with existing AI systems</li>
+									</ul>
+								</div>
+								<div className={styles.item}>
+									<h3>AI Agent Development</h3>
+									<ul>
+										<li>I craft intelligent AI agents that are designed to solve complex problems and drive innovation in your business.</li>
+										<li>Building robust, scalable AI solutions customized to meet unique challenges.</li>
+										<li>Ensuring smooth deployment and integration into business processes.</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-						<div className={styles.Actions}>
+						{/* <div className={styles.Actions}>
 							<Button style="primary">Contactez-moi</Button>
 							<Button style="secondary">Voir mon travail</Button>
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<img className={styles.BoardAsset} src={"./images/assets_cute_board.png"} alt="Board Image" />
