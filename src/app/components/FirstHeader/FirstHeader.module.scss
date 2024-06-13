@@ -1,26 +1,27 @@
 // Variables
 
 @font-face {
-  font-family: 'Stretch Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.cdnfonts.com/s/48412/StretchPro.woff) format('woff');
+	font-family: "Stretch Pro";
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://fonts.cdnfonts.com/s/48412/StretchPro.woff) format("woff");
 }
+@import url("https://fonts.cdnfonts.com/s/48412/StretchPro.woff");
 
-$font-poppins: 'Poppins', sans-serif;
-$font-acme: 'Hedvig Letters Sans', sans-serif;
-$font-segoe: 'Space Mono', cursive;
-$font-stretch: 'Stretch Pro', sans-serif;
+$font-poppins: "Poppins", sans-serif;
+$font-acme: "Hedvig Letters Sans", sans-serif;
+$font-segoe: "Space Mono", cursive;
+$font-stretch: "Stretch Pro", sans-serif;
 
 $color-white: white;
-$color-highlight: #FBFF30;
+$color-highlight: #fbff30;
 
 $header-padding: 10%;
 $header-padding-small: 3%;
 $header-padding-mobile: 1%;
 
 $line-height-hero: 44px;
-$line-height-text: 33.60px;
+$line-height-text: 33.6px;
 $line-height-webgeo: 69px;
 
 $font-size-hero: 40px;
@@ -28,210 +29,203 @@ $font-size-text: 24px;
 $font-size-webgeo: 64px;
 
 @mixin font-style($font, $size, $weight, $line-height) {
-  font-family: $font;
-  font-size: $size;
-  font-weight: $weight;
-  line-height: $line-height;
+	font-family: $font;
+	font-size: $size;
+	font-weight: $weight;
+	line-height: $line-height;
 }
 
-.artboard {
-  width: 25rem;
-  height: 25rem;
+@mixin responsive-font-style($font, $font-size, $line-height, $media-font-size, $media-line-height) {
+	@include font-style($font, $font-size, 400, $line-height);
+
+	@media (max-width: 450px) {
+		font-size: $media-font-size;
+		line-height: $media-line-height;
+	}
 }
 
-.Header {
-  width: 100vw;
-  height: 100vh;
-  padding-left: $header-padding;
-  padding-right: $header-padding;
-  padding-bottom: $header-padding;
-  padding-top: $header-padding;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1px;
-  display: inline-flex;
-
-  .Content {
-    align-self: stretch;
-    justify-content: flex-start;
-    align-items: flex-start;
-    display: inline-flex;
-
-    .Space {
-      flex: 1 1 0;
-    }
-
-    .ContentContainer {
-      width: 850px;
-      padding-left: 74px;
-      padding-right: 74px;
-      flex-direction: column;
-      gap: 24px;
-      display: inline-flex;
-
-      .MediumLengthHeroHeadlineGoesHere {
-        color: $color-white;
-        @include font-style($font-poppins, $font-size-hero, 800, $line-height-hero);
-        word-wrap: break-word;
-      }
-
-      .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
-        color: $color-white;
-        @include font-style($font-acme, $font-size-text, 400, $line-height-text);
-        word-wrap: break-word;
-
-        .creative, .innovative {
-          color: $color-highlight;
-          @include font-style($font-segoe, null, 700, null);
-          font-style: italic;
-        }
-      }
-
-      .Actions {
-        padding-top: 16px;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 16px;
-        display: inline-flex;
-      }
-    }
-  }
-
-  .Logos {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-
-    .artboard { }
-
-    .WebGeodesics {
-      color: $color-white;
-      @include font-style($font-stretch, $font-size-webgeo, 400, $line-height-webgeo);
-      word-wrap: break-word;
-    }
-
-    .arrow { }
-  }
+.logoImage {
+	width: 25rem;
+	height: 25rem;
 }
 
-@media (max-width: 1322px) {
-  .Header {
-    padding-top: 20%;
+.header {
+	width: 100vw;
+	height: 100vh;
+	padding: $header-padding;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 1px;
 
-    .arrow {
-      display: none;
-    }
+	.content {
+		align-self: stretch;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
 
-    .Logos {
-      margin-top: 3rem;
+		.space {
+			flex: 1;
+		}
 
-      .WebGeodesics {
-        font-size: 48px;
-        line-height: 48px;
-      }
+		.contentContainer {
+			width: 850px;
+			padding: 0 0 0 74px;
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
 
-      .artboard {
-        width: 15rem;
-        height: 15rem;
-      }
-    }
-  }
-}
+			.headline {
+				color: $color-white;
+				@include responsive-font-style($font-poppins, $font-size-hero, $line-height-hero, 32px, 35.2px);
+        font-weight: 700;
+			}
 
-@media (max-width: 818px) {
-  .Header {
-    .Content {
-      .Space { }
+			.description {
+				color: $color-white;
+				@include responsive-font-style($font-acme, $font-size-text, $line-height-text, 20px, 26px);
 
-      .ContentContainer {
-        .MediumLengthHeroHeadlineGoesHere { }
-        .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
-          .creative { }
-          .innovative { }
-        }
+				.highlight {
+					color: $color-highlight;
+					@include font-style($font-segoe, null, 700, null);
+					font-style: italic;
+				}
+			}
 
-        .Actions { }
-      }
-    }
+			.actions {
+				padding-top: 16px;
+				display: flex;
+				justify-content: flex-start;
+				align-items: flex-start;
+				gap: 16px;
+			}
+		}
+	}
 
-    .Logos {
-      transform: translateX(-3rem);
+	.logos {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		.wrapper {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: -36px;
+		}
+		.logoText {
+			color: $color-white;
+			@include responsive-font-style($font-stretch, $font-size-webgeo, $line-height-webgeo, 24px, 18px);
+			word-wrap: break-word;
+		}
 
-      .artboard { }
-      .WebGeodesics { }
-      .arrow { }
-    }
-  }
-}
+		.arrow {
+			width: 50px;
+		}
+	}
 
-@media (max-width: 700px) {
-  .Header {
-    padding-left: $header-padding-small;
-    padding-right: $header-padding-small;
+	@media (max-width: 1322px) {
+		padding-top: 20%;
 
-    .ContentContainer {
-      width: 100%;
-      padding-left: 5%;
-      padding-right: 5%;
-    }
+		.logos {
+			margin-top: 3rem;
 
-    .Logos {
-      transform: translateX(0rem);
-      margin-top: 0rem;
+			.logoText {
+				font-size: 48px;
+				line-height: 48px;
+			}
 
-      .WebGeodesics {
-        font-size: 26px;
-        line-height: 26px;
-      }
+			.logoImage {
+				width: 15rem;
+				height: 15rem;
+			}
+		}
+	}
 
-      .artboard {
-        width: 10rem;
-        height: 10rem;
-      }
-    }
-  }
-}
+	@media (max-width: 818px) {
+		.content {
+			.contentContainer {
+				.headline,
+				.description .highlight,
+				.actions {
+					// Empty media query rules for now
+				}
+			}
+		}
 
-@media (max-width: 450px) {
-  .Header {
-    padding-top: 30%;
-    width: 100vw;
-    height: 100vh;
-    gap: 50px;
-    padding-left: $header-padding-mobile;
-    padding-right: $header-padding-mobile;
+		.logos {
+			transform: translateX(-3rem);
+		}
+	}
 
-    .ContentContainer {
-      width: 100%;
-      padding-left: $header-padding-mobile;
-      padding-right: $header-padding-mobile;
-    }
+	@media (max-width: 700px) {
+		padding: 0 $header-padding-small;
 
-    .Content, .ContentContainer {
-      gap: 30px;
-    }
+		.contentContainer {
+			width: 100%;
+			padding: 0 5%;
+		}
 
-    .MediumLengthHeroHeadlineGoesHere {
-      font-size: 32px;
-      line-height: 35.20px;
-    }
+		.logos {
+			transform: translateX(0);
+			margin-top: 0;
 
-    .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
-      font-size: 20px;
-      line-height: 26px;
-    }
+			.logoText {
+				font-size: 26px;
+				line-height: 26px;
+			}
 
-    .Logos {
-      .artboard {
-        width: 8rem;
-        height: 8rem;
-      }
+			.logoImage {
+				width: 10rem;
+				height: 10rem;
+			}
+			.arrow {
+				display: none;
+			}
+		}
+	}
 
-      .WebGeodesics {
-        font-size: 24px;
-        line-height: 18px;
-      }
-    }
-  }
+	@media (max-width: 450px) {
+		padding-top: 30%;
+		height: 100vh;
+		gap: 50px;
+		padding: 0 $header-padding-mobile;
+
+		.contentContainer {
+			width: 100%;
+			padding: 0 $header-padding-mobile;
+		}
+
+		.content,
+		.contentContainer {
+			gap: 30px;
+		}
+
+		.logos {
+			.logoImage {
+				width: 8rem;
+				height: 8rem;
+			}
+		}
+	}
+
+	@media (max-width: 1080px) {
+		.content {
+			.space,
+			.contentContainer .headline,
+			.contentContainer .description .highlight,
+			.contentContainer .actions {
+				// Empty media query rules for now
+			}
+		}
+
+		.logos {
+			.logoImage,
+			.logoText,
+			.arrow {
+				// Empty media query rules for now
+			}
+		}
+	}
 }
