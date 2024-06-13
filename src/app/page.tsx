@@ -65,7 +65,7 @@ const Home = () => {
 			lastProgressRef.current = smoothedProgress;
 
 			setProgress(smoothedProgress);
-			console.log("Scroll Progress: ", smoothedProgress.toFixed(2));
+			// console.log("Scroll Progress: ", smoothedProgress.toFixed(2));
 
 			requestRef.current = requestAnimationFrame(handleScroll);
 		};
@@ -75,7 +75,7 @@ const Home = () => {
 			requestRef.current = requestAnimationFrame(animationLoop);
 		};
 
-		requestRef.current = requestAnimationFrame(animationLoop);
+		// requestRef.current = requestAnimationFrame(animationLoop);
 
 		return () => {
 			if (requestRef.current) {

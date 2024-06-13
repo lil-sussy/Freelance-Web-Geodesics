@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import PotatoShape from "./PotatoShape"; // Ensure the path is correct for your project
 import type { PotatoShape as PotatoShapeType } from "./PotatoShape";
 import styles from "./Background.module.scss";
+import dynamic from "next/dynamic";
+const PotatoShape = dynamic(() => import("./PotatoShape"), { ssr: false });
 
 const Background = ({ advancement }: { advancement: number }) => {
 	const potato1: PotatoShapeType[] = [
@@ -66,9 +67,11 @@ const Background = ({ advancement }: { advancement: number }) => {
 
 	return (
 		<div className={styles.background}>
-			{potato1.map((potato, index) => (
-        <PotatoShape key={index} advancement={advancement} potato={potato} duration={12000} width={1200} height={800}/>
-      ))}
+      <div className={styles.canvas}>
+        {potato1.map((potato, index) => (
+          <PotatoShape key={index} advancement={advancement} potato={potato} duration={12000} width={1200} height={800}/>
+        ))}
+      </div>
 		</div>
 	);
 };
