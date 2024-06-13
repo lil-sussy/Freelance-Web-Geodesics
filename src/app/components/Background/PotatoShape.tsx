@@ -114,7 +114,10 @@ const PotatoShape: React.FC<PotatoShapeProps> = ({ potato, duration, advancement
 		};
 	}, [cursorPosition, potato, width, height]);
 
-	const opacity = Math.min(Math.max(1 + (advancement - potato.index), 0), 1) * 0.4;
+	const distance = Math.abs(advancement - potato.index);
+	const opacity = Math.max(1 - distance, 0) * 0.4;
+
+	if (opacity === 0) return <></>;
 	// const interpolator = interpolate(potato.startPath, potato.endPath);
 
 	return (
