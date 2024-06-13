@@ -74,7 +74,7 @@ const Home = () => {
 	return (
 		<div className={styles.frame} id="scroll-window">
 			<div className={styles.div} id="scroll-container">
-				<Background advancement={0} />
+				<Background advancement={progress} />
 				<div className={styles.content} id="section1">
 					<Header />
 				</div>
