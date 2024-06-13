@@ -23,11 +23,11 @@
 .primary {
 	button {
 		background: rgba(255, 255, 255, 0.1) !important;
-		backdrop-filter: blur(200px);
+		backdrop-filter: blur(300px) !important;
 		&:hover {
 			color: #fbff30 !important;
 			background: rgba(251, 255, 48, 0.3) !important;
-			backdrop-filter: blur(20px);
+			backdrop-filter: blur(20px) !important;
 		}
 	}
 }
@@ -35,12 +35,12 @@
 	button {
 		border: 1px solid rgba(255, 255, 255, 0.2) !important;
 		background: rgba(255, 255, 255, 0) !important;
-		backdrop-filter: blur(200px);
+		backdrop-filter: blur(300px) !important;
 		&:hover {
 			color: #fbff30 !important;
 			border: 1px solid rgba(251, 255, 48, 0.6) !important;
 			background: rgba(251, 255, 48, 0.15) !important;
-			backdrop-filter: blur(20px);
+			backdrop-filter: blur(20px) !important;
 		}
 	}
 }

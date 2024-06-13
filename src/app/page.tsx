@@ -1,6 +1,6 @@
 "use client"; // Add this at the top of the file to indicate that this is a Client Component
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Background from "./components/Background/Background";
 import Header from "./components/FirstHeader/FirstHeader";
@@ -17,6 +17,9 @@ import Footer from "./components/Footer/Footer";
 
 const Home = () => {
 	const [progress, setProgress] = useState(0);
+	const requestRef = useRef<number | null>(null);
+	const lastProgressRef = useRef(0);
+	const alpha = 0.1; // Smoothing factor
 
 	useEffect(() => {
 		const scrollContainer = document.getElementById("scroll-container");
@@ -28,7 +31,7 @@ const Home = () => {
 		}
 
 		// Dynamic array for sections
-		const sections: {element: HTMLElement, top: number, bottom: number}[] = [];
+		const sections: { element: HTMLElement; top: number; bottom: number }[] = [];
 		for (let i = 1; i <= 10; i++) {
 			const section = document.getElementById(`section${i}`);
 			if (section) {
@@ -58,18 +61,28 @@ const Home = () => {
 				}
 			});
 
-			setProgress(currentProgress);
-			console.log("Scroll Progress: ", currentProgress.toFixed(2));
+			const smoothedProgress = lastProgressRef.current + alpha * (currentProgress - lastProgressRef.current);
+			lastProgressRef.current = smoothedProgress;
+
+			setProgress(smoothedProgress);
+			console.log("Scroll Progress: ", smoothedProgress.toFixed(2));
+
+			requestRef.current = requestAnimationFrame(handleScroll);
 		};
 
+		const animationLoop = () => {
+			handleScroll();
+			requestRef.current = requestAnimationFrame(animationLoop);
+		};
 
-		scrollWindow.addEventListener("scroll", handleScroll);
+		requestRef.current = requestAnimationFrame(animationLoop);
 
 		return () => {
-			scrollWindow.removeEventListener("scroll", handleScroll);
+			if (requestRef.current) {
+				cancelAnimationFrame(requestRef.current);
+			}
 		};
 	}, []);
-
 
 	return (
 		<div className={styles.frame} id="scroll-window">
