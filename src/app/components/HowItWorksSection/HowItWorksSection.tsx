@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./FeaturesSection.module.scss";
+import styles from "./HowItWorksSection.module.scss";
 
 const FeaturesSection: React.FC = () => {
 	return (

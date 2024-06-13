@@ -7,6 +7,8 @@ import Header from "./components/FirstHeader/FirstHeader";
 import SecondHeader from "./components/SecondHeader/SecondHeader";
 import ThirdHeader from "./components/ThirdHeader/ThirdHeader";
 import FeaturesSection from "./components/FeaturesSection/FeaturesSection";
+import PortfolioSection from "./components/PortfolioSection/PortfolioSection";
+import HowItWorksSection from "./components/HowItWorksSection/HowItWorksSection";
 import CTASection from "./components/CTA/CTASection";
 import AboutMeSection from "./components/AboutMeSection/AboutMeSection";
 import styles from "./Page.module.scss";
@@ -63,10 +65,10 @@ const Home = () => {
 					<ThirdHeader />
 				</div>
 				<div className={styles.content} id="section5">
-					<FeaturesSection />
+					<PortfolioSection />
 				</div>
 				<div className={styles.content} id="section6">
-					<FeaturesSection />
+					<HowItWorksSection />
 				</div>
 				<div className={styles.content} id="section7">
 					<CTASection />
