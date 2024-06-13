@@ -1,3 +1,39 @@
+// Variables
+
+@font-face {
+  font-family: 'Stretch Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.cdnfonts.com/s/48412/StretchPro.woff) format('woff');
+}
+
+$font-poppins: 'Poppins', sans-serif;
+$font-acme: 'Hedvig Letters Sans', sans-serif;
+$font-segoe: 'Space Mono', cursive;
+$font-stretch: 'Stretch Pro', sans-serif;
+
+$color-white: white;
+$color-highlight: #FBFF30;
+
+$header-padding: 10%;
+$header-padding-small: 3%;
+$header-padding-mobile: 1%;
+
+$line-height-hero: 44px;
+$line-height-text: 33.60px;
+$line-height-webgeo: 69px;
+
+$font-size-hero: 40px;
+$font-size-text: 24px;
+$font-size-webgeo: 64px;
+
+@mixin font-style($font, $size, $weight, $line-height) {
+  font-family: $font;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
 .artboard {
   width: 25rem;
   height: 25rem;
@@ -6,99 +42,99 @@
 .Header {
   width: 100vw;
   height: 100vh;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 10%;
-  padding-top: 10%;
+  padding-left: $header-padding;
+  padding-right: $header-padding;
+  padding-bottom: $header-padding;
+  padding-top: $header-padding;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 1px;
   display: inline-flex;
-}
 
-.Content, .ContentContainer {
-  align-self: stretch;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: inline-flex;
-}
+  .Content {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: inline-flex;
 
-.Space {
-  flex: 1 1 0;
-}
+    .Space {
+      flex: 1 1 0;
+    }
 
-.ContentContainer {
-  width: 850px;
-  padding-left: 74px;
-  padding-right: 74px;
-  flex-direction: column;
-  gap: 24px;
-}
+    .ContentContainer {
+      width: 850px;
+      padding-left: 74px;
+      padding-right: 74px;
+      flex-direction: column;
+      gap: 24px;
+      display: inline-flex;
 
-.MediumLengthHeroHeadlineGoesHere {
-  color: white;
-  font-size: 40px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  line-height: 44px;
-  word-wrap: break-word;
-}
+      .MediumLengthHeroHeadlineGoesHere {
+        color: $color-white;
+        @include font-style($font-poppins, $font-size-hero, 800, $line-height-hero);
+        word-wrap: break-word;
+      }
 
-.LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
-  color: white;
-  font-size: 24px;
-  font-family: 'Acme', sans-serif;
-  font-weight: 400;
-  line-height: 33.60px;
-  word-wrap: break-word;
+      .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
+        color: $color-white;
+        @include font-style($font-acme, $font-size-text, 400, $line-height-text);
+        word-wrap: break-word;
 
-  .creative, .innovative {
-    color: #FBFF30;
-    font-family: 'Segoe Script', cursive;
-    font-weight: 700;
+        .creative, .innovative {
+          color: $color-highlight;
+          @include font-style($font-segoe, null, 700, null);
+          font-style: italic;
+        }
+      }
+
+      .Actions {
+        padding-top: 16px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 16px;
+        display: inline-flex;
+      }
+    }
   }
-}
 
-.Actions {
-  padding-top: 16px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 16px;
-  display: inline-flex;
-}
+  .Logos {
+    justify-content: center;
+    align-items: center;
+    display: flex;
 
-.Logos {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
+    .artboard { }
 
-.WebGeodesics {
-  color: white;
-  font-size: 64px;
-  font-family: 'Stretch Pro', sans-serif;
-  font-weight: 400;
-  line-height: 64px;
-  word-wrap: break-word;
+    .WebGeodesics {
+      color: $color-white;
+      @include font-style($font-stretch, $font-size-webgeo, 400, $line-height-webgeo);
+      word-wrap: break-word;
+    }
+
+    .arrow { }
+  }
 }
 
 @media (max-width: 1322px) {
   .Header {
     padding-top: 20%;
-  }
-  .arrow {
-    display: none;
-  }
-  .Logos {
-    margin-top: 3rem;
-    .WebGeodesics {
-      font-size: 48px;
-      line-height: 48px;
+
+    .arrow {
+      display: none;
     }
-    .artboard {
-      width: 15rem;
-      height: 15rem;
+
+    .Logos {
+      margin-top: 3rem;
+
+      .WebGeodesics {
+        font-size: 48px;
+        line-height: 48px;
+      }
+
+      .artboard {
+        width: 15rem;
+        height: 15rem;
+      }
     }
   }
 }
@@ -107,17 +143,21 @@
   .Header {
     .Content {
       .Space { }
+
       .ContentContainer {
         .MediumLengthHeroHeadlineGoesHere { }
         .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
           .creative { }
           .innovative { }
         }
+
         .Actions { }
       }
     }
+
     .Logos {
       transform: translateX(-3rem);
+
       .artboard { }
       .WebGeodesics { }
       .arrow { }
@@ -125,23 +165,26 @@
   }
 }
 
-
 @media (max-width: 700px) {
   .Header {
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: $header-padding-small;
+    padding-right: $header-padding-small;
+
     .ContentContainer {
       width: 100%;
       padding-left: 5%;
       padding-right: 5%;
     }
+
     .Logos {
       transform: translateX(0rem);
       margin-top: 0rem;
+
       .WebGeodesics {
         font-size: 26px;
         line-height: 26px;
       }
+
       .artboard {
         width: 10rem;
         height: 10rem;
@@ -150,43 +193,45 @@
   }
 }
 
-// Mobile styles (max-width)
 @media (max-width: 450px) {
   .Header {
     padding-top: 30%;
     width: 100vw;
     height: 100vh;
     gap: 50px;
-    padding-left: 1%;
-    padding-right: 1%;
+    padding-left: $header-padding-mobile;
+    padding-right: $header-padding-mobile;
+
     .ContentContainer {
       width: 100%;
-      padding-left: 1%;
-      padding-right: 1%;
+      padding-left: $header-padding-mobile;
+      padding-right: $header-padding-mobile;
     }
-  }
 
-  .Content, .ContentContainer {
-    gap: 30px;
-  }
-
-  .MediumLengthHeroHeadlineGoesHere {
-    font-size: 32px;
-    line-height: 35.20px;
-  }
-
-  .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
-    font-size: 20px;
-    line-height: 26px;
-  }
-  .Logos {
-    .artboard {
-      width: 8rem;
-      height: 8rem;
+    .Content, .ContentContainer {
+      gap: 30px;
     }
-    .WebGeodesics {
-      font-size: 24px;
-      line-height: 18px;
+
+    .MediumLengthHeroHeadlineGoesHere {
+      font-size: 32px;
+      line-height: 35.20px;
+    }
+
+    .LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    .Logos {
+      .artboard {
+        width: 8rem;
+        height: 8rem;
+      }
+
+      .WebGeodesics {
+        font-size: 24px;
+        line-height: 18px;
+      }
     }
   }
 }

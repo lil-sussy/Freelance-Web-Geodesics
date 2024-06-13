@@ -12,8 +12,10 @@ const FirstHeader = () => {
 					<div className={styles.MediumLengthHeroHeadlineGoesHere}>Expert Prompt Engineering and AI Solutions</div>
 					<div className={styles.LoremIpsumDolorSitAmetConsecteturAdipiscingElitSuspendisseVariusEnimInErosElementumTristiqueDuisCursusMiQuisViverraOrnareErosDolorInterdumNullaUtCommodoDiamLiberoVitaeErat}>
 						<span>Transforming your tech ideas into reality with precision and </span>
-						<span className={styles.creative}>innovation.</span>
-						<span>Custom AI integrations tailored to streamline your business operations. Full-stack development </span>
+						<span className={styles.creative}>innovation</span>.
+            <br></br>
+						<span>Custom AI integrations tailored to streamline your business operations.
+              <br></br> Full-stack development </span>
 						<span className={styles.innovative}>expertise</span>
 						<span> from Python to React.</span>
 					</div>

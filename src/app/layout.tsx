@@ -1,7 +1,14 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { NextUIProvider } from '@nextui-org/react';
+import { ConfigProvider, Button } from "antd";
 import './globals.scss'; // Ensure you have a SCSS file for global styles
+import 'antd/dist/reset.css'; // Import Ant Design styles
+// src/index.tsx or src/App.tsx
+// import 'antd/dist/antd.less';
+
+
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,12 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <NextUIProvider>
-          {children}
-        </NextUIProvider>
-      </body>
-    </html>
-  );
+		<html lang="en">
+			<body className={inter.className}>
+				<NextUIProvider>
+					<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" } }}>{children}</ConfigProvider>
+				</NextUIProvider>
+			</body>
+		</html>
+	);
 }

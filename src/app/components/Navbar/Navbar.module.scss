@@ -1,6 +1,12 @@
+// Variables
+$font-segoe-ui: "Outfit", Helvetica, sans-serif;
+$font-stretch-pro: 'Stretch Pro', sans-serif;
+
+// SCSS Code
 .Navbar {
   display: none;
 }
+
 .navbar {
   display: flex;
   z-index: 20;
@@ -31,7 +37,7 @@
   .item {
     position: relative;
     width: 10rem;
-    font-family: "Segoe UI", Helvetica;
+    font-family: $font-segoe-ui;
     font-weight: 300;
     color: #ffffff;
     font-size: 1rem;
@@ -107,7 +113,7 @@
       .WebGeodesics {
         font-size: 10px;
         line-height: 10px;
-        font-family: 'Stretch Pro', sans-serif;
+        font-family: $font-stretch-pro;
         font-weight: 400;
         color: white;
       }
