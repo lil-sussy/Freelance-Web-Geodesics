@@ -1,43 +1,47 @@
 .primary, .secondary {
-  padding: 12px 24px;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
   gap: 8px;
   display: flex;
 
-  &:hover {
-    cursor: pointer;
+  button {
+    border: 1px solid transparent !important;
+    padding: 24px 48px;
+    border-radius: 0;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    font-family: 'Outfit', sans-serif; 
   }
 }
 
 .primary {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(200px);
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(20px);
+  button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(200px);
+    &:hover {
+      color: #FBFF30 !important;
+      background: rgba(251, 255, 48, 0.3)!important;
+      backdrop-filter: blur(20px);
+    }
   }
 }
-
 .secondary {
-  border: 1px solid rgba(255, 255, 255, 0.20);
-
-  &:hover {
-    border: 1px solid rgba(255, 255, 255, 0.60);
-    background-color: rgba(255, 255, 255, 0.3);
+  button {
+    border: 1px solid rgba(255, 255, 255, 0.20) !important;
+    background: rgba(255, 255, 255, 0) !important;
+    backdrop-filter: blur(200px);
+    &:hover {
+      color: #FBFF30 !important;
+      border: 1px solid rgba(251, 255, 48, 0.60) !important;
+      background: rgba(251, 255, 48, 0.15)!important;
+      backdrop-filter: blur(20px);
+    }
   }
 }
 
-.Button {
-  color: white;
-  font-size: 16px;
-  font-family: 'Segoe UI', sans-serif;
-  font-weight: 400;
-  line-height: 24px;
-  word-wrap: break-word;
-}
+
 
 @media (max-width: 450px) {
   .primary, .secondary {

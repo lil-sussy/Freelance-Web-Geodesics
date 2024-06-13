@@ -1,10 +1,17 @@
 import React from "react";
-import { Button as NextUIButton } from "@nextui-org/react";
+import { ConfigProvider } from "antd";
+import AntButton from "antd/lib/button";
 import PropTypes from "prop-types";
 import styles from "./Button.module.scss";
 
 const Button = ({ style, children }: { style: "primary" | "secondary" | "tertiary"; children: React.ReactNode }) => {
-	return <div className={`${styles[style]} ${styles.Button}`}>{children}</div>;
+	return <div className={`${styles[style]} ${styles.Button}`}>
+    <ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" } }}>
+      <AntButton type="default">
+        {children}
+      </AntButton>
+    </ConfigProvider>
+  </div>;
 };
 
 Button.propTypes = {
