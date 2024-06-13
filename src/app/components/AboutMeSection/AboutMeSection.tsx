@@ -9,27 +9,24 @@ const AboutMeSection: React.FC = () => {
 				<div className={styles.name}>
 					<div className={styles.yanRegojo}>Yan Regojo</div>
 					<div className={styles.downloadButton}>
-						<div className={styles.button}>Télécharger le CV</div>
+						<div className={styles.button}>Download Resume</div>
 					</div>
 					<div className={styles.link}></div>
 				</div>
 			</div>
 			<div className={styles.bentoLayout}>
 				<div className={styles.bentoTitle}>
-					<div className={styles.aboutMe}>À propos de Yan R.</div>
-					<div className={styles.myWork}>Maestro du Web Design avec une Touche Moderne</div>
+					<div className={styles.aboutMe}>About Me: Passionate AI Developer and Aspiring Researcher</div>
+					<div className={styles.myWork}> Welcome to my personal section where I share my journey as a passionate developer, aspiring researcher, and dedicated learner.</div>
 				</div>
 				<div className={styles.bentoContainer}>
 					<div className={styles.bentoDescription}>
 						<div className={styles.description}>
-							<span>
-								Pionnier Numérique et Centrale Créative
-								<br />
-							</span>
-							<span>
-								Depuis le début de mon parcours web à 15 ans, j'ai été à l'avant-garde de l'innovation en ligne. À 16 ans, j'avais déjà fait le grand saut de passionné apprenti à créateur professionnel, en vendant mon premier site web. Aujourd'hui, je mêle l'exubérance juvénile à la technologie de pointe en IA pour offrir des expériences web exceptionnelles adaptées à l'ère
-								moderne. Mon expertise autodidacte ne consiste pas seulement à suivre l'évolution numérique – je cherche à en définir le rythme.
-							</span>
+							<div>Who I Am</div>
+							<div>I am a young and enthusiastic freelance developer based in Paris, specializing in AI integration, fullstack development with Python Django and React, and data analysis. My journey is driven by a deep passion for technology and a relentless pursuit of knowledge.</div>
+						</div>
+							<div>My Passion</div>
+							<div>Every morning, I dive into the world of mathematics and AI, reading a Wikipedia page or a research paper and trying to understand it with the help of ChatGPT. This routine fuels my curiosity and sharpens my problem-solving skills, keeping me at the forefront of the latest advancements in technology.</div>
 						</div>
 					</div>
 					<div className={styles.bentoSideIcons}>
@@ -42,34 +39,36 @@ const AboutMeSection: React.FC = () => {
 					<div className={styles.assetSideContainer}>
 						<div className={styles.bentoMissionText}>
 							<div className={styles.missionText}>
-								<span>
-									Élevez Votre Vision avec une Expertise Sur Mesure
-									<br />
-								</span>
-								<span>
-									Votre Vision Unique, Notre Mission Commune Ensemble, nous transformerons votre vision en une expérience numérique distinctive. Avec une compréhension approfondie de votre marque et une collaboration continue, les sites web que je crée ne sont pas seulement visuellement impressionnants, mais une véritable représentation du cœur et de l'âme de votre entreprise
-									dans le domaine numérique.
-								</span>
+								<div>
+									My Vision
+								</div>
+								<div>
+									As an aspiring AI and data science researcher, I am committed to pushing the boundaries of what is possible with technology. My ultimate goal is to contribute to groundbreaking research and innovative solutions that can make a significant impact on society. Currently, I am working on an AI agent project that I believe will revolutionize the field.
+								</div>
 							</div>
 						</div>
 						<div className={styles.bentoModernText}>
 							<div className={styles.modernText}>
-								<span>
-									Une Fusion Moderne de Design et Technologie
-									<br />
-								</span>
-								<span>
-									Conception Web Améliorée par IA : Au-delà de l'esthétique, j'intègre des technologies IA intelligentes pour créer des sites web qui sont intuitifs et innovants, offrant une expérience utilisateur sophistiquée et engageante.
-									<br />
-								</span>
-								<span>
-									<br />
-								</span>
-								<span>
-									Expérience Utilisateur au Centre : Les interfaces centrées sur l'utilisateur sont au cœur de mes conceptions, assurant simplicité, engagement et facilité d'utilisation pour captiver les visiteurs et les inciter à revenir.
-									<br />
-									Solutions Réactives : Je crée des sites web avec une fluidité réactive, assurant une performance stellaire et une expérience utilisateur transparente sur tout appareil ou plateforme.
-								</span>
+								<div>
+									What I Do
+								</div>
+                <ul>
+                  <li>
+                    Prompt Engineering: Crafting sophisticated prompts to drive AI behavior.
+                  </li>
+                  <li>
+AI Agent Development: Building intelligent agents capable of autonomous actions.
+                  </li>
+                  <li>
+ullstack Development: Creating robust web applications using Python Django and React.
+                  </li>
+                  <li>
+AI Integration: Seamlessly integrating AI solutions into existing systems.
+                  </li>
+                  <li>
+Data Analysis: Turning data into actionable insights.
+                  </li>
+                </ul>
 							</div>
 						</div>
 					</div>
@@ -77,28 +76,25 @@ const AboutMeSection: React.FC = () => {
 				<div className={styles.bentoContainerCenter}>
 					<div className={styles.bentConnectText}>
 						<div className={styles.connectText}>
-							<span>
-								Connectons-nous
-								<br />
-							</span>
-							<span>Transformez vos aspirations numériques en réalité</span>
+							<div>
+								Let’s connect !
+							</div>
+							<div>Bring Your Digital Visions to Life</div>
 						</div>
 					</div>
 					<div className={styles.actions}>
 						<img className={styles.linkedin} src="https://via.placeholder.com/93x93" alt="LinkedIn button" />
 						<div className={styles.button}>
-							<div className={styles.button}>Commencez maintenant</div>
+							<div className={styles.button}>Start your journey</div>
 						</div>
 					</div>
 				</div>
 				<div className={styles.bentoLast}>
 					<div className={styles.lastText}>
-						<span>
-							{" "}
-							Restez à la Pointe des Tendances Avant-gardistes
-							<br />
-						</span>
-						<span>Constamment immergé dans les derniers développements web, je m'assure que votre présence en ligne ne soit pas seulement actuelle mais aussi prête pour l'avenir, attirant de nouvelles générations et établissant des références dans l'industrie.</span>
+						<div>
+							Join Me on This Journey
+						</div>
+						<div> I invite you to explore my portfolio, learn about my projects, and join me on this exciting journey of discovery and innovation. Feel free to reach out if you're interested in collaboration or have any questions about my work.</div>
 					</div>
 				</div>
 			</div>
