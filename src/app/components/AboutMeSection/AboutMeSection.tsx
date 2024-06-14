@@ -1,16 +1,16 @@
 import React from "react";
 import styles from "./AboutMeSection.module.scss";
+import Button from "../Button/Button";
 
 const AboutMeSection: React.FC = () => {
 	return (
 		<div className={styles.aboutMeSection}>
 			<div className={styles.pictureOfMeSide}>
-				<img className={styles.womanPhotograph1} src="/photoOfMe.png" alt="picture of me professional, confident" />
+				<img className={styles.womanPhotograph1} src="./images/picture-of-me.png" alt="picture of me professional, confident" />
 				<div className={styles.name}>
 					<div className={styles.yanRegojo}>Yan Regojo</div>
-					<div className={styles.downloadButton}>
-						<div className={styles.button}>Download Resume</div>
-					</div>
+          <Button style="secondary">Download Resume</Button>
+          <img className={styles.linkedin} src="./images/github.svg" alt="Github button" />
 					<div className={styles.link}></div>
 				</div>
 			</div>
@@ -29,12 +29,13 @@ const AboutMeSection: React.FC = () => {
 						<div>Every morning, I dive into the world of mathematics and AI, reading a Wikipedia page or a research paper and trying to understand it with the help of ChatGPT. This routine fuels my curiosity and sharpens my problem-solving skills, keeping me at the forefront of the latest advancements in technology.</div>
 					</div>
 					<div className={styles.bentoSideIcons}>
-						<img className={styles.figma} src="https://via.placeholder.com/70x70" alt="Figma" />
-						<img className={styles.midjourney} src="https://via.placeholder.com/60x60" alt="Midjourney" />
-						<img className={styles.chatgpt} src="https://via.placeholder.com/60x62" alt="ChatGPT" />
-						<img className={styles.photoshop} src="https://via.placeholder.com/60x60" alt="Photoshop" />
+						<img className={styles.figma} src="./images/chatgpt.png" alt="chatgpt" />
+						<img className={styles.midjourney} src="./images/langchain.png" alt="langchain" />
+						<img className={styles.chatgpt} src="./images/tensorflow.png" alt="tensorflow" />
+						<img className={styles.photoshop} src="./images/django.png" alt="django" />
+						<img className={styles.photoshop} src="./images/react.png" alt="react" />
 					</div>
-					<img className={styles.bentoAsset} src="./bento-asset.png" alt="asset of a woman standing proud" />
+					<img className={styles.bentoAsset} src="images/assets_upstanding.png" alt="asset of a woman standing proud" />
 					<div className={styles.assetSideContainer}>
 						<div className={styles.bentoMissionText}>
 							<div className={styles.missionText}>
@@ -64,10 +65,8 @@ const AboutMeSection: React.FC = () => {
 						</div>
 					</div>
 					<div className={styles.actions}>
-						<img className={styles.linkedin} src="https://via.placeholder.com/93x93" alt="LinkedIn button" />
-						<div className={styles.button}>
-							<div className={styles.button}>Start your journey</div>
-						</div>
+						<img className={styles.linkedin} src="./images/linkedin.png" alt="LinkedIn button" />
+						<Button style="primary">Start your journey</Button>
 					</div>
 				</div>
 				<div className={styles.bentoLast}>
