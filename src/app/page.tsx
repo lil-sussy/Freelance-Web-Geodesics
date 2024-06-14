@@ -15,12 +15,18 @@ import AboutMeSection from "./components/AboutMeSection/AboutMeSection";
 import styles from "./Page.module.scss";
 import FaqSection from "./components/FAQ/FAQSection";
 import Footer from "./components/Footer/Footer";
+import "antd/dist/reset.css"; // Import Ant Design styles
+// src/index.tsx or src/App.tsx
+// import 'antd/dist/antd.less';
+import { ConfigProvider } from "antd";
+import { theme as antdTheme } from "antd";
 
 const Home = () => {
 	const [progress, setProgress] = useState(0);
 	const requestRef = useRef<number | null>(null);
 	const lastProgressRef = useRef(0);
 	const alpha = 0.1; // Smoothing factor
+	const darkMode = true;
 
 	// Cache DOM elements and section positions
 	const sectionsRef = useRef<{ element: HTMLElement; top: number; bottom: number }[]>([]);
@@ -90,44 +96,47 @@ const Home = () => {
 	}, [updateSections]);
 
 	return (
-		<AnimationProvider>
-			<div className={styles.frame} id="scroll-window">
-				<div className={styles.div} id="scroll-container">
-					<Background advancement={progress} />
-					<div className={styles.content} id="section1">
-						<Header />
-					</div>
-					<Navbar />
-					<div className={styles.content} id="section2">
-						<SecondHeader />
-					</div>
-					<div className={styles.content} id="section3">
-						<FeaturesSection />
-					</div>
-					<div className={styles.content} id="section4">
-						<ThirdHeader />
-					</div>
-					<div className={styles.content} id="section5">
-						<PortfolioSection />
-					</div>
-					<div className={styles.content} id="section6">
-						<HowItWorksSection />
-					</div>
-					<div className={styles.content} id="section7">
-						<CTASection />
-					</div>
-					<div className={styles.content} id="section8">
-						<FaqSection />
-					</div>
-					<div className={styles.content} id="section9">
-						<AboutMeSection />
-					</div>
-					<div className={styles.content} id="section10">
-						<Footer />
+		<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" }, algorithm: darkMode ? [antdTheme.darkAlgorithm] : [antdTheme.defaultAlgorithm] }}>
+			{/* <Switch checked={darkMode} onChange={toggleDarkMode} /> */}
+			<AnimationProvider>
+				<div className={styles.frame} id="scroll-window">
+					<div className={styles.div} id="scroll-container">
+						<Background advancement={progress} />
+						<div className={styles.content} id="section1">
+							<Header />
+						</div>
+						<Navbar />
+						<div className={styles.content} id="section2">
+							<SecondHeader />
+						</div>
+						<div className={styles.content} id="section3">
+							<FeaturesSection />
+						</div>
+						<div className={styles.content} id="section4">
+							<ThirdHeader />
+						</div>
+						<div className={styles.content} id="section5">
+							<PortfolioSection />
+						</div>
+						<div className={styles.content} id="section6">
+							<HowItWorksSection />
+						</div>
+						<div className={styles.content} id="section7">
+							<CTASection />
+						</div>
+						<div className={styles.content} id="section8">
+							<FaqSection />
+						</div>
+						<div className={styles.content} id="section9">
+							<AboutMeSection />
+						</div>
+						<div className={styles.content} id="section10">
+							<Footer />
+						</div>
 					</div>
 				</div>
-			</div>
-		</AnimationProvider>
+			</AnimationProvider>
+		</ConfigProvider>
 	);
 };
 

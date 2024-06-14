@@ -1,8 +1,8 @@
 $white-color: white;
 $black-color: black;
 $poppins-font: "Poppins", sans-serif;
-$acme-font: "Acme", sans-serif;
-$segoe-font: "Segoe UI", sans-serif;
+$acme-font: "Hedvig Letters Sans", sans-serif;
+$segoe-font: "Outfit", sans-serif;
 
 @mixin flex-container($flex-direction: row, $justify-content: flex-start, $align-items: flex-start, $gap: 0) {
 	display: flex;
@@ -131,7 +131,6 @@ $segoe-font: "Segoe UI", sans-serif;
 						}
 					}
 				}
-
 				.answer {
 					@include stretch;
 					padding: 12px 33px 28px;

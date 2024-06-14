@@ -15,8 +15,8 @@ const ThirdHeader = () => {
 						<div className={styles.Text}>Discover the competitive edge of integrating specialized freelance skills into your technology strategy. Leverage cutting-edge artificial intelligence to enhance automation, data analysis, and user experience. Gain the flexibility of comprehensive development services from backend to frontend.</div>
 					</div>
 					<div className={styles.Actions}>
-						<Button style="primary">Contactez-moi</Button>
-						<Button style="secondary">Voir mon travail</Button>
+						<Button style="primary">Get in touch</Button>
+						<Button style="secondary">See my work</Button>
 					</div>
 				</div>
 			</div>

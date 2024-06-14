@@ -117,19 +117,15 @@ $cta-font-footer: "Segoe UI", sans-serif;
 
 				.ctaActions {
 					@include flex-center(row, flex-start, center, 16px);
-          span {
+          & > span {
             border-radius: 0;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(300px) !important;
             span span svg {
-              stroke: white;
-              fill: white;
             }
             input {
               &::placeholder {
-                color: rgba(255, 255, 255, 0.6);
               }
-              color: white;
               font-size: 16px;
               font-family: "Outfit", sans-serif;
             }
