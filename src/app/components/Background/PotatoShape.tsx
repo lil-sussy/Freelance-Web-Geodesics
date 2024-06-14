@@ -27,10 +27,13 @@ const PotatoShape: React.FC<PotatoShapeProps> = ({ potato, duration, advancement
 	const { cursorPosition } = useAnimation();
 	const nodeRef = useRef<HTMLDivElement>(null);
 	const [inProp, setInProp] = useState(false);
+	const [opacity, setOpacity] = useState(0);
 	const requestRef = useRef<number | null>(null);
 
 	useEffect(() => {
 		setInProp(true);
+    const distance = Math.abs(advancement - potato.index);
+    setOpacity(Math.max(1 - distance, 0) * 0.4);
 	}, [advancement]);
 
 	const remToPx = (rem: string | undefined) => {
@@ -113,9 +116,6 @@ const PotatoShape: React.FC<PotatoShapeProps> = ({ potato, duration, advancement
 			}
 		};
 	}, [cursorPosition, potato, width, height]);
-
-	const distance = Math.abs(advancement - potato.index);
-	const opacity = Math.max(1 - distance, 0) * 0.4;
 
 	if (opacity === 0) return <></>;
 	// const interpolator = interpolate(potato.startPath, potato.endPath);

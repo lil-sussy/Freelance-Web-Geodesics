@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./FeaturesSection.module.scss";
+import Button from "../Button/Button";
 
 const FeaturesSection: React.FC = () => {
 	return (
@@ -60,12 +61,8 @@ const FeaturesSection: React.FC = () => {
 				</div>
 			</div>
 			<div className={styles.actions}>
-				<div className={styles.primaryButtonContainer}>
-					<div className={styles.button}>Learn More</div>
-				</div>
-				<div className={styles.secondaryButtonContainer}>
-					<div className={styles.button}>See my work</div>
-				</div>
+				<Button style="primary">Learn More</Button>
+				<Button style="secondary">See my work</Button>
 			</div>
 		</div>
 	);
