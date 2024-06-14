@@ -1,5 +1,8 @@
 import React from "react";
+import Button from "../Button/Button";
 import styles from "./CTASection.module.scss";
+import { Input } from "antd";
+import { MailFilled } from "@ant-design/icons";
 
 const Cta7: React.FC = () => {
 	return (
@@ -12,12 +15,8 @@ const Cta7: React.FC = () => {
 					</div>
 				</div>
 				<div className={styles.ctaActions}>
-					<div className={styles.primaryButtonContainer}>
-						<div className={styles.primaryButton}>Get a Free Quote</div>
-					</div>
-					<div className={styles.secondaryButtonContainer}>
-						<div className={styles.secondaryButton}>Schedule a Consultation</div>
-					</div>
+					<Button style="primary">Get a Free Quote</Button>
+					<Button style="secondary">Schedule a Consultation</Button>
 				</div>
 			</div>
 			<div className={styles.ctaSection}>
@@ -30,12 +29,8 @@ const Cta7: React.FC = () => {
 					</div>
 					<div className={styles.frameContainer}>
 						<div className={styles.ctaActions}>
-							<div className={styles.secondaryButtonContainer}>
-								<div className={styles.secondaryButton}>Enter your email</div>
-							</div>
-							<div className={styles.primaryButtonContainer}>
-								<div className={styles.primaryButton}>Get a Free Quote</div>
-							</div>
+							<Input size="large" placeholder="Enter your email" prefix={<MailFilled />} />
+							<Button style="primary">Subscribe</Button>
 						</div>
 						<div className={styles.ctaFooterText}>By clicking Sign Up, you confirm that you agree to our Terms and Conditions.</div>
 					</div>
