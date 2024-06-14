@@ -1,53 +1,37 @@
 /* Variables */
 $white-color: white;
-$poppins-font: 'Poppins';
-$acme-font: 'Acme';
-$segoe-ui-font: 'Segoe UI';
-$roboto-font: 'Roboto';
+$poppins-font: "Poppins";
+$acme-font: "Hedvig Letters Sans";
+$segoe-ui-font: "Outfit";
+$roboto-font: "Outfit";
 $primary-color: rgba(255, 255, 255, 0.57);
-$secondary-color: rgba(255, 255, 255, 0.50);
-
-/* Mixins */
-@mixin flex-column($justify: flex-start, $align: flex-start, $gap: 0, $display: flex) {
-  flex-direction: column;
-  justify-content: $justify;
-  align-items: $align;
-  gap: $gap;
-  display: $display;
-}
-
-@mixin common-border {
-  border: 1px $primary-color solid;
-  backdrop-filter: blur(1000px);
-}
-
-@mixin placeholder-image($gradient: linear-gradient(0deg, #829AA8 0%, #829AA8 100%)) {
-  align-self: stretch;
-  height: 160px;
-  background: $gradient, linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%);
-  border: 1px rgba(255, 255, 255, 0.49) solid;
-}
-
-@mixin button-style($font-size: 14px, $font-family: $segoe-ui-font, $font-weight: 300, $line-height: 21px) {
-  color: $white-color;
-  font-size: $font-size;
-  font-family: $font-family;
-  font-weight: $font-weight;
-  line-height: $line-height;
-  word-wrap: break-word;
-}
+$secondary-color: rgba(255, 255, 255, 0.5);
+$color-highlight: #fbff30;
+$border-color: rgba(255, 255, 255, 0.49);
+$flex-display: flex;
+$flex-column: column;
+$flex-row: row;
 
 /* Styles */
 .featuresSection {
   width: 100%;
   box-sizing: border-box;
   padding: 10%;
-  @include flex-column(flex-start, flex-start, 30px, inline-flex);
+  display: $flex-display;
+  flex-direction: $flex-column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+  display: inline-flex;
 
   .titleContainer {
     width: 80%;
     max-width: 60rem;
-    @include flex-column(flex-start, flex-start, 19px);
+    display: $flex-display;
+    flex-direction: $flex-column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 19px;
 
     .mainTitle {
       align-self: stretch;
@@ -71,6 +55,7 @@ $secondary-color: rgba(255, 255, 255, 0.50);
   }
 
   .featureContainer {
+    margin-top: 30px;
     max-width: 1440px;
     align-self: stretch;
     justify-content: flex-start;
@@ -85,22 +70,45 @@ $secondary-color: rgba(255, 255, 255, 0.50);
       flex: 1 1 0;
       align-self: stretch;
       padding: 30px 28px;
-      @include common-border;
-      @include flex-column(flex-start, flex-start, 24px, inline-flex);
+      border: 1px solid $primary-color;
+      backdrop-filter: blur(1000px);
+      display: $flex-display;
+      flex-direction: $flex-column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 24px;
+      display: inline-flex;
+
+      &:hover {
+        border: 1px solid $color-highlight;
+        transform: scale(1.02);
+        transition: transform 0.5s, border 0.5s;
+      }
 
       .placeholderImage {
-        @include placeholder-image;
+        align-self: stretch;
+        height: 160px;
+        background: linear-gradient(0deg, #829aa8 0%, #829aa8 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+        border: 1px solid $border-color;
       }
 
       .content {
         align-self: stretch;
         height: 268px;
-        @include flex-column(flex-start, flex-start, 24px);
+        display: $flex-display;
+        flex-direction: $flex-column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 24px;
 
         .sectionTitle {
           align-self: stretch;
           height: 212px;
-          @include flex-column(flex-start, center, 16px);
+          display: $flex-display;
+          flex-direction: $flex-column;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 16px;
 
           .featureTitle {
             align-self: stretch;
@@ -127,46 +135,37 @@ $secondary-color: rgba(255, 255, 255, 0.50);
     }
 
     .featureColumn:nth-child(2) .placeholderImage {
-      @include placeholder-image(linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%));
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
     }
 
-    .featureColumn:nth-child(2) .content {
+    .featureColumn:nth-child(2) .content .sectionTitle {
+      height: 165px;
 
-      .sectionTitle {
-        height: 165px;
-
-        .featureDescription {
-          height: auto;
-        }
+      .featureDescription {
+        height: auto;
       }
     }
 
     .featureColumn:nth-child(3) .placeholderImage {
-      @include placeholder-image(linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%));
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
     }
 
-    .featureColumn:nth-child(1) {
-      .cuteSittingImage {
-        display: none;
-      }
+    .featureColumn:nth-child(1) .cuteSittingImage {
+      display: none;
     }
-    .featureColumn:nth-child(3) {
-      .cuteSittingImage {
-        width: 20rem;
-        left: 8rem;
-        top: -16rem;
-        position: absolute;
-      }
 
-      .content {
-  
-        .sectionTitle {
-          height: 188px;
-  
-          .featureDescription {
-            height: 143px;
-          }
-        }
+    .featureColumn:nth-child(3) .cuteSittingImage {
+      width: 20rem;
+      left: 8rem;
+      top: -16rem;
+      position: absolute;
+    }
+
+    .featureColumn:nth-child(3) .content .sectionTitle {
+      height: 188px;
+
+      .featureDescription {
+        height: 143px;
       }
     }
   }
@@ -179,27 +178,37 @@ $secondary-color: rgba(255, 255, 255, 0.50);
 
     .primaryButtonContainer {
       padding: 12px 24px;
-      background: rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.1);
       justify-content: center;
       align-items: center;
       gap: 8px;
-      display: flex;
+      display: $flex-display;
 
       .button {
-        @include button-style(16px, $roboto-font, 400, 24px);
+        color: $white-color;
+        font-size: 16px;
+        font-family: $roboto-font;
+        font-weight: 400;
+        line-height: 24px;
+        word-wrap: break-word;
       }
     }
 
     .secondaryButtonContainer {
       padding: 12px 24px;
-      border: 1px $secondary-color solid;
+      border: 1px solid $secondary-color;
       justify-content: center;
       align-items: center;
       gap: 8px;
-      display: flex;
+      display: $flex-display;
 
       .button {
-        @include button-style(16px, $roboto-font, 400, 24px);
+        color: $white-color;
+        font-size: 16px;
+        font-family: $roboto-font;
+        font-weight: 400;
+        line-height: 24px;
+        word-wrap: break-word;
       }
     }
   }
@@ -239,10 +248,11 @@ $secondary-color: rgba(255, 255, 255, 0.50);
     }
   }
 }
+
 @media (max-width: 1134px) {
   .featuresSection {
     .titleContainer {
-    .mainTitle {
+      .mainTitle {
         font-size: 2rem;
         font-family: $poppins-font;
         font-weight: 700;
@@ -256,7 +266,7 @@ $secondary-color: rgba(255, 255, 255, 0.50);
     }
     .featureContainer {
       margin-top: 10rem;
-      .featureColumn:nth-child(1) { 
+      .featureColumn:nth-child(1) {
         position: relative;
         .cuteSittingImage {
           display: block;
@@ -291,9 +301,11 @@ $secondary-color: rgba(255, 255, 255, 0.50);
     }
   }
 }
+
 @media (max-width: 816px) {
   .featuresSection {
     .titleContainer {
+      width: 100%;
       .mainTitle {
         font-size: 2rem;
         font-family: $poppins-font;
@@ -306,13 +318,11 @@ $secondary-color: rgba(255, 255, 255, 0.50);
       }
     }
     .featureContainer {
-      .featureColumn:nth-child(1) { 
-        .cuteSittingImage {
-        }
+      .featureColumn:nth-child(1) {
+        .cuteSittingImage {}
       }
       .featureColumn:nth-child(3) {
-        .cuteSittingImage {
-        }
+        .cuteSittingImage {}
       }
       .featureColumn {
         .placeholderImage {}
@@ -334,6 +344,7 @@ $secondary-color: rgba(255, 255, 255, 0.50);
     }
   }
 }
+
 @media (max-width: 486px) {
   .featuresSection {
     .titleContainer {
@@ -349,13 +360,11 @@ $secondary-color: rgba(255, 255, 255, 0.50);
       }
     }
     .featureContainer {
-      .featureColumn:nth-child(1) { 
-        .cuteSittingImage {
-        }
+      .featureColumn:nth-child(1) {
+        .cuteSittingImage {}
       }
       .featureColumn:nth-child(3) {
-        .cuteSittingImage {
-        }
+        .cuteSittingImage {}
       }
       .featureColumn {
         .placeholderImage {}
@@ -378,16 +387,10 @@ $secondary-color: rgba(255, 255, 255, 0.50);
       }
     }
     .actions {
-      .primaryButtonContainer {
-        .button {
-          @include button-style(0.9rem, $roboto-font, 400, 1.2rem);
-        }
-      }
-      .secondaryButtonContainer {
-        .button {
-          @include button-style(0.9rem, $roboto-font, 400, 1.2rem);
-        }
-      }
+      width: 100%;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
     }
   }
 }
