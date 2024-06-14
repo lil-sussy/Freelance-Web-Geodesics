@@ -1,0 +1,16 @@
+[phases]
+setup = "echo 'Setup phase'"
+
+install = "npm install"
+
+build = """
+  export NEXT_TELEMETRY_DISABLED=1
+  npm run build
+"""
+
+start = "npm run start"
+
+[variables]
+NODE_ENV = "production"
+NODE_VERSION = "14"  # Specify your Node.js version here, ensure it matches your local environment
+NEXT_PUBLIC_API_URL = "https://api.example.com"  # Add any environment variables your app requires
