@@ -11,7 +11,7 @@ dependsOn = ['install']
 cmds = ['npm run build']
 cacheDirectories = [
     '.next/cache',
-    'node_modules/.cache',
+    'node_modules/.cache'
 ]
 
 [phases.install]
@@ -23,8 +23,8 @@ paths = ['/app/node_modules/.bin']
 [phases.setup]
 nixPkgs = [
     'nodejs_18',
-    'nodePackages.npm',  // Correctly specifying npm package
-    'openssl',
+    'nodePackages.npm',  # Correctly specifying npm package
+    'openssl'
 ]
 
 [start]
