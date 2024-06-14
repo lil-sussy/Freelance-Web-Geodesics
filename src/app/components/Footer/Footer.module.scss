@@ -1,7 +1,7 @@
 // Variables
 $white-color: white;
-$font-roboto: 'Roboto';
-$font-segoe: 'Segoe UI';
+$font-roboto: 'Outfit';
+$font-segoe: 'Outfit';
 $font-size-16: 16px;
 $font-size-14: 14px;
 $font-weight-600: 600;
@@ -83,6 +83,11 @@ $position-absolute: absolute;
         width: 24px;
         height: 24px;
         position: relative;
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.3);
+          transition: transform 0.3s;
+        }
 
         .facebookIcon {
           @include absolute-position(20px, 20px, 2px, 2.24px);
@@ -128,6 +133,10 @@ $position-absolute: absolute;
         .privacyPolicy,
         .termsOfService,
         .cookiesSettings {
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
           @include link-style($font-size-14, $font-weight-400, $line-height-21, $font-roboto);
           text-decoration: underline;
         }
