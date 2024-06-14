@@ -23,7 +23,8 @@ paths = ['/app/node_modules/.bin']
 [phases.setup]
 nixPkgs = [
     'nodejs-18_x',
-    'npm',  # Ensure npm is included correctly
+    'nodePackages.nodejs-18_x',  # Specify the correct nodejs package
+    'nodePackages.npm',  # Correct npm package
     'openssl'
 ]
 
