@@ -47,17 +47,18 @@ $button-style: (
 	width: 100%;
   position: relative;
 	padding: 10% 10%;
-  gap: 5%;
-	@each $property, $value in $flex-column {
-		#{$property}: #{$value};
-	}
 
+	@each $property, $value in $flex-column {
+    #{$property}: #{$value};
+	}
+  
 	.headerContainer {
-		align-self: stretch;
+    align-self: stretch;
 		@each $property, $value in $flex-center {
-			#{$property}: #{$value};
+      #{$property}: #{$value};
 		}
-		gap: -220px;
+    gap: 5%;
+    justify-content: space-between;
 
 		.headerContent {
 			flex: 1 1 0;
@@ -154,6 +155,7 @@ $button-style: (
 
 		.headerImage {
 			width: 37.5%;
+      max-width: 400px;
 		}
 	}
 }
