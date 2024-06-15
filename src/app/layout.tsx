@@ -25,7 +25,6 @@ export default function RootLayout({
 				<NextUIProvider>
           {children}
 				</NextUIProvider>
-        
 			</body>
 		</html>
 	);
