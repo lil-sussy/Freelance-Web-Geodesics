@@ -22,7 +22,7 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 			<div className={styles.featureContainer}>
 				<div className={styles.featureColumn}>
 					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
-					<div className={styles.placeholderImage} />
+					<img className={styles.placeholderImage} src="./images/FeaturesSection/PromtpEngineering.png" alt="Cute Sitting" />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
 							<div className={styles.featureTitle}>{content.content[++i].text}</div>
@@ -34,10 +34,12 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
-					<div className={styles.placeholderImage} />
+					<img className={styles.placeholderImage} src="./images/FeaturesSection/AIAgent.png" alt="Cute Sitting" />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}><Markdown>{content.content[++i].text}</Markdown></div>
+							<div className={styles.featureTitle}>
+								<Markdown>{content.content[++i].text}</Markdown>
+							</div>
 							<div className={styles.featureDescription}>
 								<Markdown>{content.content[++i].text}</Markdown>
 								<Markdown>{content.content[++i].text}</Markdown>
@@ -46,10 +48,12 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
-					<div className={styles.placeholderImage} />
+					<img className={styles.placeholderImage} src="./images/FeaturesSection/DataAnalysis.png" alt="Cute Sitting" />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}><Markdown>{content.content[++i].text}</Markdown></div>
+							<div className={styles.featureTitle}>
+								<Markdown>{content.content[++i].text}</Markdown>
+							</div>
 							<div className={styles.featureDescription}>
 								<Markdown>{content.content[++i].text}</Markdown>
 								<Markdown>{content.content[++i].text}</Markdown>
@@ -59,10 +63,12 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 				</div>
 				<div className={styles.featureColumn}>
 					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
-					<div className={styles.placeholderImage} />
+					<img className={styles.placeholderImage} src="./images/FeaturesSection/AIIntegration.png" alt="Cute Sitting" />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}><Markdown>{content.content[++i].text}</Markdown></div>
+							<div className={styles.featureTitle}>
+								<Markdown>{content.content[++i].text}</Markdown>
+							</div>
 							<div className={styles.featureDescription}>
 								<Markdown>{content.content[++i].text}</Markdown>
 								<Markdown>{content.content[++i].text}</Markdown>
