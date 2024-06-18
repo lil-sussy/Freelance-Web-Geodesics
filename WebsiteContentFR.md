@@ -175,7 +175,7 @@ L'ingénierie de prompts consiste à créer et affiner des prompts pour amélior
 
 ---
 
-* Donwload Resume
+* Télécharger le CV
 
 # À Propos de Moi : Développeur Passionné par l'IA et Chercheur en Devenir
 

@@ -113,9 +113,19 @@ $color-white: white;
           line-height: 28px;
           margin-bottom: 10px;
         }
-        li {
+        div:nth-child(3) {
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 28px;
+          margin-top: 20px;
           margin-bottom: 10px;
-          margin-left: 10px;
+        }
+        ul {
+          margin-top: 1rem;
+          li {
+            margin-bottom: 10px;
+          }
+          margin-left: 1.5rem;
         }
 
 				&.myWork {
@@ -241,7 +251,7 @@ $color-white: white;
 			gap: 10px;
 
 			.bentConnectText {
-				width: 360px;
+				width: 315px;
 				height: 115px;
 
 				.connectText {

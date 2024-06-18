@@ -35,9 +35,8 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content }) => {
 							<div>{content.content[++i].text}</div>
 							<div>{content.content[++i].text}</div>
 							<div>{content.content[++i].text}</div>
+              <div>{content.content[++i].text}</div>
 						</div>
-						<div>{content.content[++i].text}</div>
-						<div>{content.content[++i].text}</div>
 					</div>
 					<div className={styles.bentoSideIcons}>
 						<img className={styles.figma} src="./images/chatgpt.png" alt="chatgpt" />
@@ -56,6 +55,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content }) => {
 						</div>
 						<div className={styles.bentoModernText}>
 							<div className={styles.modernText}>
+                <Markdown>{content.content[++i].text}</Markdown>
                 <Markdown>{content.content[++i].text}</Markdown>
 							</div>
 						</div>
