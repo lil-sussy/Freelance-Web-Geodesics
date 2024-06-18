@@ -48,6 +48,7 @@ $position-absolute: absolute;
   .content {
     align-self: stretch;
     @include flex-container(row, flex-start, center, 32px, inline-flex);
+    justify-content: space-between;
 
     .logoSection {
       @include flex-container(column, center, flex-start, 0px, inline-flex);
@@ -71,11 +72,17 @@ $position-absolute: absolute;
 
       .link {
         @include link-style($font-size-16, $font-weight-600, $line-height-24, $font-roboto);
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
       }
     }
 
     .socialLinksSection {
       flex: 1 1 0;
+      max-width: 300px;
       height: 24px;
       @include flex-container(row, flex-end, center, 12px);
 
