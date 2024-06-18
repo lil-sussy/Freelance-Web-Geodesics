@@ -2,7 +2,19 @@ import React from "react";
 import Button from "../Button/Button";
 import styles from "./Navbar.module.scss";
 
-const Navbar = () => {
+// Define the props type
+type NavbarProps = {
+	content:
+		Array<{
+			title: string;
+			content: Array<{ type: string; text: string }>;
+		}>;
+};
+
+const Navbar: React.FC<NavbarProps> = ({ content }) => {
+	// Extract the first section for the navbar items
+	const navbarSection = content;
+
 	return (
 		<>
 			{/* Desktop Navbar */}
@@ -10,12 +22,11 @@ const Navbar = () => {
 				<div className={`${styles.item} ${styles.logoItems}`}>
 					<img className={styles.logo} src={"./images/webgeodesicslogo.svg"} alt="Web Geodesics Logo" />
 				</div>
-				<div className={`${styles.item} ${styles.selected}`}>AI Developer</div>
-				<div className={styles.item}>Web dev Agency</div>
-				<div className={styles.item}>Portfolio</div>
-				{/* <div className={styles.item}>ABOUT ME</div> */}
-				<div className={styles.item}>Language : EN</div>
-				<div className={styles.item}>Contact</div>
+				{navbarSection.content.map((item, index) => (
+					<div key={index} className={styles.item}>
+						{item.text}
+					</div>
+				))}
 				<div className={styles.rectangle}></div>
 			</div>
 

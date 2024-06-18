@@ -1,3 +1,7 @@
+
+---
+
+
 * Portfolio
 * À Propos de Moi
 * Services
@@ -7,7 +11,11 @@
 
 # Transformez Votre Entreprise avec le Développement IA
 
-En tant que développeur freelance expérimenté, je me spécialise dans la création de solutions de pointe intégrant l'IA, le traitement du langage naturel et l'analyse de données complètes dans vos systèmes existants. Découvrez comment mon expertise en développement full-stack peut transformer votre entreprise.
+En tant que développeur freelance expérimenté, je me spécialise dans la création de
+solutions
+de pointe intégrant l'IA, le traitement du langage naturel et l'analyse de données complètes dans vos systèmes existants. Découvrez comment mon
+expertise
+en développement full-stack peut transformer votre entreprise.
 
 * Contactez-moi
 * Voir mes réalisations

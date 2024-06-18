@@ -6,69 +6,40 @@ type Section = {
 };
 
 type JsonData = {
-	fr: Section[];
-	en: Section[];
+	content: Section[];
 };
 
 export function markdownToJson(markdownContent: string): string {
-	const lines = markdownContent.trim().split("\n");
+	const sections = markdownContent
+		.split("---")
+		.map((section) => section.trim())
+		.filter(Boolean);
+	const jsonData: JsonData = { content: [] };
 
-	const jsonData: JsonData = {
-		fr: [],
-		en: [],
-	};
+	sections.forEach((sectionContent, index) => {
+		const lines = sectionContent
+			.split("\n")
+			.map((line) => line.trim())
+			.filter(Boolean);
+		const section: Section = {
+			title: `section ${index + 1}`,
+			content: [],
+		};
 
-	let section: Section | null = null;
-
-	for (const line of lines) {
-		const trimmedLine = line.trim();
-		if (!trimmedLine) {
-			continue;
-		}
-
-		const headerMatch = /^(#+)\s+(.*)/.exec(trimmedLine);
-		if (headerMatch) {
-			const headerLevel = headerMatch[1].length;
-			const headerText = headerMatch[2];
-
-			if (headerLevel === 1) {
-				if (section) {
-					jsonData.en.push(section);
-				}
-				section = {
-					title: headerText,
-					content: [],
-				};
+		lines.forEach((line) => {
+			if (line.startsWith("# ")) {
+				section.content.push({ type: "h1", text: line.substring(2) });
+			} else if (line.startsWith("## ")) {
+				section.content.push({ type: "h2", text: line.substring(3) });
+			} else if (line.startsWith("* ")) {
+				section.content.push({ type: "li", text: line.substring(2) });
 			} else {
-				if (section) {
-					section.content.push({
-						type: `h${headerLevel}`,
-						text: headerText,
-					});
-				}
+				section.content.push({ type: "p", text: line });
 			}
-		} else {
-			if (trimmedLine.startsWith("* ")) {
-				if (section) {
-					section.content.push({
-						type: "li",
-						text: trimmedLine.substring(2),
-					});
-				}
-			} else {
-				if (section) {
-					section.content.push({
-						type: "p",
-						text: trimmedLine,
-					});
-				}
-			}
-		}
-	}
+		});
 
-	if (section) {
-		jsonData.en.push(section);
-	}
+		jsonData.content.push(section);
+	});
 
 	return JSON.stringify(jsonData, null, 4);
 }

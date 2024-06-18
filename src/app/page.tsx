@@ -18,6 +18,7 @@ import Footer from "./components/Footer/Footer";
 import "antd/dist/reset.css"; // Import Ant Design styles
 // src/index.tsx or src/App.tsx
 // import 'antd/dist/antd.less';
+import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import { ConfigProvider } from "antd";
 import { theme as antdTheme } from "antd";
 import Cookies from "js-cookie";
@@ -29,18 +30,29 @@ const Home = () => {
 	const alpha = 0.1; // Smoothing factor
 	const darkMode = true;
 
-  const [locale, setLocale] = useState<"en" | "fr">("en");
+	const [locale, setLocale] = useState<"en" | "fr">("en");
+	const [content, setContent] = useState([]);
 
-  useEffect(() => {
-    const browserLocale = navigator.language.startsWith("fr") ? "fr" : "en";
-    const currentLocale = Cookies.get("locale");
-    if (currentLocale !== browserLocale) {
-      Cookies.set("locale", browserLocale);
-      window.location.reload(); // Reload the page to apply the new locale
-    } else {
-      setLocale(currentLocale);
-    }
-  }, []);
+	useEffect(() => {
+		const data = fetch(`/api/getContent?locale=en`);
+		const browserLocale = navigator.language.startsWith("fr") ? "fr" : "en";
+		const currentLocale = Cookies.get("locale");
+		if (currentLocale !== browserLocale) {
+			Cookies.set("locale", browserLocale);
+			window.location.reload(); // Reload the page to apply the new locale
+		} else {
+			setLocale(currentLocale);
+			data
+				.then((res) => res.json())
+				.then((data) => {
+					if (currentLocale === "en") {
+						setContent(data.en.content);
+					} else {
+						setContent(data.fr.content);
+					}
+				});
+		}
+	}, []);
 
 	// Cache DOM elements and section positions
 	const sectionsRef = useRef<{ element: HTMLElement; top: number; bottom: number }[]>([]);
@@ -109,6 +121,10 @@ const Home = () => {
 		};
 	}, [updateSections]);
 
+	if (!content.length) {
+		return <div>Loading...</div>;
+	}
+
 	return (
 		<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" }, algorithm: darkMode ? [antdTheme.darkAlgorithm] : [antdTheme.defaultAlgorithm] }}>
 			{/* <Switch checked={darkMode} onChange={toggleDarkMode} /> */}
@@ -117,35 +133,35 @@ const Home = () => {
 					<div className={styles.div} id="scroll-container">
 						<Background advancement={progress} />
 						<div className={styles.content} id="section1">
-							<Header />
+							<Header content={content[1]} />
 						</div>
-						<Navbar />
+						<Navbar content={content[0]} />
 						<div className={styles.content} id="section2">
-							<SecondHeader />
+							<SecondHeader content={content[2]} />
 						</div>
 						<div className={styles.content} id="section3">
-							<FeaturesSection />
+							<FeaturesSection content={content[3]} />
 						</div>
 						<div className={styles.content} id="section4">
-							<ThirdHeader />
+							<ThirdHeader content={content[4]} />
 						</div>
 						<div className={styles.content} id="section5">
-							<PortfolioSection />
+							<PortfolioSection content={content[5]} />
 						</div>
 						<div className={styles.content} id="section6">
-							<HowItWorksSection />
+							<HowItWorksSection content={content[6]} />
 						</div>
 						<div className={styles.content} id="section7">
-							<CTASection />
+							<CTASection content={content[7]} />
 						</div>
 						<div className={styles.content} id="section8">
-							<FaqSection />
+							<FaqSection content={content[8]} />
 						</div>
 						<div className={styles.content} id="section9">
-							<AboutMeSection />
+							<AboutMeSection content={content[9]} />
 						</div>
 						<div className={styles.content} id="section10">
-							<Footer />
+							<Footer locale={locale} content={content[10]} />
 						</div>
 					</div>
 				</div>
