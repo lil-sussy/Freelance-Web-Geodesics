@@ -2,7 +2,16 @@ import React from "react";
 import Button from "../Button/Button";
 import styles from "./ThirdHeader.module.scss";
 
-const ThirdHeader = () => {
+// Define the props type
+type ThirdHeaderProps = {
+	content: {
+		title: string;
+		content: Array<{ type: string; text: string }>;
+	};
+};
+
+const ThirdHeader: React.FC<ThirdHeaderProps> = ({ content }) => {
+	let i = 0;
 	return (
 		<div className={styles.ThirdHeader}>
 			<div className={styles.Container}>
@@ -11,12 +20,13 @@ const ThirdHeader = () => {
 				</div>
 				<div className={styles.ContainerInner}>
 					<div className={styles.Content}>
-						<div className={styles.Heading}>Empower Your Projects with Freelance AI and Fullstack Expertise</div>
-						<div className={styles.Text}>Discover the competitive edge of integrating specialized freelance skills into your technology strategy. Leverage cutting-edge artificial intelligence to enhance automation, data analysis, and user experience. Gain the flexibility of comprehensive development services from backend to frontend.</div>
+						<div className={styles.Heading}>{content.content[i].text}</div>
+						<div className={styles.Heading}>{content.content[++i].text}</div>
+						<div className={styles.Text}>{content.content[++i].text}</div>
 					</div>
 					<div className={styles.Actions}>
-						<Button style="primary">Get in touch</Button>
-						<Button style="secondary">See my work</Button>
+						<Button style="primary">{content.content[++i].text}</Button>
+						<Button style="secondary">{content.content[++i].text}</Button>
 					</div>
 				</div>
 			</div>

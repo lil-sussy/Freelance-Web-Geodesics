@@ -26,16 +26,16 @@ can transform your business.
 Empower Your Business with My Expertise in Advanced Technologies
 
 ## Unique Expertise
- - AI Integration: Improve your business processes with AI.
- - NLP Capabilities: Enhance text analysis and generation.
- - Data Analysis: Make data-driven decisions.
- - AI Agent Development: Innovate with AI agents. I'm passionate about their potential.
+ - **AI Integration**: Improve your business processes with AI.
+ - **NLP Capabilities**: Enhance text analysis and generation.
+ - **Data Analysis**: Make data-driven decisions.
+ - **AI Agent Development**: Innovate with AI agents. I'm passionate about their potential.
 
 ## Tailored Solutions for Your Business
- - Customized Development:  Solutions for your unique needs.
- - User-Centric Design:  Easy-to-use, engaging applications.
- - Scalable and Flexible: Systems that grow with your business.
- - Dedicated Support: Ongoing project support.
+ - **Customized Development**:  Solutions for your unique needs.
+ - **User-Centric Design**:  Easy-to-use, engaging applications.
+ - **Scalable and Flexible**: Systems that grow with your business.
+ - **Dedicated Support**: Ongoing project support.
 
 ---
 
@@ -45,23 +45,23 @@ Leveraging advanced technologies, I offer specialized AI and development service
 
 ## Prompt Engineering
 Enhance AI application efficiency with custom prompts. Improve user interaction and ensure seamless integration with your existing AI systems.
- - Tailored Prompts: Enhance user interaction.
- - Seamless Integration: Integrate with existing AI systems.
+ - **Tailored Prompts**: Enhance user interaction.
+ - **Seamless Integration**: Integrate with existing AI systems.
 
 ## AI Agent Development
 Develop intelligent AI agents to solve complex business problems. These scalable and adaptable agents drive innovation and improve efficiency.
- - Scalable Solutions: Grow with your needs.
- - Innovative Applications: Advanced business processes.
+ - **Scalable Solutions**: Grow with your needs.
+ - **Innovative Applications**: Advanced business processes.
 
 ## AI Integration
 Optimize business operations with AI technologies. Improve efficiency and performance through strategic AI implementation.
- - Streamlined Processes: Enhance efficiency.
- - Operational Improvement: Boost performance.
+ - **Streamlined Processes**: Enhance efficiency.
+ - **Operational Improvement**: Boost performance.
 
 ## Data Analysis
 Leverage big data for informed decision-making. Analyze data to uncover insights and drive strategic growth.
- - Comprehensive Analysis: Uncover insights.
- - Strategic Decisions: Make data-driven decisions.
+ - **Comprehensive Analysis**: Uncover insights.
+ - **Strategic Decisions**: Make data-driven decisions.
 
 * Contact
 * See my work
@@ -112,22 +112,22 @@ My workflow is designed to make you feel at ease and in control, ensuring that y
 
 ## Initial Consultation
 I take time to deeply understand your business. As a perfectionist, I believe knowing the details helps deliver perfect results.
-* Detailed Understanding: Learn about your goals and challenges.
-* Personalized Consultation: Discuss project requirements and scope.
-* Objective Identification: Identify key objectives and outcomes.
-* Preliminary Planning: Outline a tailored plan and timeline.
+ - Detailed Understanding: Learn about your goals and challenges.
+ - Personalized Consultation: Discuss project requirements and scope.
+ - Objective Identification: Identify key objectives and outcomes.
+ - Preliminary Planning: Outline a tailored plan and timeline.
 
 ## Development Phase
 Creating tailored solutions with regular updates to keep us aligned.
-* Custom Solutions: Implement innovative solutions for your needs.
-* Regular Updates: Provide consistent updates and feedback.
-* Iterative Testing: Refine based on testing and feedback.
+ - Custom Solutions: Implement innovative solutions for your needs.
+ - Regular Updates: Provide consistent updates and feedback.
+ - Iterative Testing: Refine based on testing and feedback.
 
 ## Project Delivery
 Ensuring a smooth launch and ongoing support for your project's success.
-* Final Testing: Complete thorough testing and quality assurance.
-* Seamless Deployment: Ensure smooth integration and launch.
-* Ongoing Support: Provide post-launch support and maintenance.
+ - Final Testing: Complete thorough testing and quality assurance.
+ - Seamless Deployment: Ensure smooth integration and launch.
+ - Ongoing Support: Provide post-launch support and maintenance.
 
 * Learn More
 * See my work
@@ -138,9 +138,15 @@ Ensuring a smooth launch and ongoing support for your project's success.
 
 Connect with a leading expert in AI and Fullstack Development today.
 
+* Get a free quote
+* Schedule a consultation
+
 # Stay Ahead of the Curve
 
 Subscribe to my newsletter for exclusive insights and the latest tech updates.
+
+* Enter your email
+* Sign up
 
 By clicking Sign Up, you confirm that you agree to our Terms and Conditions.
 
@@ -149,6 +155,7 @@ By clicking Sign Up, you confirm that you agree to our Terms and Conditions.
 # FAQs
 
 Find answers to common questions about my work and services.
+* More questions ?
 
 ## What is the typical timeline for a full stack development project?
 The timeline varies based on the project's complexity but generally ranges from 3 to 6 months. For a more precise timeline, contact us for a consultation.
@@ -353,6 +360,8 @@ By clicking Sign Up, you confirm that you agree to our Terms and Conditions.
 
 Find answers to common questions about my work and services.
 
+* More questions ?
+
 ## What is the typical timeline for a full stack development project?
 The timeline varies based on the project's complexity but generally ranges from 3 to 6 months. For a more precise timeline, contact us for a consultation.
 
@@ -370,6 +379,8 @@ Prompt Engineering involves creating and refining prompts to improve the perform
 
 ---
 
+* Donwload Resume
+
 # About Me: Passionate AI Developer and Aspiring Researcher
 
 Welcome to my personal section where I share my journey as a passionate developer, aspiring researcher, and dedicated learner.
@@ -384,14 +395,15 @@ Every morning, I dive into the world of mathematics and AI, reading a Wikipedia 
 As an aspiring AI and data science researcher, I am committed to pushing the boundaries of what is possible with technology. My ultimate goal is to contribute to groundbreaking research and innovative solutions that can make a significant impact on society. Currently, I am working on an AI agent project that I believe will revolutionize the field.
 
 ## What I Do
-* Prompt Engineering: Crafting sophisticated prompts to drive AI behavior.
-* AI Agent Development: Building intelligent agents capable of autonomous actions.
-* Fullstack Development: Creating robust web applications using Python Django and React.
-* AI Integration: Seamlessly integrating AI solutions into existing systems.
-* Data Analysis: Turning data into actionable insights.
+- **Prompt Engineering**: Crafting sophisticated prompts to drive AI behavior.
+- **AI Agent Development**: Building intelligent agents capable of autonomous actions.
+- **Fullstack Development**: Creating robust web applications using Python Django and React.
+- **AI Integration**: Seamlessly integrating AI solutions into existing systems.
+- **Data Analysis**: Turning data into actionable insights.
 
 ## Let’s connect!
 Bring Your Digital Visions to Life
+* sdlkfjhsdklf
 
 ## Join Me on This Journey
 I invite you to explore my portfolio, learn about my projects, and join me on this exciting journey of discovery and innovation. Feel free to reach out if you're interested in collaboration or have any questions about my work.

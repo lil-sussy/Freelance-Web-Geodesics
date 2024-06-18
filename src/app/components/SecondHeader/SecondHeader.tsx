@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 import styles from "./SecondHeader.module.scss";
+import Markdown from "markdown-to-jsx";
 
 // Define the props type
 type SecondHeaderProps = {
@@ -23,20 +24,11 @@ const SecondHeader: React.FC<SecondHeaderProps> = ({ content }) => {
 							<div className={styles.headerColumns}>
 								<div className={styles.headerItem}>
 									<h3>{content.content[++i].text}</h3>
-									<ul>
-										<li>{content.content[++i].text}</li>
-										<li>{content.content[++i].text}</li>
-										<li>{content.content[++i].text}</li>
-										<li>{content.content[++i].text}</li>
-									</ul>
+									<Markdown>{content.content[++i].text}</Markdown>
 								</div>
 								<div className={styles.headerItem}>
 									<h3>{content.content[++i].text}</h3>
-									<ul>
-										<li>{content.content[++i].text}</li>
-										<li>{content.content[++i].text}</li>
-										<li>{content.content[++i].text}</li>
-									</ul>
+									<Markdown>{content.content[++i].text}</Markdown>
 								</div>
 							</div>
 						</div>

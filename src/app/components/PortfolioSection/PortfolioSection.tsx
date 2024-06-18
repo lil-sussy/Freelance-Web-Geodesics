@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./PortfolioSection.module.scss";
+import Button from "../Button/Button";
 
-const FeaturesSection: React.FC = () => {
+// Define the props type
+type FeaturesSectionProps = {
+	content: {
+		title: string;
+		content: Array<{ type: string; text: string }>;
+	};
+};
+
+const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
+	const [visible, setVisible] = useState(false);
+
+	let i = 0;
 	return (
 		<div className={styles.featuresSection}>
 			<div className={styles.titleContainer}>
-				<div className={styles.mainTitle}>Portfolio Highlights</div>
-				<div className={styles.subTitle}>Discover my highlighted projects.</div>
+				<div className={styles.mainTitle}>{content.content[i].text}</div>
+				<div className={styles.subTitle}>{content.content[++i].text}</div>
 			</div>
 			<div className={styles.featureContainer}>
 				<div className={styles.featureColumn}>
@@ -14,30 +26,20 @@ const FeaturesSection: React.FC = () => {
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}>AI Integration</div>
-							<div className={styles.featureDescription}>
-								Harness the power of AI to streamline processes and enhance decision-making
-								<br />
-								Automate routine tasks and increase efficiency.
-								<br />
-								Integrate intelligent algorithms that adapt to your business needs.
-							</div>
+							<div className={styles.featureTitle}>{content.content[++i].text}</div>
+							<div className={styles.featureDescription}>{content.content[++i].text}</div>
 						</div>
+						<Button style="secondary">{content.content[++i].text}</Button>
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}>Data Analysis</div>
-							<div className={styles.featureDescription}>
-								Turn complex data into actionable insights.
-								<br />
-								Analyze trends to drive strategic business decisions.
-								<br />
-								Leverage data visualization to simplify complex information.
-							</div>
+							<div className={styles.featureTitle}>{content.content[++i].text}</div>
+							<div className={styles.featureDescription}>{content.content[++i].text}</div>
 						</div>
+						<Button style="secondary">{content.content[++i].text}</Button>
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
@@ -45,22 +47,48 @@ const FeaturesSection: React.FC = () => {
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}>Web Development</div>
-							<div className={styles.featureDescription}>
-								Build dynamic and scalable web solutions.
-								<br />
-								Custom websites tailored to engage and captivate your audience.
-								<br />
-								Responsive designs that ensure seamless user experience across all devices.
-							</div>
+							<div className={styles.featureTitle}>{content.content[++i].text}</div>
+							<div className={styles.featureDescription}>{content.content[++i].text}</div>
 						</div>
+						<Button style="secondary">{content.content[++i].text}</Button>
 					</div>
 				</div>
+				{visible ? (
+					<>
+						<div className={styles.featureColumn}>
+							<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
+							<div className={styles.placeholderImage} />
+							<div className={styles.content}>
+								<div className={styles.sectionTitle}>
+									<div className={styles.featureTitle}>{content.content[++i].text}</div>
+									<div className={styles.featureDescription}>{content.content[++i].text}</div>
+								</div>
+								<Button style="secondary">{content.content[++i].text}</Button>
+							</div>
+						</div>
+						<div className={styles.featureColumn}>
+							<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
+							<div className={styles.placeholderImage} />
+							<div className={styles.content}>
+								<div className={styles.sectionTitle}>
+									<div className={styles.featureTitle}>{content.content[++i].text}</div>
+									<div className={styles.featureDescription}>{content.content[++i].text}</div>
+								</div>
+								<Button style="secondary">{content.content[++i].text}</Button>
+							</div>
+						</div>
+					</>
+				) : (
+					<></>
+				)}
 			</div>
-			<div className={styles.actions}>
-				<div className={styles.secondaryButtonContainer}>
-					<div className={styles.button}>View all</div>
-				</div>
+			<div
+				onClick={() => {
+					setVisible(true);
+				}}
+				className={styles.actions}
+			>
+				<Button style="primary">{content.content[content.content.length - 1].text}</Button>
 			</div>
 		</div>
 	);

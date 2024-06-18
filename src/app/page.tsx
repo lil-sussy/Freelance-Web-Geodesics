@@ -125,6 +125,8 @@ const Home = () => {
 		return <div>Loading...</div>;
 	}
 
+  let i = 2;
+
 	return (
 		<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" }, algorithm: darkMode ? [antdTheme.darkAlgorithm] : [antdTheme.defaultAlgorithm] }}>
 			{/* <Switch checked={darkMode} onChange={toggleDarkMode} /> */}
@@ -137,31 +139,31 @@ const Home = () => {
 						</div>
 						<Navbar content={content[0]} />
 						<div className={styles.content} id="section2">
-							<SecondHeader content={content[2]} />
+							<SecondHeader content={content[i]} />
 						</div>
 						<div className={styles.content} id="section3">
-							<FeaturesSection content={content[3]} />
+							<FeaturesSection content={content[++i]} />
 						</div>
 						<div className={styles.content} id="section4">
-							<ThirdHeader content={content[4]} />
+							<ThirdHeader content={content[++i]} />
 						</div>
 						<div className={styles.content} id="section5">
-							<PortfolioSection content={content[5]} />
+							<PortfolioSection content={content[++i]} />
 						</div>
 						<div className={styles.content} id="section6">
-							<HowItWorksSection content={content[6]} />
+							<HowItWorksSection content={content[++i]} />
 						</div>
 						<div className={styles.content} id="section7">
-							<CTASection content={content[7]} />
+							<CTASection content={content[++i]} />
 						</div>
 						<div className={styles.content} id="section8">
-							<FaqSection content={content[8]} />
+							<FaqSection content={content[++i]} />
 						</div>
 						<div className={styles.content} id="section9">
-							<AboutMeSection content={content[9]} />
+							<AboutMeSection content={content[++i]} />
 						</div>
 						<div className={styles.content} id="section10">
-							<Footer locale={locale} content={content[10]} />
+							<Footer locale={locale} content={content[++i]} />
 						</div>
 					</div>
 				</div>

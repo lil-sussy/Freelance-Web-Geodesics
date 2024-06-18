@@ -1,7 +1,16 @@
 import React from "react";
 import styles from "./Footer.module.scss";
 
-const Footer: React.FC = () => {
+// Define the props type
+type FooterProps = {
+	content: {
+		title: string;
+		content: Array<{ type: string; text: string }>;
+	};
+};
+
+const Footer: React.FC<FooterProps> = ({ content }) => {
+	let i = 0;
 	return (
 		<div className={styles.footer}>
 			<div className={styles.content}>
@@ -10,14 +19,14 @@ const Footer: React.FC = () => {
 					<div className={styles.logoContainer}></div>
 				</div>
 				<div className={styles.linksSection}>
-					<div className={styles.link}>Services</div>
-					<div className={styles.link}>Portfolio</div>
-					<div className={styles.link}>Contactez-moi</div>
-					<div className={styles.link}>FAQ</div>
+					<div className={styles.link}>{content.content[i++].text}</div>
+					<div className={styles.link}>{content.content[i++].text}</div>
+					<div className={styles.link}>{content.content[i++].text}</div>
+					<div className={styles.link}>{content.content[i++].text}</div>
 				</div>
 				<div className={styles.socialLinksSection}>
 					<div className={styles.socialIcon}>
-						<img className={styles.linkedin} style={{fill: "white", stroke: "white"}} src="./images/github.svg" alt="Github button" />
+						<img className={styles.linkedin} style={{ fill: "white", stroke: "white" }} src="./images/github.svg" alt="Github button" />
 					</div>
 					<div className={styles.socialIcon}>
 						<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">

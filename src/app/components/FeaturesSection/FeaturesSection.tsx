@@ -1,15 +1,23 @@
 import React from "react";
 import styles from "./FeaturesSection.module.scss";
 import Button from "../Button/Button";
+import Markdown from "markdown-to-jsx";
 
-const FeaturesSection: React.FC = () => {
+// Define the props type
+type FeaturesSectionProps = {
+	content: {
+		title: string;
+		content: Array<{ type: string; text: string }>;
+	};
+};
+
+const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
+	let i = 0;
 	return (
 		<div className={styles.featuresSection}>
 			<div className={styles.titleContainer}>
-				<div className={styles.mainTitle}>Transform Your Business with Advanced AI and Data Insights</div>
-				<div className={styles.subTitle}>
-					Explore the frontier of technology with our integrated solutions in AI, data analysis, and web development. Leveraging expertise in prompt engineering and AI-driven innovations, we empower your business to thrive in the digital age. Discover how our tailored AI integration can transform your operations and decision-making processes.
-				</div>
+				<div className={styles.mainTitle}>{content.content[i].text}</div>
+				<div className={styles.subTitle}>{content.content[++i].text}</div>
 			</div>
 			<div className={styles.featureContainer}>
 				<div className={styles.featureColumn}>
@@ -17,13 +25,10 @@ const FeaturesSection: React.FC = () => {
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}>AI Integration</div>
+							<div className={styles.featureTitle}>{content.content[++i].text}</div>
 							<div className={styles.featureDescription}>
-								Harness the power of AI to streamline processes and enhance decision-making
-								<br />
-								Automate routine tasks and increase efficiency.
-								<br />
-								Integrate intelligent algorithms that adapt to your business needs.
+								<Markdown>{content.content[++i].text}</Markdown>
+								<Markdown>{content.content[++i].text}</Markdown>
 							</div>
 						</div>
 					</div>
@@ -32,13 +37,22 @@ const FeaturesSection: React.FC = () => {
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}>Data Analysis</div>
+							<div className={styles.featureTitle}><Markdown>{content.content[++i].text}</Markdown></div>
 							<div className={styles.featureDescription}>
-								Turn complex data into actionable insights.
-								<br />
-								Analyze trends to drive strategic business decisions.
-								<br />
-								Leverage data visualization to simplify complex information.
+								<Markdown>{content.content[++i].text}</Markdown>
+								<Markdown>{content.content[++i].text}</Markdown>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className={styles.featureColumn}>
+					<div className={styles.placeholderImage} />
+					<div className={styles.content}>
+						<div className={styles.sectionTitle}>
+							<div className={styles.featureTitle}><Markdown>{content.content[++i].text}</Markdown></div>
+							<div className={styles.featureDescription}>
+								<Markdown>{content.content[++i].text}</Markdown>
+								<Markdown>{content.content[++i].text}</Markdown>
 							</div>
 						</div>
 					</div>
@@ -48,21 +62,18 @@ const FeaturesSection: React.FC = () => {
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}>Web Development</div>
+							<div className={styles.featureTitle}><Markdown>{content.content[++i].text}</Markdown></div>
 							<div className={styles.featureDescription}>
-								Build dynamic and scalable web solutions.
-								<br />
-								Custom websites tailored to engage and captivate your audience.
-								<br />
-								Responsive designs that ensure seamless user experience across all devices.
+								<Markdown>{content.content[++i].text}</Markdown>
+								<Markdown>{content.content[++i].text}</Markdown>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className={styles.actions}>
-				<Button style="primary">Learn More</Button>
-				<Button style="secondary">See my work</Button>
+				<Button style="primary">{content.content[++i].text}</Button>
+				<Button style="secondary">{content.content[++i].text}</Button>
 			</div>
 		</div>
 	);

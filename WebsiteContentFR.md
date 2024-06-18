@@ -114,22 +114,22 @@ Mon flux de travail est conçu pour vous mettre à l'aise et vous donner le cont
 
 ## Consultation Initiale
 Je prends le temps de comprendre profondément votre entreprise. En tant que perfectionniste, je crois que connaître les détails aide à livrer des résultats parfaits.
-* Compréhension Détaillée : Connaître vos objectifs et défis.
-* Consultation Personnalisée : Discuter des exigences et de la portée du projet.
-* Identification des Objectifs : Identifier les objectifs et résultats clés.
-* Planification Préliminaire : Définir un plan et un calendrier sur mesure.
+ - Compréhension Détaillée : Connaître vos objectifs et défis.
+ - Consultation Personnalisée : Discuter des exigences et de la portée du projet.
+ - Identification des Objectifs : Identifier les objectifs et résultats clés.
+ - Planification Préliminaire : Définir un plan et un calendrier sur mesure.
 
 ## Phase de Développement
 Création de solutions sur mesure avec des mises à jour régulières pour rester alignés.
-* Solutions Personnalisées : Implémenter des solutions innovantes pour vos besoins.
-* Mises à Jour Régulières : Fournir des mises à jour et des retours constants.
-* Tests Itératifs : Affiner en fonction des tests et des retours.
+ - Solutions Personnalisées : Implémenter des solutions innovantes pour vos besoins.
+ - Mises à Jour Régulières : Fournir des mises à jour et des retours constants.
+ - Tests Itératifs : Affiner en fonction des tests et des retours.
 
 ## Livraison du Projet
 Assurer un lancement en douceur et un support continu pour le succès de votre projet.
-* Tests Finaux : Effectuer des tests et une assurance qualité complets.
-* Déploiement Transparent : Assurer une intégration et un lancement fluides.
-* Support Continu : Fournir un support et une maintenance après le lancement.
+ - Tests Finaux : Effectuer des tests et une assurance qualité complets.
+ - Déploiement Transparent : Assurer une intégration et un lancement fluides.
+ - Support Continu : Fournir un support et une maintenance après le lancement.
 
 * En savoir plus
 * Voir mes réalisations
@@ -140,10 +140,14 @@ Assurer un lancement en douceur et un support continu pour le succès de votre p
 
 Connectez-vous avec un expert en IA et Développement Fullstack dès aujourd'hui.
 
+* Obtenez un devis gratuit
+* Planifiez une consultation
+
 # Restez à la Pointe
 
 Abonnez-vous à ma newsletter pour des insights exclusifs et les dernières mises à jour technologiques.
-
+* Entrez votre adresse email
+* S'inscrire
 En cliquant sur S'inscrire, vous confirmez que vous acceptez nos termes et conditions.
 
 ---
@@ -151,6 +155,8 @@ En cliquant sur S'inscrire, vous confirmez que vous acceptez nos termes et condi
 # FAQ
 
 Trouvez des réponses aux questions fréquentes sur mon travail et mes services.
+
+* D'autres questions ?
 
 ## Quel est le délai typique pour un projet de développement full stack ?
 Le délai varie en fonction de la complexité du projet mais se situe généralement entre 3 et 6 mois. Pour un délai plus précis, contactez-nous pour une consultation.
@@ -169,6 +175,8 @@ L'ingénierie de prompts consiste à créer et affiner des prompts pour amélior
 
 ---
 
+* Donwload Resume
+
 # À Propos de Moi : Développeur Passionné par l'IA et Chercheur en Devenir
 
 Bienvenue dans ma section personnelle où je partage mon parcours en tant que développeur passionné, chercheur en devenir et apprenant dévoué.
@@ -185,11 +193,11 @@ Chaque matin, je plonge dans le monde des mathématiques et de l'IA, lisant une 
 En tant que chercheur aspirant en IA et science des données, je suis déterminé à repousser les limites de ce qui est possible avec la technologie. Mon objectif ultime est de contribuer à des recherches révolutionnaires et des solutions innovantes qui peuvent avoir un impact significatif sur la société. Actuellement, je travaille sur un projet d'agent IA que je crois capable de révolutionner le domaine.
 
 ## Ce Que Je Fais
-* **Ingénierie de Prompts** : Créer des prompts sophistiqués pour piloter le comportement de l'IA.
-* **Développement d'Agents IA** : Construire des agents intelligents capables d'actions autonomes.
-* **Développement Fullstack** : Créer des applications web robustes avec Python Django et React.
-* **Intégration de l'IA** : Intégrer des solutions IA de manière transparente dans les systèmes existants.
-* **Analyse de Données** : Transformer les données en insights exploitables.
+- **Ingénierie de Prompts** : Créer des prompts sophistiqués pour piloter le comportement de l'IA.
+- **Développement d'Agents IA** : Construire des agents intelligents capables d'actions autonomes.
+- **Développement Fullstack** : Créer des applications web robustes avec Python Django et React.
+- **Intégration de l'IA** : Intégrer des solutions IA de manière transparente dans les systèmes existants.
+- **Analyse de Données** : Transformer les données en insights exploitables.
 
 ## Connectons-Nous !
 Donnez Vie à Vos Visions Numériques

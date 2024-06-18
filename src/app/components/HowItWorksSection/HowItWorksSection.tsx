@@ -1,13 +1,23 @@
 import React from "react";
 import styles from "./HowItWorksSection.module.scss";
 import Button from "../Button/Button";
+import Markdown from "markdown-to-jsx";
 
-const FeaturesSection: React.FC = () => {
+// Define the props type
+type HowItWorksSectionProps = {
+	content: {
+		title: string;
+		content: Array<{ type: string; text: string }>;
+	};
+};
+
+const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ content }) => {
+	let i = 0;
 	return (
 		<div className={styles.featuresSection}>
 			<div className={styles.titleContainer}>
-				<div className={styles.mainTitle}>How It Works: From Concept to Completion</div>
-				<div className={styles.subTitle}>A streamlined process designed to deliver customized solutions efficiently and effectively.</div>
+				<div className={styles.mainTitle}>{content.content[i].text}</div>
+				<div className={styles.subTitle}>{content.content[++i].text}</div>
 			</div>
 			<div className={styles.featureContainer}>
 				<div className={styles.featureColumn}>
@@ -15,12 +25,13 @@ const FeaturesSection: React.FC = () => {
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}>Initial Consultation</div>
+							<div className={styles.featureTitle}>
+								<Markdown>{content.content[++i].text}</Markdown>
+							</div>
+
 							<ul className={styles.featureDescription}>
-								<li>Discuss your project requirements and goals with a personalized consultation. </li>
-								<li>Understand your needs and project scope. </li>
-								<li>Identify key objectives and desired outcomes.</li>
-								<li>Outline a preliminary plan and timeline.</li>
+								<Markdown>{content.content[++i].text}</Markdown>
+								<Markdown>{content.content[++i].text}</Markdown>
 							</ul>
 						</div>
 					</div>
@@ -29,13 +40,9 @@ const FeaturesSection: React.FC = () => {
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}>Development Phase</div>
-							<div className={styles.featureDescription}>
-								<li>Implementing innovative solutions tailored to your specifications.</li>
-								<li>Develop and test AI and fullstack components.</li>
-								<li>Regular updates and feedback loops to ensure alignment.</li>
-								<li>Adjust and refine based on iterative testing and client feedback.</li>
-							</div>
+							<div className={styles.featureTitle}>{content.content[++i].text}</div>
+							<Markdown>{content.content[++i].text}</Markdown>
+							<Markdown>{content.content[++i].text}</Markdown>
 						</div>
 					</div>
 				</div>
@@ -44,23 +51,19 @@ const FeaturesSection: React.FC = () => {
 					<div className={styles.placeholderImage} />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
-							<div className={styles.featureTitle}>Project Delivery</div>
-							<div className={styles.featureDescription}>
-								<li>Finalize and launch your project with comprehensive support.</li>
-								<li>Complete final testing and quality assurance.</li>
-								<li>Ensure seamless integration and deployment.</li>
-								<li>Provide post-launch support and maintenance.</li>
-							</div>
+							<div className={styles.featureTitle}>{content.content[++i].text}</div>
+							<Markdown>{content.content[++i].text}</Markdown>
+							<Markdown>{content.content[++i].text}</Markdown>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className={styles.actions}>
-				<Button style="primary">Learn More</Button>
-				<Button style="secondary">See my work</Button>
+				<Button style="primary">{content.content[++i].text}</Button>
+				<Button style="secondary">{content.content[++i].text}</Button>
 			</div>
 		</div>
 	);
 };
 
-export default FeaturesSection;
+export default HowItWorksSection;
