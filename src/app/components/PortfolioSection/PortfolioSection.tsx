@@ -22,7 +22,6 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 			</div>
 			<div className={styles.featureContainer}>
 				<div className={styles.featureColumn}>
-					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
 					<img className={styles.placeholderImage} src="./images/PortfolioSection/DRK.png" alt="Cute Sitting" />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
@@ -43,7 +42,6 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
-					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
 					<img className={styles.placeholderImage} src="./images/PortfolioSection/Demetrius.png" alt="Cute Sitting" />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
@@ -56,7 +54,6 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 				{visible ? (
 					<>
 						<div className={styles.featureColumn}>
-							<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
 							<img className={styles.placeholderImage} src="./images/PortfolioSection/NeptuneProject.png" alt="Cute Sitting" />
 							<div className={styles.content}>
 								<div className={styles.sectionTitle}>
