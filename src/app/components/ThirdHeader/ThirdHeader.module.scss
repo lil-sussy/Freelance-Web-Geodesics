@@ -57,6 +57,16 @@ $font-text: "Hedvig Letters Sans", sans-serif;
 					line-height: 57.6px;
 					word-wrap: break-word;
 				}
+				.SecondHeading {
+					align-self: stretch;
+					color: white;
+					font-size: 28px;
+					font-family: $font-heading;
+					font-weight: 700;
+					line-height: 37.6px;
+					word-wrap: break-word;
+          margin-bottom: -1rem;
+				}
 
 				.Text {
 					align-self: stretch;

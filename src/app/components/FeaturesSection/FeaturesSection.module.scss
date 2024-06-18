@@ -88,6 +88,7 @@ $flex-row: row;
       .placeholderImage {
         align-self: stretch;
         height: 160px;
+        max-width: unset;
         background: linear-gradient(0deg, #829aa8 0%, #829aa8 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
         border: 1px solid $border-color;
       }
@@ -129,6 +130,10 @@ $flex-row: row;
             font-weight: 400;
             line-height: 24px;
             word-wrap: break-word;
+
+            ul {
+              margin-left: 1rem;
+            }
           }
         }
       }

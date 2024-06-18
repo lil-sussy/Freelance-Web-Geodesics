@@ -123,6 +123,7 @@ $button-style: (
 								display: flex;
 								flex-direction: column; // or row, depending on your layout needs
 								gap: 10px;
+                margin-left: 1rem;
                 li {
 									font-family: $font-text;
 									font-weight: 400;

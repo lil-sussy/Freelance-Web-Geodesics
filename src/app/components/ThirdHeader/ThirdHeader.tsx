@@ -21,7 +21,7 @@ const ThirdHeader: React.FC<ThirdHeaderProps> = ({ content }) => {
 				<div className={styles.ContainerInner}>
 					<div className={styles.Content}>
 						<div className={styles.Heading}>{content.content[i].text}</div>
-						<div className={styles.Heading}>{content.content[++i].text}</div>
+						<div className={styles.SecondHeading}>{content.content[++i].text}</div>
 						<div className={styles.Text}>{content.content[++i].text}</div>
 					</div>
 					<div className={styles.Actions}>
