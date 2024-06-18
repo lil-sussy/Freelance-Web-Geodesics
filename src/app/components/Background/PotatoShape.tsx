@@ -32,8 +32,8 @@ const PotatoShape: React.FC<PotatoShapeProps> = ({ potato, duration, advancement
 
 	useEffect(() => {
 		setInProp(true);
-    const distance = Math.abs(advancement - potato.index);
-    setOpacity(Math.max(1 - distance, 0) * 0.4);
+		const distance = Math.abs(advancement - potato.index);
+		setOpacity(Math.max(1 - distance, 0) * 0.4);
 	}, [advancement]);
 
 	const remToPx = (rem: string | undefined) => {
@@ -66,7 +66,7 @@ const PotatoShape: React.FC<PotatoShapeProps> = ({ potato, duration, advancement
 			y: directionVector.y / length,
 		};
 
-		const fleeDistance = 50; // Reduced distance to flee
+		const fleeDistance = 10; // Reduced distance to flee
 		return {
 			top: `${pxToRem(topPx + normalizedVector.y * fleeDistance)}rem`,
 			left: `${pxToRem(leftPx + normalizedVector.x * fleeDistance)}rem`,
@@ -133,8 +133,8 @@ const PotatoShape: React.FC<PotatoShapeProps> = ({ potato, duration, advancement
 					}}
 				>
 					<svg viewBox="0 0 1500 900" width={width} height={height} className="potato-shape" style={{ opacity }}>
-						<path d={potato.startPath} />
-						{/* <path d={interpolator(state === "entered" ? 1 : 0)} /> */}
+						<path d={potato.startPath} fillRule="evenodd" clipRule="evenodd" />
+						{/* <path d={interpolator(state === "entered" ? 1 : 0)} fillRule="evenodd" clipRule="evenodd" /> */}
 					</svg>
 				</div>
 			)}

@@ -105,7 +105,7 @@ const Home = () => {
 			lastProgressRef.current = smoothedProgress;
 
 			setProgress(smoothedProgress);
-			console.log("Scroll Progress: ", smoothedProgress.toFixed(2));
+			// console.log("Scroll Progress: ", smoothedProgress.toFixed(2));
 
 			requestRef.current = requestAnimationFrame(handleScroll);
 		};
@@ -123,7 +123,7 @@ const Home = () => {
 			}
 			window.removeEventListener("resize", updateSections);
 		};
-	}, [updateSections]);
+	}, [updateSections, content]);
 
 	if (!content.length) {
 		return <div>Loading...</div>;
