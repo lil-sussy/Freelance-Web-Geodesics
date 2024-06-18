@@ -20,6 +20,7 @@ import "antd/dist/reset.css"; // Import Ant Design styles
 // import 'antd/dist/antd.less';
 import { ConfigProvider } from "antd";
 import { theme as antdTheme } from "antd";
+import Cookies from "js-cookie";
 
 const Home = () => {
 	const [progress, setProgress] = useState(0);
@@ -27,6 +28,19 @@ const Home = () => {
 	const lastProgressRef = useRef(0);
 	const alpha = 0.1; // Smoothing factor
 	const darkMode = true;
+
+  const [locale, setLocale] = useState<"en" | "fr">("en");
+
+  useEffect(() => {
+    const browserLocale = navigator.language.startsWith("fr") ? "fr" : "en";
+    const currentLocale = Cookies.get("locale");
+    if (currentLocale !== browserLocale) {
+      Cookies.set("locale", browserLocale);
+      window.location.reload(); // Reload the page to apply the new locale
+    } else {
+      setLocale(currentLocale);
+    }
+  }, []);
 
 	// Cache DOM elements and section positions
 	const sectionsRef = useRef<{ element: HTMLElement; top: number; bottom: number }[]>([]);

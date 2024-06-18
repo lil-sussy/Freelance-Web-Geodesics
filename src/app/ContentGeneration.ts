@@ -1,71 +1,74 @@
-import * as fs from 'fs';
+import * as fs from "fs";
 
+type Section = {
+	title: string;
+	content: Array<{ type: string; text: string }>;
+};
 
-function markdownToJson(markdownContent: string) {
-    const lines = markdownContent.trim().split('\n');
+type JsonData = {
+	fr: Section[];
+	en: Section[];
+};
 
-    const jsonData = {
-        "fr": [],
-        "en": []
-    };
+export function markdownToJson(markdownContent: string): string {
+	const lines = markdownContent.trim().split("\n");
 
-    let section: any = null;
+	const jsonData: JsonData = {
+		fr: [],
+		en: [],
+	};
 
-    for (const line of lines) {
-        const trimmedLine = line.trim();
-        if (!trimmedLine) {
-            continue;
-        }
+	let section: Section | null = null;
 
-        const headerMatch = /^(#+)\s+(.*)/.exec(trimmedLine);
-        if (headerMatch) {
-            const headerLevel = headerMatch[1].length;
-            const headerText = headerMatch[2];
+	for (const line of lines) {
+		const trimmedLine = line.trim();
+		if (!trimmedLine) {
+			continue;
+		}
 
-            if (headerLevel === 1) {
-                if (section) {
-                    jsonData.en.push(section);
-                }
-                section = {
-                    title: headerText,
-                    content: []
-                };
-            } else {
-                if (section) {
-                    section.content.push({
-                        type: `h${headerLevel}`,
-                        text: headerText
-                    });
-                }
-            }
-        } else {
-            if (trimmedLine.startsWith('* ')) {
-                if (section) {
-                    section.content.push({
-                        type: 'li',
-                        text: trimmedLine.substring(2)
-                    });
-                }
-            } else {
-                if (section) {
-                    section.content.push({
-                        type: 'p',
-                        text: trimmedLine
-                    });
-                }
-            }
-        }
-    }
+		const headerMatch = /^(#+)\s+(.*)/.exec(trimmedLine);
+		if (headerMatch) {
+			const headerLevel = headerMatch[1].length;
+			const headerText = headerMatch[2];
 
-    if (section) {
-        jsonData.en.push(section);
-    }
+			if (headerLevel === 1) {
+				if (section) {
+					jsonData.en.push(section);
+				}
+				section = {
+					title: headerText,
+					content: [],
+				};
+			} else {
+				if (section) {
+					section.content.push({
+						type: `h${headerLevel}`,
+						text: headerText,
+					});
+				}
+			}
+		} else {
+			if (trimmedLine.startsWith("* ")) {
+				if (section) {
+					section.content.push({
+						type: "li",
+						text: trimmedLine.substring(2),
+					});
+				}
+			} else {
+				if (section) {
+					section.content.push({
+						type: "p",
+						text: trimmedLine,
+					});
+				}
+			}
+		}
+	}
 
-    return JSON.stringify(jsonData, null, 4);
+	if (section) {
+		jsonData.en.push(section);
+	}
+
+	return JSON.stringify(jsonData, null, 4);
 }
-
-const jsonOutput = markdownToJson(markdownContent);
-console.log(jsonOutput);
-
-// Optional: Write the output to a file
-fs.writeFileSync('output.json', jsonOutput);
