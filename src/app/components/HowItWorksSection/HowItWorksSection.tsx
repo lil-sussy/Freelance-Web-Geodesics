@@ -28,10 +28,10 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ content }) => {
 								<Markdown>{content.content[++i].text}</Markdown>
 							</div>
 
-							<ul className={styles.featureDescription}>
+							<div className={styles.featureDescription}>
 								<Markdown>{content.content[++i].text}</Markdown>
 								<Markdown>{content.content[++i].text}</Markdown>
-							</ul>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -39,8 +39,10 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ content }) => {
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
 							<div className={styles.featureTitle}>{content.content[++i].text}</div>
-							<Markdown>{content.content[++i].text}</Markdown>
-							<Markdown>{content.content[++i].text}</Markdown>
+							<div className={styles.featureDescription}>
+								<Markdown>{content.content[++i].text}</Markdown>
+								<Markdown>{content.content[++i].text}</Markdown>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -49,8 +51,10 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ content }) => {
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
 							<div className={styles.featureTitle}>{content.content[++i].text}</div>
-							<Markdown>{content.content[++i].text}</Markdown>
-							<Markdown>{content.content[++i].text}</Markdown>
+							<div className={styles.featureDescription}>
+								<Markdown>{content.content[++i].text}</Markdown>
+								<Markdown>{content.content[++i].text}</Markdown>
+							</div>
 						</div>
 					</div>
 				</div>
