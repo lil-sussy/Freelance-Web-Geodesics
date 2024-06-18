@@ -32,6 +32,8 @@ const Home = () => {
 
 	const [locale, setLocale] = useState<"en" | "fr">("en");
 	const [content, setContent] = useState([]);
+	const [contentEN, setContentEN] = useState([]);
+	const [contentFR, setContentFR] = useState([]);
 
 	useEffect(() => {
 		const data = fetch(`/api/getContent?locale=en`);
@@ -45,6 +47,8 @@ const Home = () => {
 			data
 				.then((res) => res.json())
 				.then((data) => {
+          setContentEN(data.en.content);
+          setContentFR(data.fr.content);
 					if (currentLocale === "en") {
 						setContent(data.en.content);
 					} else {
@@ -127,6 +131,17 @@ const Home = () => {
 
   let i = 2;
 
+  function switchLanguage() {
+    const newLocale = locale === "en" ? "fr" : "en";
+    setLocale(newLocale);
+    Cookies.set("locale", newLocale);
+    if (newLocale === "en") {
+      setContent(contentEN);
+    } else {
+      setContent(contentFR);
+    }
+  }
+
 	return (
 		<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" }, algorithm: darkMode ? [antdTheme.darkAlgorithm] : [antdTheme.defaultAlgorithm] }}>
 			{/* <Switch checked={darkMode} onChange={toggleDarkMode} /> */}
@@ -137,7 +152,7 @@ const Home = () => {
 						<div className={styles.content} id="section1">
 							<Header content={content[1]} />
 						</div>
-						<Navbar content={content[0]} />
+						<Navbar content={content[0]} switchLanguage={switchLanguage} />
 						<div className={styles.content} id="section2">
 							<SecondHeader content={content[i]} />
 						</div>

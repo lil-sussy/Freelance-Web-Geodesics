@@ -1,9 +1,10 @@
 
 ---
 
+* AI Developer
+* Web dev Agency
 * Portfolio
-* About Me
-* Services
+* Language : EN
 * Contact
 
 ---
@@ -205,7 +206,8 @@ I invite you to explore my portfolio, learn about my projects, and join me on th
 
 ---
 
+* AI Developer
+* Web dev Agency
 * Portfolio
-* About Me
-* Services
+* Language : EN
 * Contact

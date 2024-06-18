@@ -1,10 +1,10 @@
 
 ---
 
-
+* AI Developpeur
+* Agence Web dev
 * Portfolio
-* À Propos de Moi
-* Services
+* Language : FR
 * Contact
 
 ---
@@ -209,7 +209,8 @@ Je vous invite à explorer mon portfolio, découvrir mes projets et me rejoindre
 
 ---
 
+* AI Developpeur
+* Agence Web dev
 * Portfolio
-* À Propos de Moi
-* Services
+* Language : EN
 * Contact

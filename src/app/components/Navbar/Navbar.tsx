@@ -4,17 +4,16 @@ import styles from "./Navbar.module.scss";
 
 // Define the props type
 type NavbarProps = {
-	content:
-		Array<{
-			title: string;
-			content: Array<{ type: string; text: string }>;
-		}>;
+	content: {
+		title: string;
+		content: Array<{ type: string; text: string }>;
+	};
 };
 
-const Navbar: React.FC<NavbarProps> = ({ content }) => {
+const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage }) => {
 	// Extract the first section for the navbar items
 	const navbarSection = content;
-
+	let i = 0;
 	return (
 		<>
 			{/* Desktop Navbar */}
@@ -22,12 +21,13 @@ const Navbar: React.FC<NavbarProps> = ({ content }) => {
 				<div className={`${styles.item} ${styles.logoItems}`}>
 					<img className={styles.logo} src={"./images/webgeodesicslogo.svg"} alt="Web Geodesics Logo" />
 				</div>
-				{navbarSection.content.map((item, index) => (
-					<div key={index} className={styles.item}>
-						{item.text}
-					</div>
-				))}
-				<div className={styles.rectangle}></div>
+				<div className={styles.item}>{content.content[i].text}</div>
+				<div className={styles.item}>{content.content[++i].text}</div>
+				<div className={styles.item}>{content.content[++i].text}</div>
+				<div onClick={switchLanguage} className={styles.item}>
+					{content.content[++i].text}
+				</div>
+				<Button style="primary">{content.content[++i].text}</Button>
 			</div>
 
 			{/* Mobile Navbar */}
