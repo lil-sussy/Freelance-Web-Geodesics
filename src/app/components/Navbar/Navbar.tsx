@@ -8,6 +8,7 @@ type NavbarProps = {
 		title: string;
 		content: Array<{ type: string; text: string }>;
 	};
+	switchLanguage: () => void;
 };
 
 const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage }) => {
