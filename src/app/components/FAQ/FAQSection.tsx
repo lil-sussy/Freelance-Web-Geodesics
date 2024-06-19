@@ -29,10 +29,10 @@ const FaqSection: React.FC<FaqSectionProps> = ({ content }) => {
 				</div>
 				<div className={styles.accordion}>
 					<Collapse accordion expandIcon={({ isActive }) => <RightOutlined rotate={isActive ? 90 : 0} />} className={styles.accordion}>
-						{content.content.slice(++i).map((item, index) => (
-							<Panel header={item.text} key={index + 1}>
+						{content.content.slice(++i, -1).map((item, index) => (
+							<Panel header={content.content[index+i].text} key={index + 1}>
 								<div className={styles.answer}>
-									<div className={styles.answerdiv}>{item.text}</div>
+									<div className={styles.answerdiv}>{content.content[index+i+1].text}</div>
 								</div>
 							</Panel>
 						))}
