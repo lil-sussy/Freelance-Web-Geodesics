@@ -301,6 +301,7 @@ const Background = ({ advancement }: { advancement: number }) => {
 
 	return (
 		<div className={styles.background}>
+      <div className={styles.blurlayer}></div>
       <div className={styles.canvas}>
         {potato1.map((potato, index) => (
           <PotatoShape key={index} advancement={advancement} potato={potato} duration={12000} width={1200} height={800}/>

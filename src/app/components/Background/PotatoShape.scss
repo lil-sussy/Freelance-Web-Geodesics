@@ -2,6 +2,7 @@
 .potato-wrapper {
   position: absolute;
   .potato-shape {
+    // filter: blur(80px);
     will-change: contents;
     // animation: movePotato 5s infinite; /* Adjust time for speed */
     transform: translateZ(0);
