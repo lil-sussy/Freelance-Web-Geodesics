@@ -12,7 +12,7 @@ $font-stretch-pro: 'Stretch Pro', sans-serif;
   z-index: 20;
   justify-content: space-between;
   width: 100%;
-  align-items: flex-start;
+  align-items: center;
   gap: 385px 4px;
   position: fixed;
   padding: 1rem 0;
@@ -24,13 +24,16 @@ $font-stretch-pro: 'Stretch Pro', sans-serif;
   .logoItems {
     align-self: flex-start;
 
+    img {
+    }
+    
     .logo {
       position: relative;
       top: -1.2rem;
       left: 2rem;
       width: 2rem;
       height: 2rem;
-      transform: scale(2) translateY(0.5rem);
+      transform: scale(2) translateY(1rem);
     }
   }
 

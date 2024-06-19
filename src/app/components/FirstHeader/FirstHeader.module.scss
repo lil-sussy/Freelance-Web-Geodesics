@@ -145,16 +145,19 @@ $font-size-webgeo: 64px;
 	}
 
   @media (max-width: 1322px) {
-    padding-top: 15%;
+    margin-top: 6rem;
+    padding: 3% 8%;
 		.content {
 			.space,
 			.contentContainer {
         width: 700px;
 				.headline {
-          font-size: 36px;
+          font-size: 30px;
+          line-height: 35px;
         }
 				.description {
-          font-size: 20px;
+          font-size: 18px;
+          line-height: 24px;
 					.highlight {
 					}
 				}
@@ -164,7 +167,7 @@ $font-size-webgeo: 64px;
 		}
 
 		.logos {
-      margin-top: 3rem;
+      margin-top: -3rem;
       .wrapper {
         img {
           width: 20rem;
@@ -201,7 +204,7 @@ $font-size-webgeo: 64px;
 
 		.contentContainer {
 			width: 100%;
-			padding: 0 5%;
+			padding: 0 2%;
 		}
 
 		.logos {
@@ -238,28 +241,38 @@ $font-size-webgeo: 64px;
 
 		.contentContainer {
 			width: 100%;
-			padding: 0 $header-padding-mobile;
 		}
 
-		.content,
-		.contentContainer {
-			gap: 30px;
-
-			.actions {
-				width: 100%;
-				flex-direction: column;
-				gap: 6px;
-				align-items: center;
-				// Empty media query rules for now
-			}
-		}
+		.content {
+      
+      .contentContainer {
+        padding: 0 1rem;
+        gap: 30px;
+  
+        .actions {
+          width: 100%;
+          gap: 6px;
+          align-items: center;
+          // Empty media query rules for now
+        }
+      }
+    }
 
 		.logos {
-			.logoImage {
-				width: 8rem;
-				height: 8rem;
+			transform: translateX(0);
+			margin-top: 0;
+      .wrapper {
+        img {
+          width: 8rem;
+          height: 8rem;
+        }
+      }
+
+			.logoText {
+				font-size: 25px;
+				line-height: 32px;
 			}
-		}
+    }
 	}
 
 	@media (max-width: 1080px) {

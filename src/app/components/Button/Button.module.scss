@@ -48,7 +48,9 @@
 @media (max-width: 450px) {
 	.primary,
 	.secondary {
-		padding: 8px 16px;
-		font-size: small;
+    button { 
+      padding: 8px 16px;
+      font-size: small !important;
+    }
 	}
 }
