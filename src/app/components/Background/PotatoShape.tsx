@@ -67,7 +67,7 @@ const PotatoShape: React.FC<PotatoShapeProps> = ({ potato, duration, advancement
 			y: directionVector.y / length,
 		};
 
-		const fleeDistance = 10; // Reduced distance to flee
+		const fleeDistance = 20; // Reduced distance to flee
 		return {
 			top: `${pxToRem(topPx + normalizedVector.y * fleeDistance)}rem`,
 			left: `${pxToRem(leftPx + normalizedVector.x * fleeDistance)}rem`,

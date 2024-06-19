@@ -19,7 +19,8 @@ $font-stretch-pro: 'Stretch Pro', sans-serif;
   top: 0;
   left: 0;
   box-sizing: border-box;
-  backdrop-filter: blur(200px);
+  backdrop-filter: blur(40px);
+  background-color: rgba(255, 255, 255, 0.1);
 
   .logoItems {
     align-self: flex-start;
