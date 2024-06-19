@@ -21,8 +21,8 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 			</div>
 			<div className={styles.featureContainer}>
 				<div className={styles.featureColumn}>
-					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
-					<img className={styles.placeholderImage} src="./images/FeaturesSection/PromtpEngineering.png" alt="Cute Sitting" />
+					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Corporate design asset featuring a professional woman in a black suit sitting confidently." />
+					<img className={styles.placeholderImage} src="./images/FeaturesSection/PromtpEngineering.png" alt="Illustration of a robot using ChatGPT, highlighting AI technology, prompt engineering, and advanced natural language processing. AI generated image" />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
 							<div className={styles.featureTitle}>{content.content[++i].text}</div>
@@ -34,7 +34,7 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
-					<img className={styles.placeholderImage} src="./images/FeaturesSection/AIAgent.png" alt="Cute Sitting" />
+					<img className={styles.placeholderImage} src="./images/FeaturesSection/AIAgent.png" alt="Illustration of AI and human collaboration in a tech environment, showcasing AI integration, data analysis, and full stack development and AI agents developement. AI generated image" />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
 							<div className={styles.featureTitle}>
@@ -48,7 +48,7 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
-					<img className={styles.placeholderImage} src="./images/FeaturesSection/DataAnalysis.png" alt="Cute Sitting" />
+					<img className={styles.placeholderImage} src="./images/FeaturesSection/DataAnalysis.png" alt="Vector illustration of big data analysis process, demonstrating data science, machine learning, and data visualization techniques. AI generated image" />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
 							<div className={styles.featureTitle}>
@@ -62,8 +62,8 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
-					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
-					<img className={styles.placeholderImage} src="./images/FeaturesSection/AIIntegration.png" alt="Cute Sitting" />
+					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Corporate design asset featuring a professional woman in a black suit sitting confidently." />
+					<img className={styles.placeholderImage} src="./images/FeaturesSection/AIIntegration.png" alt="Illustration of an AI robotic hand holding a coin, symbolizing AI technology, machine learning, and futuristic innovation. AI generated" />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
 							<div className={styles.featureTitle}>

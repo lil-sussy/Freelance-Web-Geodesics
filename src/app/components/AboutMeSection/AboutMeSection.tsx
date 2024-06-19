@@ -16,7 +16,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content }) => {
 	return (
 		<div className={styles.aboutMeSection}>
 			<div className={styles.pictureOfMeSide}>
-				<img className={styles.womanPhotograph1} src="./images/picture-of-me.png" alt="picture of me professional, confident" />
+				<img className={styles.womanPhotograph1} src="./images/picture-of-me.png" alt="22-year-old non-binary male living in Paris, a French freelancer specializing in AI agent development and prompt engineering." />
 				<div className={styles.name}>
 					<div className={styles.yanRegojo}>Yan Regojo</div>
 					<Button style="secondary">{content.content[i].text}</Button>
@@ -35,7 +35,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content }) => {
 							<div>{content.content[++i].text}</div>
 							<div>{content.content[++i].text}</div>
 							<div>{content.content[++i].text}</div>
-              <div>{content.content[++i].text}</div>
+							<div>{content.content[++i].text}</div>
 						</div>
 					</div>
 					<div className={styles.bentoSideIcons}>
@@ -55,8 +55,8 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content }) => {
 						</div>
 						<div className={styles.bentoModernText}>
 							<div className={styles.modernText}>
-                <Markdown>{content.content[++i].text}</Markdown>
-                <Markdown>{content.content[++i].text}</Markdown>
+								<Markdown>{content.content[++i].text}</Markdown>
+								<Markdown>{content.content[++i].text}</Markdown>
 							</div>
 						</div>
 					</div>

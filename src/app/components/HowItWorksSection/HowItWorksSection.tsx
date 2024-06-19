@@ -21,7 +21,7 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ content }) => {
 			</div>
 			<div className={styles.featureContainer}>
 				<div className={styles.featureColumn}>
-					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
+					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Corporate design asset featuring a professional woman in a black suit sitting confidently." />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
 							<div className={styles.featureTitle}>
@@ -47,7 +47,7 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ content }) => {
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
-					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Cute Sitting" />
+					<img className={styles.cuteSittingImage} src="./images/assets-sitting.png" alt="Corporate design asset featuring a professional woman in a black suit sitting confidently." />
 					<div className={styles.content}>
 						<div className={styles.sectionTitle}>
 							<div className={styles.featureTitle}>{content.content[++i].text}</div>
