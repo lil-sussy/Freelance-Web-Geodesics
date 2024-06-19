@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Transition } from "react-transition-group";
+// @ts-ignore
 import { interpolate } from "flubber";
 import { useAnimation } from "../AnimationContext";
 import "./PotatoShape.scss";

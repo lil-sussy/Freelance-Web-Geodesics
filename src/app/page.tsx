@@ -21,6 +21,7 @@ import "antd/dist/reset.css"; // Import Ant Design styles
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import { ConfigProvider } from "antd";
 import { theme as antdTheme } from "antd";
+// @ts-ignore
 import Cookies from "js-cookie";
 
 const Home = () => {
@@ -178,7 +179,7 @@ const Home = () => {
 							<AboutMeSection content={content[++i]} />
 						</div>
 						<div className={styles.content} id="section10">
-							<Footer locale={locale} content={content[++i]} />
+							<Footer content={content[++i]} />
 						</div>
 					</div>
 				</div>
