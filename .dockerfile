@@ -1,29 +1,23 @@
-FROM ubuntu:20.04
+# Use an official Node.js runtime as a parent image
+FROM node:22-alpine3.19
 
-# Install dependencies
-RUN apt-get update && \
-    apt-get install -y curl git && \
-    curl -sSL https://nixpacks.com/install.sh | bash
-
-# Set working directory
+# Set the working directory
 WORKDIR /app
 
-# Copy Nixpacks configuration
-COPY nixpacks.toml /app/nixpacks.toml
+# Copy package.json and package-lock.json
+COPY package.json package-lock.json ./
 
-# Install Nix and Nixpacks
-RUN nix-env -iA nixpkgs.nix && \
-    nix-env -iA nixpkgs.nixpacks
-
-# Install Node.js, npm and other dependencies using Nix
-COPY .nixpacks/nixpkgs-*.nix .nixpacks/
-RUN nix-env -if .nixpacks/nixpkgs-*.nix && nix-collect-garbage -d
+# Install dependencies
+RUN npm install 
 
 # Copy the rest of the application code
 COPY . .
 
 # Build the application
-RUN npm install && npm run build
+RUN npm run build
+
+# Expose the port the app runs on
+EXPOSE 3000
 
 # Start the application
 CMD ["npm", "start"]
