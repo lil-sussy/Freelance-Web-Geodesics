@@ -23,6 +23,7 @@ import { ConfigProvider } from "antd";
 import { theme as antdTheme } from "antd";
 // @ts-ignore
 import Cookies from "js-cookie";
+import { NextSeo } from "next-seo";
 
 const Home = () => {
 	const [progress, setProgress] = useState(0);
@@ -144,47 +145,73 @@ const Home = () => {
   }
 
 	return (
-		<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" }, algorithm: darkMode ? [antdTheme.darkAlgorithm] : [antdTheme.defaultAlgorithm] }}>
-			{/* <Switch checked={darkMode} onChange={toggleDarkMode} /> */}
-			<AnimationProvider>
-				<div className={styles.frame} id="scroll-window">
-					<div className={styles.div} id="scroll-container">
-						<Background advancement={progress} />
-						<div className={styles.content} id="section1">
-							<Header content={content[1]} />
-						</div>
-						<Navbar content={content[0]} switchLanguage={switchLanguage} />
-						<div className={styles.content} id="section2">
-							<SecondHeader content={content[i]} />
-						</div>
-						<div className={styles.content} id="section3">
-							<FeaturesSection content={content[++i]} />
-						</div>
-						<div className={styles.content} id="section4">
-							<ThirdHeader content={content[++i]} />
-						</div>
-						<div className={styles.content} id="section5">
-							<PortfolioSection content={content[++i]} />
-						</div>
-						<div className={styles.content} id="section6">
-							<HowItWorksSection content={content[++i]} />
-						</div>
-						<div className={styles.content} id="section7">
-							<CTASection content={content[++i]} />
-						</div>
-						<div className={styles.content} id="section8">
-							<FaqSection content={content[++i]} />
-						</div>
-						<div className={styles.content} id="section9">
-							<AboutMeSection content={content[++i]} />
-						</div>
-						<div className={styles.content} id="section10">
-							<Footer content={content[++i]} />
+		<>
+			<NextSeo
+				title="AI Developer freelance @ Web Geodesics"
+				description="Explore the innovative AI Prompt engineering and machine learning projects by Regojo Yan."
+				canonical="https://web-geodesics.com"
+				openGraph={{
+					type: "website",
+					url: "https://web-geodesics.com",
+					title: "Regojo Yan's AI Prompt and Machine Learning Portfolio",
+					description: "Discover AI-powered solutions and innovative projects by Regojo Yan.",
+					images: [
+						{
+							url: "/embedThumbnail.png",
+							width: 800,
+							height: 600,
+							alt: "Portfolio Thumbnail",
+						},
+					],
+				}}
+				twitter={{
+					handle: "@yourhandle",
+					site: "@yoursite",
+					cardType: "./embedThumbnail.png",
+				}}
+			/>
+			<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" }, algorithm: darkMode ? [antdTheme.darkAlgorithm] : [antdTheme.defaultAlgorithm] }}>
+				{/* <Switch checked={darkMode} onChange={toggleDarkMode} /> */}
+				<AnimationProvider>
+					<div className={styles.frame} id="scroll-window">
+						<div className={styles.div} id="scroll-container">
+							<Background advancement={progress} />
+							<div className={styles.content} id="section1">
+								<Header content={content[1]} />
+							</div>
+							<Navbar content={content[0]} switchLanguage={switchLanguage} />
+							<div className={styles.content} id="section2">
+								<SecondHeader content={content[i]} />
+							</div>
+							<div className={styles.content} id="section3">
+								<FeaturesSection content={content[++i]} />
+							</div>
+							<div className={styles.content} id="section4">
+								<ThirdHeader content={content[++i]} />
+							</div>
+							<div className={styles.content} id="section5">
+								<PortfolioSection content={content[++i]} />
+							</div>
+							<div className={styles.content} id="section6">
+								<HowItWorksSection content={content[++i]} />
+							</div>
+							<div className={styles.content} id="section7">
+								<CTASection content={content[++i]} />
+							</div>
+							<div className={styles.content} id="section8">
+								<FaqSection content={content[++i]} />
+							</div>
+							<div className={styles.content} id="section9">
+								<AboutMeSection content={content[++i]} />
+							</div>
+							<div className={styles.content} id="section10">
+								<Footer content={content[++i]} />
+							</div>
 						</div>
 					</div>
-				</div>
-			</AnimationProvider>
-		</ConfigProvider>
+				</AnimationProvider>
+			</ConfigProvider>
+		</>
 	);
 };
 

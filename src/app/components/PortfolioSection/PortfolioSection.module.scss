@@ -349,7 +349,10 @@ $secondary-color: rgba(255, 255, 255, 0.50);
         }
       }
       .featureColumn {
-        .placeholderImage {}
+        min-width: 11rem;
+        .placeholderImage {
+          height: 168px;
+        }
         .content {
           .sectionTitle {
             .featureTitle {

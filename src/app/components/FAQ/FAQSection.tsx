@@ -3,6 +3,7 @@ import { Collapse, Divider, Typography } from "antd";
 import Button from "../Button/Button";
 import { RightOutlined } from "@ant-design/icons";
 import styles from "./FAQSection.module.scss";
+import { CollapseProps } from "antd/lib/collapse";
 
 import "./Accordion.scss";
 const { Panel } = Collapse;
@@ -17,6 +18,23 @@ type FaqSectionProps = {
 
 const FaqSection: React.FC<FaqSectionProps> = ({ content }) => {
 	let i = 0;
+
+	const items: CollapseProps["items"] = [
+	];
+
+  const threshold = 3;
+	for (let j = threshold; j < content.content.length -1; j += 2) {
+    items.push({
+			key: j.toString(),
+			label: content.content[j].text,
+			children: (
+				<div className={styles.answer}>
+					<div className={styles.answerdiv}>{content.content[j + 1].text}</div>
+				</div>
+			),
+		});
+  }
+
 	return (
 		<div className={styles.faqSection}>
 			<div className={styles.container}>
@@ -28,15 +46,7 @@ const FaqSection: React.FC<FaqSectionProps> = ({ content }) => {
 					</div>
 				</div>
 				<div className={styles.accordion}>
-					<Collapse accordion expandIcon={({ isActive }) => <RightOutlined rotate={isActive ? 90 : 0} />} className={styles.accordion}>
-						{content.content.slice(++i, -1).map((item, index) => (
-							<Panel header={content.content[index+i].text} key={index + 1}>
-								<div className={styles.answer}>
-									<div className={styles.answerdiv}>{content.content[index+i+1].text}</div>
-								</div>
-							</Panel>
-						))}
-					</Collapse>
+					<Collapse items={items} accordion defaultActiveKey={["1"]} expandIcon={({ isActive }) => <RightOutlined rotate={isActive ? 90 : 0} />} className={styles.accordion} />
 				</div>
 			</div>
 		</div>
