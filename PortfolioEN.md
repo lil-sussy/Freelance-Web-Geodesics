@@ -3,7 +3,7 @@
 ---
 
 **Name and Title:**
-John Regojo | Prompt Engineering Expert | UI&UX Designer | Fullstack Developer
+Yan Regojo | Prompt Engineering Expert | UI&UX Designer | Fullstack Developer
 
 ---
 
@@ -93,9 +93,11 @@ This detailed version provides a comprehensive overview of the AI Agent Extensio
 
 ---
 
+### Healthy Gamer GG search engine
+
 **Name and Title:**
 
-John Doe | AI & Machine Learning Specialist | Data Engineer | Prompt Engineering Expert
+Regojo Yan | AI & Machine Learning Specialist | Data Engineer | Prompt Engineering Expert
 
 ---
 
@@ -105,7 +107,8 @@ Creating a YouTube transcript search engine for the mental health influencer Hea
 
 ---
 
-**Project Image or Screenshot:***Insert Project Image or Screenshot Here*
+**Project Image or Screenshot:**
+*Insert Project Image or Screenshot Here*
 
 ---
 
@@ -173,8 +176,6 @@ Developing this project was a rewarding challenge. It showcased my ability to ap
 - Enhanced user interaction with content, providing more meaningful answers.
 - Received positive feedback from the community for its effectiveness.
 
-*Insert Graphs or Charts Representing Results Here*
-
 ---
 
 **Challenges and Solutions:**
@@ -193,8 +194,10 @@ Developing this project was a rewarding challenge. It showcased my ability to ap
 
 ---
 
+### Law chatbot agent for a Mauritius law agency
+
 **Name and Title:**
-John Doe | AI & Machine Learning Specialist | Data Engineer | Prompt Engineering Expert
+Regojo Yan | AI & Machine Learning Specialist | Data Engineer | Prompt Engineering Expert
 
 ---
 
@@ -204,7 +207,8 @@ Developing an AI agent to integrate Mauritius law into ChatGPT's knowledge base,
 
 ---
 
-**Project Image or Screenshot:***Insert Project Image or Screenshot Here*
+**Project Image or Screenshot:**
+*Insert Project Image or Screenshot Here*
 
 ---
 
@@ -274,8 +278,6 @@ Developing the Demetrius Project was an enriching experience that showcased my a
 - **Efficiency and Accuracy:** The project significantly improved the efficiency and accuracy of legal research, saving valuable time for legal professionals.
 - **User-Friendly Interface:** The AI interface was designed to be intuitive and easy to use, allowing legal professionals to access information quickly without advanced technical skills.
 
-*Insert Graphs or Charts Representing Results Here*
-
 ---
 
 **Challenges and Solutions:**
@@ -315,7 +317,8 @@ Discover Neptune Project, an innovative app designed for writers who thrive in a
 
 ---
 
-**Project Image or Screenshot:***Insert Project Image or Screenshot Here*
+**Project Image or Screenshot:**
+*Insert Project Image or Screenshot Here*
 
 ---
 
