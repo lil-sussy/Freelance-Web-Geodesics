@@ -1,6 +1,7 @@
 "use client"; // Add this at the top of the file to indicate that this is a Client Component
 
 import React, { useEffect, useState, useRef, useCallback } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { AnimationProvider } from "./components/AnimationContext";
 import Navbar from "./components/Navbar/Navbar";
 import Background from "./components/Background/Background";
@@ -17,37 +18,38 @@ import { NextSeo } from "next-seo";
 import MainPage from "./components/Pages/MainPage";
 import Portfolio from "./components/Pages/Portfolio";
 
-const Home = () => {
+const Home: React.FC = () => {
 	const [progress, setProgress] = useState(0);
 	const requestRef = useRef<number | null>(null);
 	const lastProgressRef = useRef(0);
 	const alpha = 0.1; // Smoothing factor
 	const darkMode = true;
+	const router = useRouter(); // Initialize router
 
 	const [locale, setLocale] = useState<"en" | "fr">("en");
 	const [mainPageContent, setMainPageContent] = useState([]);
 	const [portfolioContent, setPortfolioContent] = useState([]);
-  const [pageDisplayed, setPageDisplayed] = useState<"Main Page" | "Portfolio Page" | "Webdev Page">("Main Page");
+	const [pageDisplayed, setPageDisplayed] = useState<"Main Page" | "Portfolio Page" | "Webdev Page">("Main Page");
 
 	useEffect(() => {
 		const data = fetch(`/api/getContent?locale=en`);
 		const browserLocale = navigator.language.startsWith("fr") ? "fr" : "en";
 		const currentLocale = Cookies.get("locale");
 		if (currentLocale !== browserLocale) {
-      Cookies.set("locale", browserLocale);
+			Cookies.set("locale", browserLocale);
 			window.location.reload(); // Reload the page to apply the new locale
 		} else {
-      const portfolioData = fetch(`/api/getContent?locale=${browserLocale}&portfolio=true`);
+			const portfolioData = fetch(`/api/getContent?locale=${browserLocale}&portfolio=true`);
 			setLocale(currentLocale);
 			data
 				.then((res) => res.json())
 				.then((data) => {
-          setMainPageContent(data.content);
+					setMainPageContent(data.content);
 				});
 			portfolioData
 				.then((res) => res.json())
 				.then((data) => {
-          setPortfolioContent(data);
+					setPortfolioContent(data);
 				});
 		}
 	}, [locale]);
@@ -119,17 +121,42 @@ const Home = () => {
 		};
 	}, [updateSections, mainPageContent]);
 
+	const searchParams = useSearchParams();
+
+	useEffect(() => {
+		const pageQuery = searchParams!.get("page");
+		if (pageQuery === "portfolio") {
+			setPageDisplayed("Portfolio Page");
+		} else if (pageQuery === "webdevagency") {
+			setPageDisplayed("Webdev Page");
+		} else {
+			setPageDisplayed("Main Page");
+		}
+	}, [searchParams]);
+
 	if (!mainPageContent.length) {
 		return <div>Loading...</div>;
 	}
 
-  let i = 2;
+	let i = 2;
 
-  function switchLanguage() {
-    const newLocale = locale === "en" ? "fr" : "en";
-    Cookies.set("locale", newLocale);
-    setLocale(newLocale);
-  }
+	function switchLanguage() {
+		const newLocale = locale === "en" ? "fr" : "en";
+		Cookies.set("locale", newLocale);
+		setLocale(newLocale);
+	}
+
+	const handlePageChange = (newPage: "Main Page" | "Portfolio Page" | "Webdev Page") => {
+		setPageDisplayed(newPage);
+		let url = "/";
+		if (newPage === "Portfolio Page") {
+			url = "/?page=portfolio";
+		} else if (newPage === "Webdev Page") {
+			url = "/?page=webdevagency";
+		}
+    // @ts-ignore
+		router.push(url, { shallow: true });
+	};
 
 	return (
 		<>
@@ -158,18 +185,13 @@ const Home = () => {
 				}}
 			/>
 			<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" }, algorithm: darkMode ? [antdTheme.darkAlgorithm] : [antdTheme.defaultAlgorithm] }}>
-				{/* <Switch checked={darkMode} onChange={toggleDarkMode} /> */}
 				<AnimationProvider>
 					<div className={styles.frame} id="scroll-window">
 						<div className={styles.div} id="scroll-container">
 							<Background advancement={progress} />
-							<Navbar content={mainPageContent[0]} switchLanguage={switchLanguage} setPageDisplayed={setPageDisplayed} />
-              {pageDisplayed === "Main Page" ? (
-                <MainPage content={mainPageContent} locale={locale} scroll={progress} />
-              ) : (
-                <Portfolio content={portfolioContent} locale={locale} scroll={progress} />
-              )}
-							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={setPageDisplayed}/>
+							<Navbar content={mainPageContent[0]} switchLanguage={switchLanguage} setPageDisplayed={handlePageChange} />
+							{pageDisplayed === "Main Page" ? <MainPage content={mainPageContent} locale={locale} scroll={progress} /> : <Portfolio content={portfolioContent} locale={locale} scroll={progress} />}
+							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={handlePageChange} />
 						</div>
 					</div>
 				</AnimationProvider>
