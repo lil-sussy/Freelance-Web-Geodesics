@@ -9,6 +9,7 @@ import styles from "./Page.module.scss";
 import "antd/dist/reset.css"; // Import Ant Design styles
 // src/index.tsx or src/App.tsx
 import Footer from "./components/Footer/Footer";
+import Contact from "./components/Contact";
 // import 'antd/dist/antd.less';
 import { ConfigProvider } from "antd";
 import { theme as antdTheme } from "antd";
@@ -27,6 +28,7 @@ const Home: React.FC = () => {
 	const router = useRouter(); // Initialize router
 
 	const [locale, setLocale] = useState<"en" | "fr">("en");
+  const [showContact, setShowContact] = useState(false);
 	const [mainPageContent, setMainPageContent] = useState([]);
 	const [portfolioContent, setPortfolioContent] = useState([]);
 	const [pageDisplayed, setPageDisplayed] = useState<"Main Page" | "Portfolio Page" | "Webdev Page">("Main Page");
@@ -146,6 +148,10 @@ const Home: React.FC = () => {
 		setLocale(newLocale);
 	}
 
+  function switchContact() {
+    setShowContact(!showContact);
+  }
+
 	const handlePageChange = (newPage: "Main Page" | "Portfolio Page" | "Webdev Page") => {
 		setPageDisplayed(newPage);
 		let url = "/";
@@ -186,12 +192,13 @@ const Home: React.FC = () => {
 			/>
 			<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" }, algorithm: darkMode ? [antdTheme.darkAlgorithm] : [antdTheme.defaultAlgorithm] }}>
 				<AnimationProvider>
+					{showContact && <Contact />}
 					<div className={styles.frame} id="scroll-window">
 						<div className={styles.div} id="scroll-container">
 							<Background advancement={progress} />
-							<Navbar content={mainPageContent[0]} switchLanguage={switchLanguage} setPageDisplayed={handlePageChange} />
-							{pageDisplayed === "Main Page" ? <MainPage content={mainPageContent} locale={locale} scroll={progress} /> : <Portfolio content={portfolioContent} locale={locale} scroll={progress} />}
-							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={handlePageChange} />
+							<Navbar content={mainPageContent[0]} switchLanguage={switchLanguage} setPageDisplayed={handlePageChange} switchContact={switchContact} />
+							{pageDisplayed === "Main Page" ? <MainPage content={mainPageContent} locale={locale} scroll={progress} switchContact={switchContact} /> : <Portfolio content={portfolioContent} locale={locale} scroll={progress} />}
+							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={handlePageChange} switchContact={switchContact} />
 						</div>
 					</div>
 				</AnimationProvider>

@@ -14,13 +14,14 @@ import styles from "../../Page.module.scss";
 interface PortfolioProps {
 	locale: string;
 	scroll: number;
-	content: {title: string, content: { type: string; text: string }[]}[];
+	content: { title: string; content: { type: string; text: string }[] }[];
+	switchContact: () => void;
 }
 
 
-const MainPage: React.FC<PortfolioProps> = ({ content, locale, scroll }) => {
-  let i = 2;
-  
+const MainPage: React.FC<PortfolioProps> = ({ content, locale, scroll, switchContact }) => {
+	let i = 2;
+
 	return (
 		<>
 			<div className={styles.content} id="section1">

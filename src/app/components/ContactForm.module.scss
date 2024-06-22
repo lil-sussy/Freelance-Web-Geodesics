@@ -3,6 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .FeedbackSection {
   width: 80%;
@@ -10,9 +14,9 @@
   margin-top: 2rem;
   margin-left: auto;
   margin-right: auto;
-  background: rgba(255, 255, 255, 0.50);
+  background: rgba(255, 255, 255, 0.20);
   border-radius: 58px;
-  backdrop-filter: blur(200px);
+  backdrop-filter: blur(80px);
   display: inline-flex;
   flex-direction: column;
   justify-content: flex-start;

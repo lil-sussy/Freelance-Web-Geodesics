@@ -1,4 +1,4 @@
-import styles from "./ContactSection.module.scss";
+import styles from "./ContactForm.module.scss";
 import { Button, Input, Form, message as AntMessage } from "antd";
 import React, { useState, ChangeEvent } from "react";
 

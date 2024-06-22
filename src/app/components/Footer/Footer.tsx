@@ -7,10 +7,11 @@ type FooterProps = {
 		title: string;
 		content: Array<{ type: string; text: string }>;
 	};
-  setPageDisplayed: (page: "Main Page" | "Portfolio Page" | "Webdev Page") => void;
+  switchContact : () => void;
+	setPageDisplayed: (page: "Main Page" | "Portfolio Page" | "Webdev Page") => void;
 };
 
-const Footer: React.FC<FooterProps> = ({ content, setPageDisplayed }) => {
+const Footer: React.FC<FooterProps> = ({ content, setPageDisplayed, switchContact }) => {
 	let i = 0;
 	return (
 		<div className={styles.footer}>

@@ -4,14 +4,14 @@ import AntButton from "antd/lib/button";
 import PropTypes from "prop-types";
 import styles from "./Button.module.scss";
 
-const Button = ({ style, children }: { style: "primary" | "secondary" | "tertiary"; children: React.ReactNode }) => {
-	return <div className={`${styles[style]} ${styles.Button}`}>
-    <ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" } }}>
-      <AntButton type="default">
-        {children}
-      </AntButton>
-    </ConfigProvider>
-  </div>;
+const Button = ({ style, children, onClick }: { style: "primary" | "secondary" | "tertiary"; children: React.ReactNode, onClick?: () => void }) => {
+	return (
+		<div onClick={onClick} className={`${styles[style]} ${styles.Button}`}>
+			<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" } }}>
+				<AntButton type="default">{children}</AntButton>
+			</ConfigProvider>
+		</div>
+	);
 };
 
 Button.propTypes = {

@@ -9,10 +9,11 @@ type NavbarProps = {
 		content: Array<{ type: string; text: string }>;
 	};
 	switchLanguage: () => void;
+	switchContact: () => void;
 	setPageDisplayed: (page: "Main Page" | "Portfolio Page" | "Webdev Page") => void;
 };
 
-const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage, setPageDisplayed }) => {
+const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage, setPageDisplayed, switchContact }) => {
 	// Extract the first section for the navbar items
 	const navbarSection = content;
 	let i = 0;
@@ -35,7 +36,9 @@ const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage, setPageDisplay
 				<div onClick={switchLanguage} className={styles.item}>
 					{content.content[++i].text}
 				</div>
-				<Button style="primary">{content.content[++i].text}</Button>
+				<Button onClick={() => switchContact()} style="primary">
+					{content.content[++i].text}
+				</Button>
 			</div>
 
 			{/* Mobile Navbar */}
