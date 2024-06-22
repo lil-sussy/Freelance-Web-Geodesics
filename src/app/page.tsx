@@ -32,14 +32,14 @@ const Home: React.FC = () => {
 	const [pageDisplayed, setPageDisplayed] = useState<"Main Page" | "Portfolio Page" | "Webdev Page">("Main Page");
 
 	useEffect(() => {
-		const data = fetch(`/api/getContent?locale=en`);
-		const browserLocale = navigator.language.startsWith("fr") ? "fr" : "en";
+    const browserLocale = navigator.language.startsWith("fr") ? "fr" : "en";
 		const currentLocale = Cookies.get("locale");
-		if (currentLocale !== browserLocale) {
-			Cookies.set("locale", browserLocale);
+		if (currentLocale === undefined || currentLocale.length === 0) {
+      Cookies.set("locale", browserLocale);
 			window.location.reload(); // Reload the page to apply the new locale
 		} else {
-			const portfolioData = fetch(`/api/getContent?locale=${browserLocale}&portfolio=true`);
+      const data = fetch(`/api/getContent?locale=${currentLocale}`);
+			const portfolioData = fetch(`/api/getContent?locale=${currentLocale}&portfolio=true`);
 			setLocale(currentLocale);
 			data
 				.then((res) => res.json())
