@@ -212,5 +212,4 @@ Je vous invite à explorer mon portfolio, découvrir mes projets et me rejoindre
 * AI Developpeur
 * Agence Web dev
 * Portfolio
-* Language : EN
 * Contact

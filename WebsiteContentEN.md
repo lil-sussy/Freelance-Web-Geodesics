@@ -209,5 +209,4 @@ I invite you to explore my portfolio, learn about my projects, and join me on th
 * AI Developer
 * Web dev Agency
 * Portfolio
-* Language : EN
 * Contact

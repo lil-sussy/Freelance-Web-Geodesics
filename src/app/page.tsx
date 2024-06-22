@@ -4,26 +4,18 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import { AnimationProvider } from "./components/AnimationContext";
 import Navbar from "./components/Navbar/Navbar";
 import Background from "./components/Background/Background";
-import Header from "./components/FirstHeader/FirstHeader";
-import SecondHeader from "./components/SecondHeader/SecondHeader";
-import ThirdHeader from "./components/ThirdHeader/ThirdHeader";
-import FeaturesSection from "./components/FeaturesSection/FeaturesSection";
-import PortfolioSection from "./components/PortfolioSection/PortfolioSection";
-import HowItWorksSection from "./components/HowItWorksSection/HowItWorksSection";
-import CTASection from "./components/CTA/CTASection";
-import AboutMeSection from "./components/AboutMeSection/AboutMeSection";
 import styles from "./Page.module.scss";
-import FaqSection from "./components/FAQ/FAQSection";
-import Footer from "./components/Footer/Footer";
 import "antd/dist/reset.css"; // Import Ant Design styles
 // src/index.tsx or src/App.tsx
+import Footer from "./components/Footer/Footer";
 // import 'antd/dist/antd.less';
-import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import { ConfigProvider } from "antd";
 import { theme as antdTheme } from "antd";
 // @ts-ignore
 import Cookies from "js-cookie";
 import { NextSeo } from "next-seo";
+import MainPage from "./components/Pages/MainPage";
+import Portfolio from "./components/Pages/Portfolio";
 
 const Home = () => {
 	const [progress, setProgress] = useState(0);
@@ -33,32 +25,32 @@ const Home = () => {
 	const darkMode = true;
 
 	const [locale, setLocale] = useState<"en" | "fr">("en");
-	const [content, setContent] = useState([]);
-	const [contentEN, setContentEN] = useState([]);
-	const [contentFR, setContentFR] = useState([]);
+	const [mainPageContent, setMainPageContent] = useState([]);
+	const [portfolioContent, setPortfolioContent] = useState([]);
+  const [pageDisplayed, setPageDisplayed] = useState<"Main Page" | "Portfolio Page" | "Webdev Page">("Main Page");
 
 	useEffect(() => {
 		const data = fetch(`/api/getContent?locale=en`);
 		const browserLocale = navigator.language.startsWith("fr") ? "fr" : "en";
 		const currentLocale = Cookies.get("locale");
 		if (currentLocale !== browserLocale) {
-			Cookies.set("locale", browserLocale);
+      Cookies.set("locale", browserLocale);
 			window.location.reload(); // Reload the page to apply the new locale
 		} else {
+      const portfolioData = fetch(`/api/getContent?locale=${browserLocale}&portfolio=true`);
 			setLocale(currentLocale);
 			data
 				.then((res) => res.json())
 				.then((data) => {
-          setContentEN(data.en.content);
-          setContentFR(data.fr.content);
-					if (currentLocale === "en") {
-						setContent(data.en.content);
-					} else {
-						setContent(data.fr.content);
-					}
+          setMainPageContent(data.content);
+				});
+			portfolioData
+				.then((res) => res.json())
+				.then((data) => {
+          setPortfolioContent(data);
 				});
 		}
-	}, []);
+	}, [locale]);
 
 	// Cache DOM elements and section positions
 	const sectionsRef = useRef<{ element: HTMLElement; top: number; bottom: number }[]>([]);
@@ -125,9 +117,9 @@ const Home = () => {
 			}
 			window.removeEventListener("resize", updateSections);
 		};
-	}, [updateSections, content]);
+	}, [updateSections, mainPageContent]);
 
-	if (!content.length) {
+	if (!mainPageContent.length) {
 		return <div>Loading...</div>;
 	}
 
@@ -135,13 +127,8 @@ const Home = () => {
 
   function switchLanguage() {
     const newLocale = locale === "en" ? "fr" : "en";
-    setLocale(newLocale);
     Cookies.set("locale", newLocale);
-    if (newLocale === "en") {
-      setContent(contentEN);
-    } else {
-      setContent(contentFR);
-    }
+    setLocale(newLocale);
   }
 
 	return (
@@ -176,37 +163,13 @@ const Home = () => {
 					<div className={styles.frame} id="scroll-window">
 						<div className={styles.div} id="scroll-container">
 							<Background advancement={progress} />
-							<div className={styles.content} id="section1">
-								<Header content={content[1]} />
-							</div>
-							<Navbar content={content[0]} switchLanguage={switchLanguage} />
-							<div className={styles.content} id="section2">
-								<SecondHeader content={content[i]} />
-							</div>
-							<div className={styles.content} id="section3">
-								<FeaturesSection content={content[++i]} />
-							</div>
-							<div className={styles.content} id="section4">
-								<ThirdHeader content={content[++i]} />
-							</div>
-							<div className={styles.content} id="section5">
-								<PortfolioSection content={content[++i]} />
-							</div>
-							<div className={styles.content} id="section6">
-								<HowItWorksSection content={content[++i]} />
-							</div>
-							<div className={styles.content} id="section7">
-								<CTASection content={content[++i]} />
-							</div>
-							<div className={styles.content} id="section8">
-								<FaqSection content={content[++i]} />
-							</div>
-							<div className={styles.content} id="section9">
-								<AboutMeSection content={content[++i]} />
-							</div>
-							<div className={styles.content} id="section10">
-								<Footer content={content[++i]} />
-							</div>
+							<Navbar content={mainPageContent[0]} switchLanguage={switchLanguage} setPageDisplayed={setPageDisplayed} />
+              {pageDisplayed === "Main Page" ? (
+                <MainPage content={mainPageContent} locale={locale} scroll={progress} />
+              ) : (
+                <Portfolio content={portfolioContent} locale={locale} scroll={progress} />
+              )}
+							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={setPageDisplayed}/>
 						</div>
 					</div>
 				</AnimationProvider>

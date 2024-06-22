@@ -37,8 +37,8 @@ const getContent = async (req: NextApiRequest, res: NextApiResponse) => {
 	let data = locale === "en" ? jsonDataEN : jsonDataFR;
 
 	if (portfolio) {
-    const portfolioContentEN = fs.readFileSync("./PortfolioContentEN.md", "utf8");
-    const portfolioContentFR = fs.readFileSync("./PortfolioContentFR.md", "utf8");
+    const portfolioContentEN = fs.readFileSync("./PortfolioEN.md", "utf8");
+    const portfolioContentFR = fs.readFileSync("./PortfolioFR.md", "utf8");
     if (locale === "en") {
       data = portfolioContentEN;
     }

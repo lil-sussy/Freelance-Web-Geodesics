@@ -7,9 +7,10 @@ type FooterProps = {
 		title: string;
 		content: Array<{ type: string; text: string }>;
 	};
+  setPageDisplayed: (page: "Main Page" | "Portfolio Page" | "Webdev Page") => void;
 };
 
-const Footer: React.FC<FooterProps> = ({ content }) => {
+const Footer: React.FC<FooterProps> = ({ content, setPageDisplayed }) => {
 	let i = 0;
 	return (
 		<div className={styles.footer}>
@@ -19,10 +20,15 @@ const Footer: React.FC<FooterProps> = ({ content }) => {
 					<div className={styles.logoContainer}></div>
 				</div>
 				<div className={styles.linksSection}>
-					<div className={styles.link}>{content.content[i++].text}</div>
-					<div className={styles.link}>{content.content[i++].text}</div>
-					<div className={styles.link}>{content.content[i++].text}</div>
-					<div className={styles.link}>{content.content[i++].text}</div>
+					<div onClick={() => setPageDisplayed("Main Page")} className={styles.link}>
+						{content.content[i++].text}
+					</div>
+					<div onClick={() => setPageDisplayed("Webdev Page")} className={styles.link}>
+						{content.content[i++].text}
+					</div>
+					<div onClick={() => setPageDisplayed("Portfolio Page")} className={styles.link}>
+						{content.content[i++].text}
+					</div>
 				</div>
 				<div className={styles.socialLinksSection}>
 					<div className={styles.socialIcon}>

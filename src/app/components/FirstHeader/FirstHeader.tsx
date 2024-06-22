@@ -7,7 +7,7 @@ import styles from "./FirstHeader.module.scss";
 type FirstHeaderProps = {
 	content: {
 		title: string;
-		content: Array<{ type: string; text: string }>;
+		content: { type: string; text: string }[];
 	};
 };
 

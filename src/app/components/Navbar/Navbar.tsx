@@ -9,9 +9,10 @@ type NavbarProps = {
 		content: Array<{ type: string; text: string }>;
 	};
 	switchLanguage: () => void;
+	setPageDisplayed: (page: "Main Page" | "Portfolio Page" | "Webdev Page") => void;
 };
 
-const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage }) => {
+const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage, setPageDisplayed }) => {
 	// Extract the first section for the navbar items
 	const navbarSection = content;
 	let i = 0;
@@ -19,12 +20,18 @@ const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage }) => {
 		<>
 			{/* Desktop Navbar */}
 			<div className={styles.navbar}>
-				<div className={`${styles.item} ${styles.logoItems}`}>
+				<div onClick={() => setPageDisplayed("Main Page")} className={`${styles.item} ${styles.logoItems}`}>
 					<img className={styles.logo} src={"./images/webgeodesicslogo.svg"} alt="Web Geodesics Logo" />
 				</div>
-				<div className={styles.item}>{content.content[i].text}</div>
-				<div className={styles.item}>{content.content[++i].text}</div>
-				<div className={styles.item}>{content.content[++i].text}</div>
+				<div onClick={() => setPageDisplayed("Main Page")} className={styles.item}>
+					{content.content[i].text}
+				</div>
+				<div onClick={() => setPageDisplayed("Webdev Page")} className={styles.item}>
+					{content.content[++i].text}
+				</div>
+				<div onClick={() => setPageDisplayed("Portfolio Page")} className={styles.item}>
+					{content.content[++i].text}
+				</div>
 				<div onClick={switchLanguage} className={styles.item}>
 					{content.content[++i].text}
 				</div>

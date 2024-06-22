@@ -1,39 +1,25 @@
 import React, { useEffect, useState, useRef } from "react";
+import Markdown from "markdown-to-jsx";
+import styles from "./Portfolio.module.scss";
+import pageStyles from "../../Page.module.scss";
 
 interface PortfolioProps {
 	locale: string;
 	scroll: number;
+	content: any;
 }
 
 const imagePaths = ["./images/PortfolioSection/AIAgent.png", "./images/PortfolioSection/DRK.png", "./images/PortfolioSection/Demetrius.png", "./images/PortfolioSection/NeptuneProject.png"];
 
-const Portfolio: React.FC<PortfolioProps> = ({ locale, scroll }) => {
+const Portfolio: React.FC<PortfolioProps> = ({ content, locale, scroll }) => {
 	const [sections, setSections] = useState<string[][]>([]);
 	const [error, setError] = useState<string | null>(null);
 	const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
 	useEffect(() => {
-		setError(null); // Reset error state
-		fetch(`/api/getContent?locale=${locale}portfolio=true`)
-			.then((response) => {
-				if (!response.ok) {
-					throw new Error("Network response was not ok");
-				}
-				return response.json();
-			})
-			.then((data) => {
-				if (data && typeof data === "object" && data.fr && data.en) {
-					const content = locale === "en" ? data.en : data.fr;
-					const primarySections = content.split(/---\n\n---/);
-					const splitSections = primarySections.map((section: string) => section.split(/---\n\n\*\*Project Image or Screenshot:\*\*\n\*Insert Project Image or Screenshot Here\*\n\n---/));
-					setSections(splitSections);
-				} else {
-					setError("Unexpected data format");
-				}
-			})
-			.catch((error) => {
-				setError("Failed to fetch content");
-			});
+    const primarySections = content.split(/---\n\n---/);
+    const splitSections = primarySections.map((section: string) => section.split("---\n\n**Project Image or Screenshot:**\n*Insert Project Image or Screenshot Here*\n\n---"));
+    setSections(splitSections);
 	}, [locale]);
 
 	useEffect(() => {
@@ -51,24 +37,25 @@ const Portfolio: React.FC<PortfolioProps> = ({ locale, scroll }) => {
 	}
 
 	return (
-		<div>
+		<>
 			{sections.map((section, sectionIndex) => (
 				<div
+					className={`${styles.section} ${pageStyles.content}`}
+          id={`section${sectionIndex + 1}`}
 					key={sectionIndex}
 					ref={(el) => {
 						sectionRefs.current[sectionIndex] = el;
 					}}
-					style={{ margin: "20px 0", padding: "10px", border: "1px solid #ccc" }}
 				>
 					{section.map((subSection, subIndex) => (
-						<React.Fragment key={subIndex}>
-							<div>{subSection}</div>
+						<div key={subIndex} className={styles.subsection}>
+							<Markdown>{subSection}</Markdown>
 							{subIndex < section.length - 1 && <img src={imagePaths[subIndex % imagePaths.length]} alt={`Section ${subIndex + 1}`} style={{ width: "100%", margin: "20px 0" }} />}
-						</React.Fragment>
+						</div>
 					))}
 				</div>
 			))}
-		</div>
+		</>
 	);
 };
 
