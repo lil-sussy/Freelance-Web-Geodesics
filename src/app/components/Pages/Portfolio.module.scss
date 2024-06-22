@@ -7,49 +7,70 @@ $hevdig-font: 'Hedvig Letters Sans', sans-serif;
     ul {
       list-style-type: none;
     }
-    hr {
-      margin: 2rem 0;
-    }
-    h1 {
-      font-size: 3rem;
-    }
-    h2 {
-      font-size: 2.5rem;
-    }
-    h3 {
-      font-size: 2rem;
-    }
-    h4 {
-      font-size: 1.5rem;
-    }
-    h5 {
-      font-size: 1.25rem;
-    }
-    h6 {
-      font-size: 1rem;
-    }
     h1, h2, h3, h4, h5, h6 {
-      font-weight: 700;
-      margin-top: 5rem;
-      margin-bottom: 2rem;
+      margin-top: 4rem;
       font-family: $poppins-font;
       color: #fff;
     }
-    p, li {
-      margin-top: 3rem;
-    }
-    li:first-child {
-      margin-top: 1.2rem;
-    }
-    ol li{
-      margin-top: 3rem;
-    }
     p, li, div, ul {
+      margin-top: 1rem;
       color: #fff;
-      font-size: 1rem;
-      font-weight: 400;
-      margin: 0;
       font-family: $hevdig-font;
     }
   }
 }
+// $poppins-font: 'Poppins', sans-serif;
+// $hevdig-font: 'Hedvig Letters Sans', sans-serif;
+
+// .section {
+//   padding: 20%;
+//   .subsection {
+//     ul {
+//       list-style-type: none;
+//     }
+//     hr {
+//       margin: 2rem 0;
+//     }
+//     h1 {
+//       font-size: 3rem;
+//     }
+//     h2 {
+//       font-size: 2.5rem;
+//     }
+//     h3 {
+//       font-size: 2rem;
+//     }
+//     h4 {
+//       font-size: 1.5rem;
+//     }
+//     h5 {
+//       font-size: 1.25rem;
+//     }
+//     h6 {
+//       font-size: 1rem;
+//     }
+//     h1, h2, h3, h4, h5, h6 {
+//       font-weight: 700;
+//       margin-top: 5rem;
+//       margin-bottom: 2rem;
+//       font-family: $poppins-font;
+//       color: #fff;
+//     }
+//     p, li {
+//       margin-top: 3rem;
+//     }
+//     li:first-child {
+//       margin-top: 1.2rem;
+//     }
+//     ol li{
+//       margin-top: 3rem;
+//     }
+//     p, li, div, ul {
+//       color: #fff;
+//       font-size: 1rem;
+//       font-weight: 400;
+//       margin: 0;
+//       font-family: $hevdig-font;
+//     }
+//   }
+// }

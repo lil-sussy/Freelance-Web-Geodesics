@@ -1,4 +1,4 @@
-### AI Agent Extension for VS Code
+# AI Agent Extension for VS Code
 
 ---
 
@@ -93,7 +93,7 @@ This detailed version provides a comprehensive overview of the AI Agent Extensio
 
 ---
 
-### Healthy Gamer GG search engine
+# Healthy Gamer GG search engine
 
 **Name and Title:**
 
@@ -194,7 +194,7 @@ Developing this project was a rewarding challenge. It showcased my ability to ap
 
 ---
 
-### Law chatbot agent for a Mauritius law agency
+# Law chatbot agent for a Mauritius law agency
 
 **Name and Title:**
 Regojo Yan | AI & Machine Learning Specialist | Data Engineer | Prompt Engineering Expert
@@ -296,7 +296,7 @@ Developing the Demetrius Project was an enriching experience that showcased my a
 
 ---
 
-### Neptune Project: Your Creative Writing Companion
+# Neptune Project: Your Creative Writing Companion
 
 ---
 

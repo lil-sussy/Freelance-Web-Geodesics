@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Markdown from "markdown-to-jsx";
 import styles from "./Portfolio.module.scss";
 import pageStyles from "../../Page.module.scss";
+import "github-markdown-css/github-markdown.css";
 
 interface PortfolioProps {
 	locale: string;
@@ -37,11 +38,11 @@ const Portfolio: React.FC<PortfolioProps> = ({ content, locale, scroll }) => {
 	}
 
 	return (
-		<>
+		<div className="markdown-body">
 			{sections.map((section, sectionIndex) => (
 				<div
 					className={`${styles.section} ${pageStyles.content}`}
-          id={`section${sectionIndex + 1}`}
+					id={`section${sectionIndex + 1}`}
 					key={sectionIndex}
 					ref={(el) => {
 						sectionRefs.current[sectionIndex] = el;
@@ -50,12 +51,12 @@ const Portfolio: React.FC<PortfolioProps> = ({ content, locale, scroll }) => {
 					{section.map((subSection, subIndex) => (
 						<div key={subIndex} className={styles.subsection}>
 							<Markdown>{subSection}</Markdown>
-							{subIndex < section.length - 1 && <img src={imagePaths[subIndex % imagePaths.length]} alt={`Section ${subIndex + 1}`} style={{ width: "100%", margin: "20px 0" }} />}
+							{subIndex < section.length - 1 && <img src={imagePaths[sectionIndex % imagePaths.length]} alt={`Section ${subIndex + 1}`} style={{ width: "100%", margin: "20px 0" }} />}
 						</div>
 					))}
 				</div>
 			))}
-		</>
+		</div>
 	);
 };
 
