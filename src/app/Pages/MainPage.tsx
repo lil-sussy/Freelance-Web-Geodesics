@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
-import Header from "../FirstHeader/FirstHeader";
-import SecondHeader from "../SecondHeader/SecondHeader";
-import ThirdHeader from "../ThirdHeader/ThirdHeader";
-import FeaturesSection from "../FeaturesSection/FeaturesSection";
-import PortfolioSection from "../PortfolioSection/PortfolioSection";
-import HowItWorksSection from "../HowItWorksSection/HowItWorksSection";
-import CTASection from "../CTA/CTASection";
-import AboutMeSection from "../AboutMeSection/AboutMeSection";
-import FaqSection from "../FAQ/FAQSection";
+import Header from "../components/FirstHeader/FirstHeader";
+import SecondHeader from "../components/SecondHeader/SecondHeader";
+import ThirdHeader from "../components/ThirdHeader/ThirdHeader";
+import FeaturesSection from "../components/FeaturesSection/FeaturesSection";
+import PortfolioSection from "../components/PortfolioSection/PortfolioSection";
+import HowItWorksSection from "../components/HowItWorksSection/HowItWorksSection";
+import CTASection from "../components/CTA/CTASection";
+import AboutMeSection from "../components/AboutMeSection/AboutMeSection";
+import FaqSection from "../components/FAQ/FAQSection";
 
 import styles from "../../Page.module.scss";
 

@@ -16,8 +16,8 @@ import { theme as antdTheme } from "antd";
 // @ts-ignore
 import Cookies from "js-cookie";
 import { NextSeo } from "next-seo";
-import MainPage from "./components/Pages/MainPage";
-import Portfolio from "./components/Pages/Portfolio";
+import MainPage from "./Pages/MainPage";
+import Portfolio from "./Pages/Portfolio";
 
 const Home: React.FC = () => {
 	const [progress, setProgress] = useState(0);

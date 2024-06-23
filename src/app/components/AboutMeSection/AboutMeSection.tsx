@@ -29,8 +29,12 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content, switchContact,
 				<img className={styles.womanPhotograph1} src="./images/picture-of-me.png" alt="22-year-old non-binary male living in Paris, a French freelancer specializing in AI agent development and prompt engineering." />
 				<div className={styles.name}>
 					<div className={styles.yanRegojo}>Yan Regojo</div>
-					<Button style="secondary">{content.content[i].text}</Button>
-					<img className={styles.linkedin} src="./images/github.svg" alt="Github button" />
+					<a href="./ressources/resume.pdf" target="_blank" className="pdf-button" aria-label="Open PDF document in a new tab">
+						<Button style="secondary">{content.content[i].text}</Button>
+					</a>
+					<a href="https://github.com/lil-sussy" target="_blank" className="pdf-button" aria-label="Open PDF document in a new tab">
+						<img className={styles.linkedin} src="./images/github.svg" alt="Github button" />
+					</a>
 					<div className={styles.link}></div>
 				</div>
 			</div>

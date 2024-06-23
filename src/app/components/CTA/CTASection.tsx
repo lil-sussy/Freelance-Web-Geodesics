@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState  } from "react";
 import Button from "../Button/Button";
 import styles from "./CTASection.module.scss";
 import { Input } from "antd";
 import { MailFilled } from "@ant-design/icons";
+import { message as AntMessage } from "antd";
 
 // Define the props type
 type Cta7Props = {
@@ -30,6 +31,48 @@ const contactFormContent2 = {
 };
 
 const Cta7: React.FC<Cta7Props> = ({ content, switchContact, setContactFormContent }) => {
+  const [email, setEmail] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<string>("");
+
+  const validateEmail = (email: string): boolean => {
+		const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+		return re.test(String(email).toLowerCase());
+	};
+
+  const handleSubmit = (): void => {
+		setError("");
+		setSuccess("");
+
+		if (!validateEmail(email)) {
+			setError("Please enter a valid email address.");
+			return;
+		}
+
+		fetch("/api/contact", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ name: "Simple Newsletter subscription", email, text: "Simple Newsletter subscription" }),
+		})
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error("Network response was not ok");
+				}
+				return response.json();
+			})
+			.then(() => {
+				setSuccess("Thank you for your feedback!");
+				setEmail("");
+				AntMessage.success("Thank you for your contact submission, you will hear back from me soon!");
+			})
+			.catch((err) => {
+				setError("Something went wrong. Please try again later.");
+				AntMessage.error("Something went wrong. Please try again later.");
+			});
+	};
+  
 	let i = 0;
 	return (
 		<div className={styles.ctaContainer}>
@@ -71,8 +114,10 @@ const Cta7: React.FC<Cta7Props> = ({ content, switchContact, setContactFormConte
 					</div>
 					<div className={styles.frameContainer}>
 						<div className={styles.ctaActions}>
-							<Input size="large" placeholder={content.content[++i].text} prefix={<MailFilled />} />
-							<Button style="primary">{content.content[++i].text}</Button>
+							<Input size="large" onSubmit={() => handleSubmit()} value={email} placeholder={content.content[++i].text} prefix={<MailFilled />} />
+							<Button onClick={() => handleSubmit()} style="primary">
+								{content.content[++i].text}
+							</Button>
 						</div>
 						<div className={styles.ctaFooterText}>{content.content[++i].text}</div>
 					</div>
