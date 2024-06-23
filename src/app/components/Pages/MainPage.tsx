@@ -16,37 +16,38 @@ interface PortfolioProps {
 	scroll: number;
 	content: { title: string; content: { type: string; text: string }[] }[];
 	switchContact: () => void;
-  setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
+	switchToPortfolio: (scroll: number) => void;
+	setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 }
 
-const MainPage: React.FC<PortfolioProps> = ({ content, locale, scroll, switchContact, setContactFormContent }) => {
+const MainPage: React.FC<PortfolioProps> = ({ content, locale, scroll, switchContact, setContactFormContent, switchToPortfolio }) => {
 	let i = 2;
 
 	return (
 		<>
 			<div className={styles.content} id="section1">
-				<Header content={content[1]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+				<Header content={content[1]} switchToPortfolio={switchToPortfolio} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section2">
-				<SecondHeader content={content[i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+				<SecondHeader content={content[i]} switchToPortfolio={switchToPortfolio} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section3">
-				<FeaturesSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+				<FeaturesSection content={content[++i]} switchToPortfolio={switchToPortfolio} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section4">
-				<ThirdHeader content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+				<ThirdHeader content={content[++i]} switchToPortfolio={switchToPortfolio} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section5">
-				<PortfolioSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+				<PortfolioSection content={content[++i]} switchToPortfolio={switchToPortfolio} />
 			</div>
 			<div className={styles.content} id="section6">
-				<HowItWorksSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+				<HowItWorksSection content={content[++i]} switchToPortfolio={switchToPortfolio} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section7">
 				<CTASection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section8">
-				<FaqSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+				<FaqSection content={content[++i]} switchToPortfolio={switchToPortfolio} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section9">
 				<AboutMeSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />

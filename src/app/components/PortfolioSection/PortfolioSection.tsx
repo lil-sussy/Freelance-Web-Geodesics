@@ -8,9 +8,10 @@ type FeaturesSectionProps = {
 		title: string;
 		content: Array<{ type: string; text: string }>;
 	};
+  switchToPortfolio: (scroll: number) => void;
 };
 
-const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
+const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content, switchToPortfolio }) => {
 	const [visible, setVisible] = useState(false);
 
 	let i = 0;
@@ -28,7 +29,9 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 							<div className={styles.featureTitle}>{content.content[++i].text}</div>
 							<div className={styles.featureDescription}>{content.content[++i].text}</div>
 						</div>
-						<Button style="secondary">{content.content[++i].text}</Button>
+						<Button onClick={() => switchToPortfolio(1)} style="secondary">
+							{content.content[++i].text}
+						</Button>
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
@@ -38,7 +41,9 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 							<div className={styles.featureTitle}>{content.content[++i].text}</div>
 							<div className={styles.featureDescription}>{content.content[++i].text}</div>
 						</div>
-						<Button style="secondary">{content.content[++i].text}</Button>
+						<Button onClick={() => switchToPortfolio(0)} style="secondary">
+							{content.content[++i].text}
+						</Button>
 					</div>
 				</div>
 				<div className={styles.featureColumn}>
@@ -48,7 +53,9 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 							<div className={styles.featureTitle}>{content.content[++i].text}</div>
 							<div className={styles.featureDescription}>{content.content[++i].text}</div>
 						</div>
-						<Button style="secondary">{content.content[++i].text}</Button>
+						<Button onClick={() => switchToPortfolio(2)} style="secondary">
+							{content.content[++i].text}
+						</Button>
 					</div>
 				</div>
 				{visible ? (
@@ -60,7 +67,9 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 									<div className={styles.featureTitle}>{content.content[++i].text}</div>
 									<div className={styles.featureDescription}>{content.content[++i].text}</div>
 								</div>
-								<Button style="secondary">{content.content[++i].text}</Button>
+								<Button onClick={() => switchToPortfolio(3)} style="secondary">
+									{content.content[++i].text}
+								</Button>
 							</div>
 						</div>
 						<div className={styles.featureColumn}>
@@ -71,7 +80,9 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ content }) => {
 									<div className={styles.featureTitle}>{content.content[++i].text}</div>
 									<div className={styles.featureDescription}>{content.content[++i].text}</div>
 								</div>
-								<Button style="secondary">{content.content[++i].text}</Button>
+								<Button onClick={() => switchToPortfolio(4)} style="secondary">
+									{content.content[++i].text}
+								</Button>
 							</div>
 						</div>
 					</>

@@ -15,6 +15,7 @@ type FaqSectionProps = {
 		content: Array<{ type: string; text: string }>;
 	};
   switchContact: () => void;
+  switchToPortfolio: (scroll: number) => void;
   setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 };
 
@@ -26,15 +27,14 @@ const contactFormContent = {
 	text: "I have some questions about your data analysis process. Can you clarify?",
 };
 
-const FaqSection: React.FC<FaqSectionProps> = ({ content, switchContact, setContactFormContent }) => {
+const FaqSection: React.FC<FaqSectionProps> = ({ content, switchContact, setContactFormContent, switchToPortfolio }) => {
 	let i = 0;
 
-	const items: CollapseProps["items"] = [
-	];
+	const items: CollapseProps["items"] = [];
 
-  const threshold = 3;
-	for (let j = threshold; j < content.content.length -1; j += 2) {
-    items.push({
+	const threshold = 3;
+	for (let j = threshold; j < content.content.length - 1; j += 2) {
+		items.push({
 			key: j.toString(),
 			label: content.content[j].text,
 			children: (
@@ -43,7 +43,7 @@ const FaqSection: React.FC<FaqSectionProps> = ({ content, switchContact, setCont
 				</div>
 			),
 		});
-  }
+	}
 
 	return (
 		<div className={styles.faqSection}>

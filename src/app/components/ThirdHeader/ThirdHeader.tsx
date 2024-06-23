@@ -8,8 +8,9 @@ type ThirdHeaderProps = {
 		title: string;
 		content: Array<{ type: string; text: string }>;
 	};
-  switchContact: () => void;
-  setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
+	switchContact: () => void;
+	switchToPortfolio: (scroll: number) => void;
+	setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 };
 
 const contactFormContent = {
@@ -20,7 +21,7 @@ const contactFormContent = {
 	text: "I have an idea for an AI project. Can you help me bring it to life?",
 };
 
-const ThirdHeader: React.FC<ThirdHeaderProps> = ({ content, switchContact, setContactFormContent }) => {
+const ThirdHeader: React.FC<ThirdHeaderProps> = ({ content, switchContact, setContactFormContent, switchToPortfolio }) => {
 	let i = 0;
 	return (
 		<div className={styles.ThirdHeader}>
@@ -35,7 +36,9 @@ const ThirdHeader: React.FC<ThirdHeaderProps> = ({ content, switchContact, setCo
 						<div className={styles.Text}>{content.content[++i].text}</div>
 					</div>
 					<div className={styles.Actions}>
-						<Button style="primary">{content.content[++i].text}</Button>
+						<Button onClick={() => switchToPortfolio(0)} style="primary">
+							{content.content[++i].text}
+						</Button>
 						<Button
 							onClick={() => {
 								switchContact();

@@ -10,6 +10,7 @@ type HowItWorksSectionProps = {
 		content: Array<{ type: string; text: string }>;
 	};
   switchContact: () => void;
+  switchToPortfolio: (scroll: number) => void;
   setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 };
 
@@ -21,7 +22,7 @@ const contactFormContent = {
 	text: "I have some questions about your data analysis process. Can you clarify?",
 };
 
-const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ content, switchContact, setContactFormContent }) => {
+const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ content, switchContact, setContactFormContent, switchToPortfolio }) => {
 	let i = 0;
 	return (
 		<div className={styles.featuresSection}>
@@ -79,7 +80,9 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ content, switchCo
 				>
 					{content.content[++i].text}
 				</Button>
-				<Button style="secondary">{content.content[++i].text}</Button>
+				<Button onClick={() => switchToPortfolio(0)} style="secondary">
+					{content.content[++i].text}
+				</Button>
 			</div>
 		</div>
 	);

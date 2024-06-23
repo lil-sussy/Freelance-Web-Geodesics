@@ -28,20 +28,21 @@ const Home: React.FC = () => {
 	const router = useRouter(); // Initialize router
 
 	const [locale, setLocale] = useState<"en" | "fr">("en");
-  const [showContact, setShowContact] = useState(false);
+	const [showContact, setShowContact] = useState(false);
 	const [mainPageContent, setMainPageContent] = useState([]);
 	const [portfolioContent, setPortfolioContent] = useState([]);
 	const [pageDisplayed, setPageDisplayed] = useState<"Main Page" | "Portfolio Page" | "Webdev Page">("Main Page");
-  const [contactFormContent, setContactFormContent] = useState({ title: "", placeholder: "", succes: "", error: "" });
+	const [contactFormContent, setContactFormContent] = useState({ title: "", placeholder: "", succes: "", error: "" });
+	const [portfolioScroll, setPortfolioScroll] = useState(0);
 
 	useEffect(() => {
-    const browserLocale = navigator.language.startsWith("fr") ? "fr" : "en";
+		const browserLocale = navigator.language.startsWith("fr") ? "fr" : "en";
 		const currentLocale = Cookies.get("locale");
 		if (currentLocale === undefined || currentLocale.length === 0) {
-      Cookies.set("locale", browserLocale);
+			Cookies.set("locale", browserLocale);
 			window.location.reload(); // Reload the page to apply the new locale
 		} else {
-      const data = fetch(`/api/getContent?locale=${currentLocale}`);
+			const data = fetch(`/api/getContent?locale=${currentLocale}`);
 			const portfolioData = fetch(`/api/getContent?locale=${currentLocale}&portfolio=true`);
 			setLocale(currentLocale);
 			data
@@ -149,9 +150,17 @@ const Home: React.FC = () => {
 		setLocale(newLocale);
 	}
 
-  function switchContact() {
-    setShowContact(!showContact);
-  }
+	function switchContact() {
+		setShowContact(!showContact);
+	}
+
+	function switchToPortfolio(scroll: number) {
+		setPageDisplayed("Portfolio Page");
+		setPortfolioScroll(scroll);
+		const url = "/?page=portfolio";
+		// @ts-ignore
+		router.push(url, { shallow: true });
+	}
 
 	const handlePageChange = (newPage: "Main Page" | "Portfolio Page" | "Webdev Page") => {
 		setPageDisplayed(newPage);
@@ -161,7 +170,7 @@ const Home: React.FC = () => {
 		} else if (newPage === "Webdev Page") {
 			url = "/?page=webdevagency";
 		}
-    // @ts-ignore
+		// @ts-ignore
 		router.push(url, { shallow: true });
 	};
 
@@ -195,11 +204,11 @@ const Home: React.FC = () => {
 				<AnimationProvider>
 					{showContact && <Contact content={contactFormContent} />}
 					<div className={styles.frame} id="scroll-window">
-						<div className={styles.div} id="scroll-container"> 
+						<div className={styles.div} id="scroll-container">
 							<Background advancement={progress} />
 							<Navbar content={mainPageContent[0]} switchLanguage={switchLanguage} setPageDisplayed={handlePageChange} switchContact={switchContact} setContactFormContent={setContactFormContent} />
-							{pageDisplayed === "Main Page" ? <MainPage content={mainPageContent} locale={locale} scroll={progress} switchContact={switchContact} setContactFormContent={setContactFormContent} /> : <Portfolio content={portfolioContent} locale={locale} scroll={progress} />}
-							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={handlePageChange} switchContact={switchContact} setContactFormContent={setContactFormContent}/>
+							{pageDisplayed === "Main Page" ? <MainPage content={mainPageContent} locale={locale} scroll={progress} switchContact={switchContact} setContactFormContent={setContactFormContent} switchToPortfolio={switchToPortfolio}/> : <Portfolio content={portfolioContent} locale={locale} scroll={portfolioScroll} />}
+							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={handlePageChange} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 						</div>
 					</div>
 				</AnimationProvider>
