@@ -9,6 +9,7 @@ type FirstHeaderProps = {
 		title: string;
 		content: { type: string; text: string }[];
 	};
+	scrollToSection: (section: number) => void;
 	switchContact: () => void;
 	switchToPortfolio: (scroll: number) => void;
 	setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
@@ -22,7 +23,7 @@ const contactFormContent = {
 	text: "I'd like to understand how your AI solutions can benefit my startup. Can we connect?",
 };
 
-const FirstHeader: React.FC<FirstHeaderProps> = ({ content, switchContact, setContactFormContent, switchToPortfolio }) => {
+const FirstHeader: React.FC<FirstHeaderProps> = ({ content, switchContact, setContactFormContent, switchToPortfolio, scrollToSection }) => {
 	return (
 		<header className={styles.header}>
 			<div className={styles.content}>
@@ -47,7 +48,9 @@ const FirstHeader: React.FC<FirstHeaderProps> = ({ content, switchContact, setCo
 						>
 							{content.content[6].text}
 						</Button>
-						<Button onClick={() => switchToPortfolio(0)} style="secondary">{content.content[7].text}</Button>
+						<Button onClick={() => switchToPortfolio(0)} style="secondary">
+							{content.content[7].text}
+						</Button>
 					</div>
 				</div>
 			</div>
@@ -60,7 +63,7 @@ const FirstHeader: React.FC<FirstHeaderProps> = ({ content, switchContact, setCo
 						GEODESICS
 					</div>
 				</div>
-				<div className={styles.arrow}>
+				<div onClick={() => scrollToSection(2)} className={styles.arrow}>
 					<Arrow />
 				</div>
 			</div>

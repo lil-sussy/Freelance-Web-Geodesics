@@ -14,19 +14,20 @@ import styles from "../../Page.module.scss";
 interface PortfolioProps {
 	locale: string;
 	scroll: number;
+	scrollToSection: (section: number) => void;
 	content: { title: string; content: { type: string; text: string }[] }[];
 	switchContact: () => void;
 	switchToPortfolio: (scroll: number) => void;
 	setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 }
 
-const MainPage: React.FC<PortfolioProps> = ({ content, locale, scroll, switchContact, setContactFormContent, switchToPortfolio }) => {
+const MainPage: React.FC<PortfolioProps> = ({ content, locale, scroll, switchContact, setContactFormContent, switchToPortfolio, scrollToSection }) => {
 	let i = 2;
 
 	return (
 		<>
 			<div className={styles.content} id="section1">
-				<Header content={content[1]} switchToPortfolio={switchToPortfolio} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+				<Header content={content[1]} switchToPortfolio={switchToPortfolio} switchContact={switchContact} setContactFormContent={setContactFormContent} scrollToSection={scrollToSection} />
 			</div>
 			<div className={styles.content} id="section2">
 				<SecondHeader content={content[i]} switchToPortfolio={switchToPortfolio} switchContact={switchContact} setContactFormContent={setContactFormContent} />

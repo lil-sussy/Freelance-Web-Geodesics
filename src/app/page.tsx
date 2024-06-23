@@ -144,6 +144,13 @@ const Home: React.FC = () => {
 
 	let i = 2;
 
+  function scrollToSection(section: number) {
+    const el = document.getElementById(`section${section}`);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
 	function switchLanguage() {
 		const newLocale = locale === "en" ? "fr" : "en";
 		Cookies.set("locale", newLocale);
@@ -207,7 +214,7 @@ const Home: React.FC = () => {
 						<div className={styles.div} id="scroll-container">
 							<Background advancement={progress} />
 							<Navbar content={mainPageContent[0]} switchLanguage={switchLanguage} setPageDisplayed={handlePageChange} switchContact={switchContact} setContactFormContent={setContactFormContent} />
-							{pageDisplayed === "Main Page" ? <MainPage content={mainPageContent} locale={locale} scroll={progress} switchContact={switchContact} setContactFormContent={setContactFormContent} switchToPortfolio={switchToPortfolio}/> : <Portfolio content={portfolioContent} locale={locale} scroll={portfolioScroll} />}
+							{pageDisplayed === "Main Page" ? <MainPage content={mainPageContent} locale={locale} scroll={progress} switchContact={switchContact} scrollToSection={scrollToSection} setContactFormContent={setContactFormContent} switchToPortfolio={switchToPortfolio} /> : <Portfolio content={portfolioContent} locale={locale} scroll={portfolioScroll} />}
 							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={handlePageChange} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 						</div>
 					</div>
