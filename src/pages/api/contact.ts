@@ -32,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 			const mailOptions = {
 				from: process.env.EMAIL_USER,
-				to: process.env.EMAIL_USER,
+				to: process.env.EMAIL_RECEIVER,
 				subject: "New Contact Form Submission",
 				text: `You have a new contact form submission from ${name} (${email}):\n\n${message}`,
 			};

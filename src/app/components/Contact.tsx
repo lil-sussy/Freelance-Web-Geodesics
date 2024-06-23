@@ -1,5 +1,6 @@
 import styles from "./ContactForm.module.scss";
-import { Button, Input, Form, message as AntMessage } from "antd";
+import { Input, Form, message as AntMessage } from "antd";
+import Button from "./Button/Button";
 import React, { useState, ChangeEvent } from "react";
 
 const { TextArea } = Input;
@@ -48,7 +49,7 @@ const ContactSection: React.FC = () => {
 				setName("");
 				setEmail("");
 				setMessage("");
-				AntMessage.success("Thank you for your feedback!");
+				AntMessage.success("Thank you for your contact submission, you will hear back from me soon!");
 			})
 			.catch((err) => {
 				setError("Something went wrong. Please try again later.");
@@ -57,15 +58,14 @@ const ContactSection: React.FC = () => {
 	};
 
 	return (
-		<div className={styles.CenteringDiv}>
-			<div className={styles.FeedbackSection}>
-				<div className={styles.WhiteContainer}>
-					<div className={styles.ContentContainer}>
-						<div className={styles.FormContainer}>
-							<div className={styles.AnyQuestionsOrFeedback}>Any questions or Feedback?</div>
-							<div className={styles.Rectangle4}></div>
-							<Form className={styles.Form} onFinish={handleSubmit}>
-								<div className={styles.Frame13}>
+		<div className={styles.centeringDiv}>
+			<div className={styles.feedbackSection}>
+				<div className={styles.feedbackContainer}>
+					<div className={styles.contentContainer}>
+						<div className={styles.formWrapper}>
+							<div className={styles.feedbackTitle}>Contact form submission</div>
+							<Form className={styles.feedbackForm} onFinish={handleSubmit}>
+								<div className={styles.inputGroup}>
 									<Form.Item>
 										<Input name="Name" placeholder="Your name" value={name} onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
 									</Form.Item>
@@ -77,15 +77,15 @@ const ContactSection: React.FC = () => {
 									<TextArea name="Message" placeholder="Your message" rows={10} value={message} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)} />
 								</Form.Item>
 								<Form.Item>
-									<Button type="primary" htmlType="submit">
+									<Button onClick={() => handleSubmit()} style="primary">
 										Submit
 									</Button>
 								</Form.Item>
-								{error && <div className={styles.Error}>{error}</div>}
-								{success && <div className={styles.Success}>{success}</div>}
+								{error && <div className={styles.errorMessage}>{error}</div>}
+								{success && <div className={styles.successMessage}>{success}</div>}
 							</Form>
 						</div>
-						<img className={styles.DrkConfident} src="./dr k confident 2.png" alt="Dr K confident" />
+						<img className={styles.imageConfident} src="./images/assets-board.png" alt="Dr K confident" />
 					</div>
 				</div>
 			</div>
