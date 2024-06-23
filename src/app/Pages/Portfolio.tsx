@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Markdown from "markdown-to-jsx";
 import styles from "./Portfolio.module.scss";
-import pageStyles from "../../Page.module.scss";
+import pageStyles from "../Page.module.scss";
 import "github-markdown-css/github-markdown.css";
 
 interface PortfolioProps {

@@ -9,7 +9,7 @@ import CTASection from "../components/CTA/CTASection";
 import AboutMeSection from "../components/AboutMeSection/AboutMeSection";
 import FaqSection from "../components/FAQ/FAQSection";
 
-import styles from "../../Page.module.scss";
+import styles from "../Page.module.scss";
 
 interface PortfolioProps {
 	locale: string;
