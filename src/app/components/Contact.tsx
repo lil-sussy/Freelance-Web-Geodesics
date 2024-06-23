@@ -30,7 +30,7 @@ const ContactSection: React.FC = () => {
 			return;
 		}
 
-		fetch("/api/contact/feedback", {
+		fetch("/api/contact", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

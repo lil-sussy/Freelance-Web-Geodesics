@@ -18,6 +18,7 @@
 content_en.json
 content_fr.json
 
+
 # misc
 .DS_Store
 *.pem
