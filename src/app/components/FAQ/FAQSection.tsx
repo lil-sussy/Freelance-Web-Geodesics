@@ -14,9 +14,19 @@ type FaqSectionProps = {
 		title: string;
 		content: Array<{ type: string; text: string }>;
 	};
+  switchContact: () => void;
+  setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 };
 
-const FaqSection: React.FC<FaqSectionProps> = ({ content }) => {
+const contactFormContent = {
+	title: "Let's Clarify Your Questions",
+	placeholder: "How can I assist you further?",
+	succes: "Your inquiry has been received. I'll get back to you soon.",
+	error: "Error! Your message couldn't be sent. Please retry.",
+	text: "I have some questions about your data analysis process. Can you clarify?",
+};
+
+const FaqSection: React.FC<FaqSectionProps> = ({ content, switchContact, setContactFormContent }) => {
 	let i = 0;
 
 	const items: CollapseProps["items"] = [
@@ -42,7 +52,15 @@ const FaqSection: React.FC<FaqSectionProps> = ({ content }) => {
 					<div className={styles.content}>
 						<div className={styles.title}>{content.content[i].text}</div>
 						<div className={styles.subtitle}>{content.content[++i].text}</div>
-						<Button style="primary">{content.content[++i].text}</Button>
+						<Button
+							onClick={() => {
+								switchContact();
+								setContactFormContent(contactFormContent);
+							}}
+							style="primary"
+						>
+							{content.content[++i].text}
+						</Button>
 					</div>
 				</div>
 				<div className={styles.accordion}>

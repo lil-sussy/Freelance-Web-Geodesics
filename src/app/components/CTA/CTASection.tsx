@@ -10,9 +10,26 @@ type Cta7Props = {
 		title: string;
 		content: Array<{ type: string; text: string }>;
 	};
+  switchContact: () => void;
+  setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 };
 
-const Cta7: React.FC<Cta7Props> = ({ content }) => {
+const contactFormContent1 = {
+	title: "Get a Personalized Quote for Your Project",
+	placeholder: "Describe your project for a free quote...",
+	succes: "Thank you! I will prepare your quote and get back to you shortly.",
+	error: "Error! Your message couldn't be sent. Please retry.",
+	text: "I'm interested in your AI integration services. Can you give me a quote for my project?",
+};
+const contactFormContent2 = {
+	title: "Schedule Your First Consultation",
+	placeholder: "Tell me about your needs for a consultation...",
+	succes: "YThank you! Your consultation has been scheduled. I will be in touch soon.",
+	error: "Error! Your message couldn't be sent. Please retry.",
+	text: "I need a consultation to understand the best AI solutions for my company.",
+};
+
+const Cta7: React.FC<Cta7Props> = ({ content, switchContact, setContactFormContent }) => {
 	let i = 0;
 	return (
 		<div className={styles.ctaContainer}>
@@ -24,8 +41,24 @@ const Cta7: React.FC<Cta7Props> = ({ content }) => {
 					</div>
 				</div>
 				<div className={styles.ctaActions}>
-					<Button style="primary">{content.content[++i].text}</Button>
-					<Button style="secondary">{content.content[++i].text}</Button>
+					<Button
+						onClick={() => {
+							switchContact();
+							setContactFormContent(contactFormContent1);
+						}}
+						style="primary"
+					>
+						{content.content[++i].text}
+					</Button>
+					<Button
+						onClick={() => {
+							switchContact();
+							setContactFormContent(contactFormContent2);
+						}}
+						style="secondary"
+					>
+						{content.content[++i].text}
+					</Button>
 				</div>
 			</div>
 			<div className={styles.ctaSection}>

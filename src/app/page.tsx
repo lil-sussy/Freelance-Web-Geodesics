@@ -32,6 +32,7 @@ const Home: React.FC = () => {
 	const [mainPageContent, setMainPageContent] = useState([]);
 	const [portfolioContent, setPortfolioContent] = useState([]);
 	const [pageDisplayed, setPageDisplayed] = useState<"Main Page" | "Portfolio Page" | "Webdev Page">("Main Page");
+  const [contactFormContent, setContactFormContent] = useState({ title: "", placeholder: "", succes: "", error: "" });
 
 	useEffect(() => {
     const browserLocale = navigator.language.startsWith("fr") ? "fr" : "en";
@@ -192,13 +193,13 @@ const Home: React.FC = () => {
 			/>
 			<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" }, algorithm: darkMode ? [antdTheme.darkAlgorithm] : [antdTheme.defaultAlgorithm] }}>
 				<AnimationProvider>
-					{showContact && <Contact />}
+					{showContact && <Contact content={contactFormContent} />}
 					<div className={styles.frame} id="scroll-window">
-						<div className={styles.div} id="scroll-container">
+						<div className={styles.div} id="scroll-container"> 
 							<Background advancement={progress} />
-							<Navbar content={mainPageContent[0]} switchLanguage={switchLanguage} setPageDisplayed={handlePageChange} switchContact={switchContact} />
-							{pageDisplayed === "Main Page" ? <MainPage content={mainPageContent} locale={locale} scroll={progress} switchContact={switchContact} /> : <Portfolio content={portfolioContent} locale={locale} scroll={progress} />}
-							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={handlePageChange} switchContact={switchContact} />
+							<Navbar content={mainPageContent[0]} switchLanguage={switchLanguage} setPageDisplayed={handlePageChange} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+							{pageDisplayed === "Main Page" ? <MainPage content={mainPageContent} locale={locale} scroll={progress} switchContact={switchContact} setContactFormContent={setContactFormContent} /> : <Portfolio content={portfolioContent} locale={locale} scroll={progress} />}
+							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={handlePageChange} switchContact={switchContact} setContactFormContent={setContactFormContent}/>
 						</div>
 					</div>
 				</AnimationProvider>

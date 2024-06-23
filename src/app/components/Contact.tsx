@@ -5,10 +5,20 @@ import React, { useState, ChangeEvent } from "react";
 
 const { TextArea } = Input;
 
-const ContactSection: React.FC = () => {
+type ContactProps = {
+	content: {
+		title: string;
+    placeholder: string;
+    succes: string;
+    error: string;
+    text?: string;
+	};
+};
+
+const ContactPage: React.FC<ContactProps> = ({ content }) => {
 	const [name, setName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
-	const [message, setMessage] = useState<string>("");
+	const [message, setMessage] = useState<string>(content.text ? content.text : "");
 	const [error, setError] = useState<string>("");
 	const [success, setSuccess] = useState<string>("");
 
@@ -63,7 +73,7 @@ const ContactSection: React.FC = () => {
 				<div className={styles.feedbackContainer}>
 					<div className={styles.contentContainer}>
 						<div className={styles.formWrapper}>
-							<div className={styles.feedbackTitle}>Contact form submission</div>
+							<div className={styles.feedbackTitle}>{content.title ? content.title : "Contact form submission"}</div>
 							<Form className={styles.feedbackForm} onFinish={handleSubmit}>
 								<div className={styles.inputGroup}>
 									<Form.Item>
@@ -74,7 +84,7 @@ const ContactSection: React.FC = () => {
 									</Form.Item>
 								</div>
 								<Form.Item>
-									<TextArea name="Message" placeholder="Your message" rows={10} value={message} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)} />
+									<TextArea name="Message" placeholder={content.placeholder} rows={10} value={message} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)} />
 								</Form.Item>
 								<Form.Item>
 									<Button onClick={() => handleSubmit()} style="primary">
@@ -93,4 +103,4 @@ const ContactSection: React.FC = () => {
 	);
 };
 
-export default ContactSection;
+export default ContactPage;

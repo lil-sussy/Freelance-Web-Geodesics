@@ -11,9 +11,17 @@ type NavbarProps = {
 	switchLanguage: () => void;
 	switchContact: () => void;
 	setPageDisplayed: (page: "Main Page" | "Portfolio Page" | "Webdev Page") => void;
+	setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 };
 
-const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage, setPageDisplayed, switchContact }) => {
+const contactFormContent = {
+	title: "Contact me for Expert AI Solutions",
+	placeholder: "What can I help you achieve?",
+	succes: "Thank you! I will get back to you shortly to discuss your needs.",
+	error: "Error! Your message couldn't be sent. Please retry.",
+	text: "I need assistance with developing an AI-driven application. Could you provide more details on your services?",
+};
+const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage, setPageDisplayed, switchContact, setContactFormContent }) => {
 	// Extract the first section for the navbar items
 	const navbarSection = content;
 	let i = 0;
@@ -36,7 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage, setPageDisplay
 				<div onClick={switchLanguage} className={styles.item}>
 					{content.content[++i].text}
 				</div>
-				<Button onClick={() => switchContact()} style="primary">
+				<Button onClick={() => { switchContact(); setContactFormContent(contactFormContent)} } style="primary">
 					{content.content[++i].text}
 				</Button>
 			</div>

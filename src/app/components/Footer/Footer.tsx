@@ -7,11 +7,19 @@ type FooterProps = {
 		title: string;
 		content: Array<{ type: string; text: string }>;
 	};
-  switchContact : () => void;
+	switchContact: () => void;
 	setPageDisplayed: (page: "Main Page" | "Portfolio Page" | "Webdev Page") => void;
+	setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 };
 
-const Footer: React.FC<FooterProps> = ({ content, setPageDisplayed, switchContact }) => {
+const contactFormContent = {
+	title: "Let's Start a Conversation",
+	placeholder: "How can I assist you?",
+	succes: "Your message has been received. I will contact you shortly.",
+	error: "Error! Your message couldn't be sent. Please retry.",
+};
+
+const Footer: React.FC<FooterProps> = ({ content, setPageDisplayed, switchContact, setContactFormContent }) => {
 	let i = 0;
 	return (
 		<div className={styles.footer}>
@@ -28,6 +36,15 @@ const Footer: React.FC<FooterProps> = ({ content, setPageDisplayed, switchContac
 						{content.content[i++].text}
 					</div>
 					<div onClick={() => setPageDisplayed("Portfolio Page")} className={styles.link}>
+						{content.content[i++].text}
+					</div>
+					<div
+						onClick={() => {
+							switchContact();
+							setContactFormContent(contactFormContent);
+						}}
+						className={styles.link}
+					>
 						{content.content[i++].text}
 					</div>
 				</div>

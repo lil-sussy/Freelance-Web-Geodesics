@@ -16,40 +16,40 @@ interface PortfolioProps {
 	scroll: number;
 	content: { title: string; content: { type: string; text: string }[] }[];
 	switchContact: () => void;
+  setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 }
 
-
-const MainPage: React.FC<PortfolioProps> = ({ content, locale, scroll, switchContact }) => {
+const MainPage: React.FC<PortfolioProps> = ({ content, locale, scroll, switchContact, setContactFormContent }) => {
 	let i = 2;
 
 	return (
 		<>
 			<div className={styles.content} id="section1">
-				<Header content={content[1]} />
+				<Header content={content[1]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section2">
-				<SecondHeader content={content[i]} />
+				<SecondHeader content={content[i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section3">
-				<FeaturesSection content={content[++i]} />
+				<FeaturesSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section4">
-				<ThirdHeader content={content[++i]} />
+				<ThirdHeader content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section5">
-				<PortfolioSection content={content[++i]} />
+				<PortfolioSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section6">
-				<HowItWorksSection content={content[++i]} />
+				<HowItWorksSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section7">
-				<CTASection content={content[++i]} />
+				<CTASection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section8">
-				<FaqSection content={content[++i]} />
+				<FaqSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section9">
-				<AboutMeSection content={content[++i]} />
+				<AboutMeSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 		</>
 	);

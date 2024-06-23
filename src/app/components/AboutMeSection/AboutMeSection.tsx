@@ -9,9 +9,19 @@ type AboutMeSectionProps = {
 		title: string;
 		content: Array<{ type: string; text: string }>;
 	};
+  switchContact: () => void;
+  setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 };
 
-const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content }) => {
+const contactFormContent = {
+	title: "Reach Out to Learn More About My Work",
+	placeholder: "What would you like to know?",
+	succes: "Your message has been received. I will contact you shortly.",
+	error: "Error! Your message couldn't be sent. Please retry.",
+	text: "I'm interested in your journey as an AI developer. Can we discuss?",
+};
+
+const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content, switchContact, setContactFormContent }) => {
 	let i = 0;
 	return (
 		<div className={styles.aboutMeSection}>
@@ -70,7 +80,15 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content }) => {
 					</div>
 					<div className={styles.actions}>
 						<img className={styles.linkedin} src="./images/linkedin.png" alt="LinkedIn button" />
-						<Button style="primary">{content.content[++i].text}</Button>
+						<Button
+							onClick={() => {
+								switchContact();
+								setContactFormContent(contactFormContent);
+							}}
+							style="primary"
+						>
+							{content.content[++i].text}
+						</Button>
 					</div>
 				</div>
 				<div className={styles.bentoLast}>

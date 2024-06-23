@@ -9,9 +9,19 @@ type FirstHeaderProps = {
 		title: string;
 		content: { type: string; text: string }[];
 	};
+  switchContact: () => void;
+  setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 };
 
-const FirstHeader: React.FC<FirstHeaderProps> = ({ content }) => {
+const contactFormContent = {
+	title: "Let's Start a Conversation",
+	placeholder: "Connect with a Passionate AI Developer",
+	succes: "Your message has been received. We'll be in touch shortly.",
+	error: "Error! Your message couldn't be sent. Please retry.",
+	text: "I'd like to understand how your AI solutions can benefit my startup. Can we connect?",
+};
+
+const FirstHeader: React.FC<FirstHeaderProps> = ({ content, switchContact, setContactFormContent }) => {
 	return (
 		<header className={styles.header}>
 			<div className={styles.content}>
@@ -27,7 +37,15 @@ const FirstHeader: React.FC<FirstHeaderProps> = ({ content }) => {
 						<span> {content.content[5].text}</span>
 					</p>
 					<div className={styles.actions}>
-						<Button style="primary">{content.content[6].text}</Button>
+						<Button
+							onClick={() => {
+								switchContact();
+								setContactFormContent(contactFormContent);
+							}}
+							style="primary"
+						>
+							{content.content[6].text}
+						</Button>
 						<Button style="secondary">{content.content[7].text}</Button>
 					</div>
 				</div>
