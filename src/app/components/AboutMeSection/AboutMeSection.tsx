@@ -10,6 +10,7 @@ type AboutMeSectionProps = {
 		content: Array<{ type: string; text: string }>;
 	};
   switchContact: () => void;
+  locale: string;
   setContactFormContent: (content: { title: string; placeholder: string; succes: string; error: string }) => void;
 };
 
@@ -21,7 +22,7 @@ const contactFormContent = {
 	text: "I'm interested in your journey as an AI developer. Can we discuss?",
 };
 
-const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content, switchContact, setContactFormContent }) => {
+const AboutMeSection: React.FC<AboutMeSectionProps> = ({ locale, content, switchContact, setContactFormContent }) => {
 	let i = 0;
 	return (
 		<div className={styles.aboutMeSection}>
@@ -29,7 +30,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content, switchContact,
 				<img className={styles.womanPhotograph1} src="./images/picture-of-me.png" alt="22-year-old non-binary male living in Paris, a French freelancer specializing in AI agent development and prompt engineering." />
 				<div className={styles.name}>
 					<div className={styles.yanRegojo}>Yan Regojo</div>
-					<a href="./ressources/resume.pdf" target="_blank" className="pdf-button" aria-label="Open PDF document in a new tab">
+					<a href={locale == "fr" ? "./ressources/resumeFR.pdf" : "./ressources/resumeEN.pdf"} target="_blank" className="pdf-button" aria-label="Open PDF document in a new tab">
 						<Button style="secondary">{content.content[i].text}</Button>
 					</a>
 					<a href="https://github.com/lil-sussy" target="_blank" className="pdf-button" aria-label="Open PDF document in a new tab">
@@ -83,7 +84,9 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ content, switchContact,
 						</div>
 					</div>
 					<div className={styles.actions}>
-						<img className={styles.linkedin} src="./images/linkedin.png" alt="LinkedIn button" />
+						<a href="https://www.linkedin.com/in/yan-regojo-g%C3%A9notal-9220142a2/" target="_blank" className="pdf-button" aria-label="Opens my linkedin profile">
+							<img className={styles.linkedin} src="./images/linkedin.png" alt="LinkedIn button, Paris Yan Regojo" />
+						</a>
 						<Button
 							onClick={() => {
 								switchContact();

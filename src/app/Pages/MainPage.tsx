@@ -51,7 +51,7 @@ const MainPage: React.FC<PortfolioProps> = ({ content, locale, scroll, switchCon
 				<FaqSection content={content[++i]} switchToPortfolio={switchToPortfolio} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 			<div className={styles.content} id="section9">
-				<AboutMeSection content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+				<AboutMeSection locale={locale} content={content[++i]} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 			</div>
 		</>
 	);
