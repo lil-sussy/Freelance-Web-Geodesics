@@ -160,9 +160,11 @@ $cta-font-footer: "Outfit", sans-serif;
 			}
 
 			.ctaActions {
-				@include flex-center(column, flex-start, flex-start, 16px);
+        flex-direction: column;
+        align-items: center;
 				.primaryButtonContainer {
 					width: 100%;
+          min-width: 100%;
 					.primaryButton {
 					}
 				}
@@ -223,7 +225,6 @@ $cta-font-footer: "Outfit", sans-serif;
 			}
 
 			.ctaActions {
-				@include flex-center(column, flex-start, flex-start, 16px);
 				.primaryButtonContainer {
 					width: 100%;
 					.primaryButton {
@@ -288,9 +289,11 @@ $cta-font-footer: "Outfit", sans-serif;
 		.ctaSection {
 			flex-direction: column;
 			align-items: start;
-			gap: 40px;
+			gap: 16px;
+      padding: 1rem;
 			.ctaContent {
 				.ctaRow {
+          gap: 8px;
 					.ctaHeading {
 					}
 					.ctaText {
@@ -299,6 +302,7 @@ $cta-font-footer: "Outfit", sans-serif;
 			}
 
 			.ctaActions {
+        flex-direction: row;
 				.primaryButtonContainer {
 					.primaryButton {
 					}
@@ -311,6 +315,8 @@ $cta-font-footer: "Outfit", sans-serif;
 			}
 
 			.frameContainer {
+        justify-content: space-evenly;
+        gap: 16px;
 				.ctaContent {
 					.ctaRow {
 						.ctaHeading {
