@@ -498,11 +498,13 @@ $color-white: white;
 	.aboutMeSection {
 		padding: 0% 5%;
 		flex-direction: column;
+    gap: 16px;
 
 		.pictureOfMeSide {
-			width: 100%;
-
+      
 			.womanPhotograph1 {
+        height: 500px;
+        width: unset;
 			}
 			.name {
 				.yanRegojo {
@@ -518,7 +520,10 @@ $color-white: white;
 			width: 100%;
 
 			.bentoTitle {
+        gap: 8px;
 				.aboutMe {
+          font-size: 24px;
+          line-height: 30px;
 				}
 				.myWork {
 				}
@@ -544,6 +549,8 @@ $color-white: white;
 				}
 
 				.bentoAsset {
+          height: unset;
+          width: 55%;
 				}
 
 				.assetSideContainer {
@@ -561,6 +568,7 @@ $color-white: white;
 
 			.bentoContainerCenter {
 				width: 100%;
+        padding: 24px 0;
 
 				.bentConnectText {
 					width: 100%;
@@ -580,7 +588,9 @@ $color-white: white;
 
 			.bentoLast {
 				width: 100%;
+        height: unset;
 				.lastText {
+          height: unset;
 				}
 			}
 		}
