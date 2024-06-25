@@ -1,4 +1,4 @@
-# AI Agent Extension for VS Code
+# #1 AI Agent Extension for VS Code
 
 ---
 
@@ -15,8 +15,8 @@ An innovative AI agent designed to enhance the coding experience in Visual Studi
 
 **Links to Live Project or Code Repository:**
 
-- [Live Project](https://www.notion.so/Demetrius-Project-generations-121f1269f7f3435c8a294929483ef66d?pvs=21)
-- [Code Repository on GitHub](https://www.notion.so/Demetrius-Project-generations-121f1269f7f3435c8a294929483ef66d?pvs=21)
+- [Live Project (down)]()
+- [Code Repository on GitHub](https://github.com/lil-sussy/KIRA-AI-Agent-vscode-MoA-MoE)
 
 ---
 
@@ -93,7 +93,7 @@ This detailed version provides a comprehensive overview of the AI Agent Extensio
 
 ---
 
-# Healthy Gamer GG search engine
+# #2 Healthy Gamer GG search engine
 
 **Name and Title:**
 
@@ -194,7 +194,7 @@ Developing this project was a rewarding challenge. It showcased my ability to ap
 
 ---
 
-# Law chatbot agent for a Mauritius law agency
+# #3 Law chatbot agent for a Mauritius law agency
 
 **Name and Title:**
 Regojo Yan | AI & Machine Learning Specialist | Data Engineer | Prompt Engineering Expert
@@ -214,8 +214,8 @@ Developing an AI agent to integrate Mauritius law into ChatGPT's knowledge base,
 
 **Links to Live Project or Code Repository:**
 
-- [Live Project](https://www.notion.so/Demetrius-Project-generations-121f1269f7f3435c8a294929483ef66d?pvs=21)
-- [Code Repository on GitHub](https://www.notion.so/Demetrius-Project-generations-121f1269f7f3435c8a294929483ef66d?pvs=21)
+- [Live Project (down)]()
+- [Code Repository on GitHub](https://github.com/lil-sussy/Demetrius-law-chat-bot-ai)
 
 ---
 
@@ -296,7 +296,7 @@ Developing the Demetrius Project was an enriching experience that showcased my a
 
 ---
 
-# Neptune Project: Your Creative Writing Companion
+# #4 Neptune Project: Your Creative Writing Companion
 
 ---
 
@@ -312,8 +312,8 @@ Discover Neptune Project, an innovative app designed for writers who thrive in a
 
 **Links to Live Project or Code Repository:**
 
-- [Live Project](https://www.notion.so/Demetrius-Project-generations-121f1269f7f3435c8a294929483ef66d?pvs=21)
-- [Code Repository on GitHub](https://www.notion.so/Demetrius-Project-generations-121f1269f7f3435c8a294929483ef66d?pvs=21)
+- [Live Project (no here yet)]()
+- [Code Repository on GitHub](https://github.com/lil-sussy/Neptune-Project)
 
 ---
 

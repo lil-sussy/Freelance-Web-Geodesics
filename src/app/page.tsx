@@ -18,6 +18,7 @@ import Cookies from "js-cookie";
 import { NextSeo } from "next-seo";
 import MainPage from "./Pages/MainPage";
 import Portfolio from "./Pages/Portfolio";
+import Head from "next/head";
 
 const Home: React.FC = () => {
 	const [progress, setProgress] = useState(0);
@@ -215,7 +216,9 @@ const Home: React.FC = () => {
 							<Background advancement={progress} />
 							<Navbar content={mainPageContent[0]} switchLanguage={switchLanguage} setPageDisplayed={handlePageChange} switchContact={switchContact} setContactFormContent={setContactFormContent} />
 							{pageDisplayed === "Main Page" ? <MainPage content={mainPageContent} locale={locale} scroll={progress} switchContact={switchContact} scrollToSection={scrollToSection} setContactFormContent={setContactFormContent} switchToPortfolio={switchToPortfolio} /> : <Portfolio content={portfolioContent} locale={locale} scroll={portfolioScroll} />}
-							<Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={handlePageChange} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+              <div className={styles.content} id="setcion17">
+                <Footer content={mainPageContent[mainPageContent.length - 1]} setPageDisplayed={handlePageChange} switchContact={switchContact} setContactFormContent={setContactFormContent} />
+              </div>
 						</div>
 					</div>
 				</AnimationProvider>

@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { NextUIProvider } from '@nextui-org/react';
 import { ConfigProvider, Button } from 'antd';
 import './globals.scss';
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from 'next/head';
 
 
@@ -54,20 +55,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
 	return (
 		<html lang={locale}>
-			<Head>
-				<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;" />
-				{/* <link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" />
-				<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
-				<link href="https://fonts.cdnfonts.com/css/bdo-grotesk" rel="stylesheet" />
-				<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-				<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-				<link href="https://fonts.cdnfonts.com/css/cooper-hewitt" rel="stylesheet" />
-				<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" /> */}
-			</Head>
 			<body className={`${Poppins.variable} ${Space_Mono.variable} ${Outfit.variable} ${Hedvig_Letters_Sans.variable} ${Stretch_Pro.variable}`}>
 				<NextUIProvider>{children}</NextUIProvider>
 			</body>
+			<GoogleAnalytics gaId="G-C384XF170F" />
 		</html>
 	);
 }
