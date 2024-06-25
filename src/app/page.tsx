@@ -209,7 +209,7 @@ const Home: React.FC = () => {
 			/>
 			<ConfigProvider theme={{ token: { colorPrimary: "#FBFF30" }, algorithm: darkMode ? [antdTheme.darkAlgorithm] : [antdTheme.defaultAlgorithm] }}>
 				<AnimationProvider>
-					{showContact && <Contact content={contactFormContent} />}
+					{showContact && <Contact content={contactFormContent} closeContact={switchContact}/>}
 					<div className={styles.frame} id="scroll-window">
 						<div className={styles.div} id="scroll-container">
 							<Background advancement={progress} />

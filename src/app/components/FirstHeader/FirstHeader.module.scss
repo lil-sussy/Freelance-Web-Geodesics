@@ -4,7 +4,7 @@
 @import url("https://fonts.cdnfonts.com/s/48412/StretchPro.woff");
 
 $font-poppins: "Poppins", sans-serif;
-$font-acme: "Hedvig Letters Sans", --font-hedvig-letters-sans, "Outfit", sans-serif;
+$font-acme: "Hedvig Letters Sans", var(--font-hedvig-letters-sans), "Outfit", sans-serif;
 $font-segoe: "Space Mono", cursive;
 $font-stretch: "Stretch Pro", sans-serif;
 

@@ -6,7 +6,7 @@ $cta-font-color: white;
 $cta-primary-bg: rgba(255, 255, 255, 0.1);
 $cta-secondary-border: rgba(255, 255, 255, 0.5);
 $cta-font-primary: "Poppins", sans-serif;
-$cta-font-secondary: "Hedvig Letters Sans", --font-hedvig-letters-sans, "Outfit", sans-serif;
+$cta-font-secondary: "Hedvig Letters Sans", var(--font-hedvig-letters-sans), "Outfit", sans-serif;
 $cta-font-button: "Outfit", sans-serif;
 $cta-font-footer: "Outfit", sans-serif;
 

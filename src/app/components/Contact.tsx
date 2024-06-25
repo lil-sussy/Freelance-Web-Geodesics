@@ -2,6 +2,7 @@ import styles from "./ContactForm.module.scss";
 import { Input, Form, message as AntMessage } from "antd";
 import Button from "./Button/Button";
 import React, { useState, ChangeEvent } from "react";
+import { Button as AntdButton } from "antd";
 
 const { TextArea } = Input;
 
@@ -13,9 +14,10 @@ type ContactProps = {
     error: string;
     text?: string;
 	};
+  closeContact: () => void;
 };
 
-const ContactPage: React.FC<ContactProps> = ({ content }) => {
+const ContactPage: React.FC<ContactProps> = ({ content, closeContact }) => {
 	const [name, setName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [message, setMessage] = useState<string>(content.text ? content.text : "");
@@ -84,7 +86,7 @@ const ContactPage: React.FC<ContactProps> = ({ content }) => {
 									</Form.Item>
 								</div>
 								<Form.Item>
-									<TextArea name="Message" placeholder={content.placeholder} rows={10} value={message} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)} />
+									<TextArea className={styles.textArea} name="Message" placeholder={content.placeholder} rows={10} value={message} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)} />
 								</Form.Item>
 								<Form.Item>
 									<Button onClick={() => handleSubmit()} style="primary">
@@ -96,6 +98,9 @@ const ContactPage: React.FC<ContactProps> = ({ content }) => {
 							</Form>
 						</div>
 						<img className={styles.imageConfident} src="./images/assets-board.png" alt="Dr K confident" />
+            <div className={styles.buttonContainer}>
+              <AntdButton onClick={closeContact} type="dashed">X</AntdButton>
+            </div>
 					</div>
 				</div>
 			</div>
