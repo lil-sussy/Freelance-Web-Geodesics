@@ -22,7 +22,7 @@ can transform your business.
 
 ---
 
-# Specialized AI Skills for <br> Specialized AI Needs
+# Specialized AI Skills for Specialized AI Needs
 
 Empower Your Business with My Expertise in Advanced Technologies
 

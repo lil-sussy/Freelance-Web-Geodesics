@@ -7,20 +7,28 @@ $font-stretch-pro: 'Stretch Pro', sans-serif;
   display: none;
 }
 
+.navbarsContainer {
+  display: flex;
+  justify-content: space-arround;
+  align-items: center;
+  flex-direction: column-reverse;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(40px);
+  z-index: 120;
+}
+
 .navbar {
   display: flex;
-  z-index: 120;
   justify-content: space-between;
   width: 100%;
   align-items: center;
   gap: 385px 4px;
-  position: fixed;
   padding: 1rem 0;
-  top: 0;
-  left: 0;
   box-sizing: border-box;
-  backdrop-filter: blur(40px);
-  background-color: rgba(255, 255, 255, 0.1);
 
   .logoItems {
     align-self: flex-start;
@@ -68,6 +76,22 @@ $font-stretch-pro: 'Stretch Pro', sans-serif;
     display: none; // Hide desktop navbar in mobile view
   }
 
+  .navbar.navbarPhoneVisible {
+    position: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 5% 20%;
+    gap: 1rem;
+    
+    .logoItems {
+      display: none;
+    }
+    .contactButton {
+      display: none;
+    }
+  }
+  
   .Navbar {
     width: 100vw;
     height: 72px;
@@ -77,9 +101,6 @@ $font-stretch-pro: 'Stretch Pro', sans-serif;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 0;
-    backdrop-filter: blur(200px);
 
     .NavbarContainer {
       display: flex;

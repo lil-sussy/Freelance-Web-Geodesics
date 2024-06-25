@@ -22,13 +22,15 @@ const contactFormContent = {
 	text: "I need assistance with developing an AI-driven application. Could you provide more details on your services?",
 };
 const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage, setPageDisplayed, switchContact, setContactFormContent }) => {
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  
 	// Extract the first section for the navbar items
 	const navbarSection = content;
 	let i = 0;
 	return (
-		<>
+		<div className={styles.navbarsContainer}>
 			{/* Desktop Navbar */}
-			<div className={styles.navbar}>
+			<div className={`${styles.navbar} ${menuOpen ? styles.navbarPhoneVisible : ""}`}>
 				<div onClick={() => setPageDisplayed("Main Page")} className={`${styles.item} ${styles.logoItems}`}>
 					<img className={styles.logo} src={"./images/webgeodesicslogo.svg"} alt="Web Geodesics Logo" />
 				</div>
@@ -44,15 +46,23 @@ const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage, setPageDisplay
 				<div onClick={switchLanguage} className={styles.item}>
 					{content.content[++i].text}
 				</div>
-				<Button onClick={() => { switchContact(); setContactFormContent(contactFormContent)} } style="primary">
-					{content.content[++i].text}
-				</Button>
+				<div className={styles.contactButton}>
+					<Button
+						onClick={() => {
+							switchContact();
+							setContactFormContent(contactFormContent);
+						}}
+						style="primary"
+					>
+						{content.content[++i].text}
+					</Button>
+				</div>
 			</div>
 
 			{/* Mobile Navbar */}
 			<div className={styles.Navbar}>
 				<div className={styles.NavbarContainer}>
-					<div className={styles.BurgerMenu}>
+					<div onClick={() => setMenuOpen(!menuOpen)} className={styles.BurgerMenu}>
 						<div className={styles.Rectangle38}></div>
 						<div className={styles.Rectangle39}></div>
 						<div className={styles.Rectangle40}></div>
@@ -66,11 +76,19 @@ const Navbar: React.FC<NavbarProps> = ({ content, switchLanguage, setPageDisplay
 						</div>
 					</div>
 					<div className={styles.Actions}>
-						<Button style="primary">Contact</Button>
+						<Button
+							onClick={() => {
+								switchContact();
+								setContactFormContent(contactFormContent);
+							}}
+							style="primary"
+						>
+							Contact
+						</Button>
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
