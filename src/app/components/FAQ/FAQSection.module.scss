@@ -1,7 +1,7 @@
 $white-color: white;
 $black-color: black;
 $poppins-font: "Poppins", sans-serif;
-$acme-font: "Hedvig Letters Sans", sans-serif;
+$acme-font: "Hedvig Letters Sans", --font-hedvig-letters-sans, "Outfit", sans-serif;
 $segoe-font: "Outfit", sans-serif;
 
 @mixin flex-container($flex-direction: row, $justify-content: flex-start, $align-items: flex-start, $gap: 0) {
