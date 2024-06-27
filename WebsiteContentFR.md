@@ -182,9 +182,7 @@ L'ingénierie de prompts consiste à créer et affiner des prompts pour amélior
 Bienvenue dans ma section personnelle où je partage mon parcours en tant que développeur passionné, chercheur en devenir et apprenant dévoué.
 
 ## Qui Je Suis
-Je suis un jeune développeur freelance enthousiaste basé à Paris, spécialisé dans l'intégration de l'IA, le développement fullstack avec Python Django
-
- et React, et l'analyse de données. Mon parcours est motivé par une passion profonde pour la technologie et une quête incessante de connaissances.
+Je suis un jeune développeur freelance enthousiaste basé à Paris, spécialisé dans l'intégration de l'IA, le développement fullstack avec Python Django et React, et l'analyse de données. Mon parcours est motivé par une passion profonde pour la technologie et une quête incessante de connaissances.
 
 ## Ma Passion
 Chaque matin, je plonge dans le monde des mathématiques et de l'IA, lisant une page Wikipédia ou un article de recherche et essayant de le comprendre avec l'aide de ChatGPT. Cette routine alimente ma curiosité et aiguise mes compétences en résolution de problèmes, me tenant à la pointe des dernières avancées technologiques.
@@ -201,6 +199,7 @@ En tant que chercheur aspirant en IA et science des données, je suis détermin�
 
 ## Connectons-Nous !
 Donnez Vie à Vos Visions Numériques
+* Commencez maintenant
 
 ## Rejoignez-Moi dans Cette Aventure
 Je vous invite à explorer mon portfolio, découvrir mes projets et me rejoindre dans cette aventure passionnante de découverte et d'innovation. N'hésitez pas à me contacter si vous êtes intéressé par une collaboration ou avez des questions sur mon travail.
