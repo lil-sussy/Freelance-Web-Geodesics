@@ -174,9 +174,9 @@ const Home: React.FC = () => {
 		setPageDisplayed(newPage);
 		let url = "/";
 		if (newPage === "Portfolio Page") {
-			url = "/?page=portfolio";
+			url = "/portfolio";
 		} else if (newPage === "Webdev Page") {
-			url = "/?page=webdevagency";
+			url = "/webdevagency";
 		}
 		// @ts-ignore
 		router.push(url, { shallow: true });
